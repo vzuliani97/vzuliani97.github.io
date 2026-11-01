@@ -74,7 +74,7 @@ export const hero = {
 };
 
 export const stats: Array<{ value: L; label: L }> = [
-  { value: { en: '118', es: '118' }, label: { en: 'automated tests across 3 portfolio systems (54 + 49 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (54 + 49 + 15)' } },
+  { value: { en: '121', es: '121' }, label: { en: 'automated tests across 3 portfolio systems (54 + 52 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (54 + 52 + 15)' } },
   { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
   { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
   { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
@@ -148,8 +148,8 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     },
     highlights: [
       {
-        en: 'Developed full-stack modules and Node.js APIs for transactional, iGaming and healthcare platforms using Angular, React, TypeScript, PHP and MySQL; built a B2B API secured with key pairs and IP allowlisting; and managed AWS infrastructure and deployments with EC2, VPC, VPN, EKS, Terraform, Docker and GitLab CI/CD.',
-        es: 'Desarrollé módulos full stack y APIs en Node.js para plataformas transaccionales, iGaming y del sector salud con Angular, React, TypeScript, PHP y MySQL; construí una API B2B protegida con pares de llaves y lista blanca de IP; y administré la infraestructura y los despliegues en AWS con EC2, VPC, VPN, EKS, Terraform, Docker y GitLab CI/CD.',
+        en: 'Developed full-stack modules and Node.js APIs for transactional platforms, white-label iGaming platforms for several countries and healthcare applications using Angular, React, TypeScript, PHP and MySQL; built a B2B API secured with key pairs and IP allowlisting; and managed AWS infrastructure and deployments from staging to production with EC2, VPC, VPN, EKS, Terraform, Docker and GitLab CI/CD.',
+        es: 'Desarrollé módulos full stack y APIs en Node.js para plataformas transaccionales, plataformas iGaming de marca blanca para varios países y aplicaciones del sector salud con Angular, React, TypeScript, PHP y MySQL; construí una API B2B protegida con pares de llaves y lista blanca de IP; y administré la infraestructura y los despliegues en AWS, de pruebas a producción, con EC2, VPC, VPN, EKS, Terraform, Docker y GitLab CI/CD.',
       },
       {
         en: 'Worked on the real-time sports betting and casino integration of the point-of-sale portal: the live-odds frontend, the provider integration, the betting backend (bet validation, balance and settlement) and its infrastructure.',
@@ -183,7 +183,7 @@ export const education = {
 export type DiagramView = 'context' | 'containers' | 'flow' | 'deployment';
 
 export interface Project {
-  slug: 'yamesi' | 'opscircuit' | 'atomictrail';
+  slug: 'yamesi' | 'opscircuit' | 'nekobet';
   name: string;
   subtitle: L;
   repo: string;
@@ -453,45 +453,45 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'atomictrail',
-    name: 'AtomicTrail',
-    subtitle: { en: 'Transaction Reliability Lab', es: 'Laboratorio de confiabilidad transaccional' },
-    repo: repo('atomictrail'),
+    slug: 'nekobet',
+    name: 'NekoBet',
+    subtitle: { en: 'Live Sportsbook, Casino & Wallet Platform', es: 'Plataforma de apuestas en vivo, casino y billetera' },
+    repo: repo('nekobet'),
     accent: '#2b59c3',
-    cover: '/media/atomictrail-cashier-cover.jpg',
+    cover: '/media/nekobet-cover.jpg',
     oneLiner: {
-      en: 'A TypeScript and PostgreSQL system that keeps balances correct under concurrent requests, retries, provider timeouts and reversals. It demonstrates idempotency, an append-only ledger, HMAC-signed integrations and real-time events.',
-      es: 'Un sistema en TypeScript y PostgreSQL que mantiene los saldos correctos ante solicitudes simultáneas, reintentos, timeouts de proveedores y reversos. Demuestra idempotencia, un libro contable de solo inserción, integraciones firmadas con HMAC y eventos en tiempo real.',
+      en: 'A live sportsbook with four markets per match, a casino with slot machines and prepaid top-ups, all on one store balance that stays correct under concurrent requests, retries, provider timeouts and reversals.',
+      es: 'Apuestas en vivo con cuatro mercados por partido, un casino con tragamonedas y recargas prepagadas, todo sobre un saldo por tienda que se mantiene correcto ante solicitudes simultáneas, reintentos, timeouts y reversos de proveedores.',
     },
     purpose: {
-      en: 'Stores in a point-of-sale network spend one prepaid balance through a portal and a partner API. The balance must stay right when two cashiers race, a client retries, a provider times out or a provider reverses an operation. Live sports bets and a casino wallet are simulated scenarios that stress the same guarantees.',
-      es: 'Las tiendas de una red de puntos de venta gastan un mismo saldo prepagado desde un portal y una API de aliados. Ese saldo debe cuadrar aunque dos cajeros compitan, un cliente reintente, un proveedor no responda o revierta una operación. Las apuestas en vivo y la billetera de casino son escenarios simulados que ponen a prueba las mismas garantías.',
+      en: 'A point-of-sale network where every store sells live sports bets, casino games and prepaid top-ups from one balance, from a portal or a partner API. Odds, games and the carrier are simulated with fictitious data; the engineering goal is a balance that never goes wrong.',
+      es: 'Una red de puntos de venta donde cada tienda vende apuestas en vivo, juegos de casino y recargas desde un mismo saldo, por un portal o una API de aliados. Cuotas, juegos y operador son simulados con datos ficticios; el objetivo de ingeniería es un saldo que nunca falla.',
     },
     myWork: [
-      { en: 'Balance and ledger: one conditional UPDATE, CHECK constraints and append-only movements.', es: 'Saldo y libro contable: un UPDATE condicional, restricciones CHECK y movimientos de solo inserción.' },
-      { en: 'Idempotent sales with per-key advisory locks, and an HMAC-signed B2B API for partners.', es: 'Ventas idempotentes con bloqueo por llave y una API B2B firmada con HMAC para aliados.' },
-      { en: 'Simulated scenarios: live odds over SSE with ODDS_CHANGED refusals and settlement paid once; a seamless wallet with idempotent provider callbacks and rollback tombstones.', es: 'Escenarios simulados: cuotas en vivo por SSE con rechazo por ODDS_CHANGED y liquidación pagada una vez; billetera seamless con callbacks idempotentes y registro de reversos anticipados.' },
-      { en: 'React cashier and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Caja y administración en React; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
+      { en: 'Sportsbook: a simulated odds feed with one leader that prices four markets per match from one goal model, SSE to the browser, ODDS_CHANGED refusals and settlement of every market paid once.', es: 'Apuestas: un feed de cuotas simulado con un solo líder que calcula cuatro mercados por partido con un modelo de goles, SSE al navegador, rechazo por ODDS_CHANGED y liquidación de cada mercado pagada una vez.' },
+      { en: 'Casino: a seamless wallet with idempotent, HMAC-signed provider callbacks and rollback tombstones; a lobby of five fictitious games with an animated slot machine.', es: 'Casino: billetera seamless con callbacks del proveedor idempotentes y firmados con HMAC, y registro de reversos anticipados; un lobby de cinco juegos ficticios con una tragamonedas animada.' },
+      { en: 'Balance and ledger: one conditional UPDATE, CHECK constraints and append-only movements; idempotent sales with per-key advisory locks.', es: 'Saldo y libro contable: un UPDATE condicional, restricciones CHECK y movimientos de solo inserción; ventas idempotentes con bloqueo por llave.' },
+      { en: 'An HMAC-signed B2B API for partners, a login lockout, and a React cashier, sportsbook, casino and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Una API B2B firmada con HMAC para aliados, bloqueo de login, y en React la caja, las apuestas, el casino y la administración; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
-      { en: '49 tests', es: '49 pruebas' },
-      { en: '70 races → 50 approved', es: '70 ventas → 50 aprobadas' },
+      { en: '52 tests', es: '52 pruebas' },
+      { en: '4 live markets per match', es: '4 mercados en vivo por partido' },
       { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
     stack: ['NestJS', 'PostgreSQL', 'React', 'SSE', 'HMAC', 'Docker'],
     roleFit: {
-      en: 'Backend and real-time transactional design: idempotency, concurrency control, an auditable ledger, live odds over SSE and signed provider integrations.',
-      es: 'Backend y diseño transaccional en tiempo real: idempotencia, control de concurrencia, un libro contable auditable, cuotas en vivo por SSE e integraciones firmadas con proveedores.',
+      en: 'Full stack and real-time transactional design: a live sportsbook and casino over idempotency, concurrency control, an auditable ledger and signed provider integrations.',
+      es: 'Full stack y diseño transaccional en tiempo real: apuestas en vivo y casino sobre idempotencia, control de concurrencia, un libro contable auditable e integraciones firmadas con proveedores.',
     },
     problem: {
-      en: 'Stores hold a prepaid balance and sell top-ups from a portal or a partner system. Two sales can spend the same balance, a retry can charge twice, and a carrier can time out with the outcome unknown.',
-      es: 'Las tiendas tienen saldo prepagado y venden recargas desde un portal o el sistema de un aliado. Dos ventas pueden gastar el mismo saldo, un reintento puede cobrar dos veces y el operador puede no responder.',
+      en: 'Stores hold one prepaid balance for bets, casino rounds and top-ups. Two sales can spend the same balance, a retry can charge twice, odds move while the cashier decides, a game provider retries or reverses a call, and a carrier can time out with the outcome unknown.',
+      es: 'Las tiendas tienen un solo saldo prepagado para apuestas, casino y recargas. Dos ventas pueden gastar el mismo saldo, un reintento puede cobrar dos veces, las cuotas cambian mientras el cajero decide, el proveedor de juegos reintenta o revierte llamadas y el operador puede no responder.',
     },
     built: [
-      { en: 'Check and debit in one conditional UPDATE, plus CHECK (balance >= 0).', es: 'Verificación y débito en un solo UPDATE condicional, más CHECK (balance >= 0).' },
-      { en: 'Mandatory Idempotency-Key with a per-key advisory lock and a request hash.', es: 'Idempotency-Key obligatoria con un bloqueo por llave y un hash de la solicitud.' },
-      { en: 'Append-only ledger, automatic refunds at most once, and an HMAC-SHA256 partner API with an IP allowlist.', es: 'Libro contable de solo inserción, reembolsos automáticos a lo sumo una vez y una API de aliados con HMAC-SHA256 y lista blanca de IP.' },
-      { en: 'Live sports betting over Server-Sent Events: bets refused when the odds moved, settlement paid once. A seamless-wallet casino whose provider callbacks are idempotent, with rollback tombstones.', es: 'Apuestas deportivas en vivo por Server-Sent Events: apuestas rechazadas si la cuota cambió y liquidación pagada una sola vez. Un casino con billetera seamless cuyos callbacks son idempotentes, con registro de reversos anticipados.' },
+      { en: 'A live sportsbook: match result, double chance, total goals 2.5 and both teams to score, priced from one goal model, with an event page for every match.', es: 'Apuestas en vivo: resultado, doble oportunidad, total de goles 2.5 y ambos marcan, con cuotas de un mismo modelo de goles y una página por partido.' },
+      { en: 'Bets refused when the odds moved; every market settled from the final score and paid once.', es: 'Apuestas rechazadas si la cuota cambió; cada mercado se liquida con el marcador final y se paga una sola vez.' },
+      { en: 'A seamless-wallet casino with idempotent provider callbacks and rollback tombstones; slot machines whose reels show the provider\'s outcome.', es: 'Un casino con billetera seamless, callbacks idempotentes y registro de reversos anticipados; tragamonedas cuyos rodillos muestran el resultado del proveedor.' },
+      { en: 'Check and debit in one conditional UPDATE, a mandatory Idempotency-Key, an append-only ledger and an HMAC-SHA256 partner API with an IP allowlist.', es: 'Verificación y débito en un UPDATE condicional, Idempotency-Key obligatoria, libro contable de solo inserción y una API de aliados con HMAC-SHA256 y lista blanca de IP.' },
     ],
     scanDecisions: [
       { en: 'Call the provider outside the transaction', es: 'Llamar al proveedor fuera de la transacción' },
@@ -499,7 +499,7 @@ export const projects: Project[] = [
       { en: 'A bet carries the odds the cashier saw; a moved price is refused', es: 'La apuesta lleva la cuota que vio el cajero; si cambió, se rechaza' },
     ],
     proof: [
-      { en: '49 automated tests; multi-arch images published after CI', es: '49 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
+      { en: '52 automated tests; multi-arch images published after CI', es: '52 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
       { en: 'Local experiment: 70 concurrent sales, balance for 50, exactly 50 approved', es: 'Experimento local: 70 ventas simultáneas, saldo para 50, exactamente 50 aprobadas' },
       { en: '70 concurrent retries of one key create one sale', es: '70 reintentos simultáneos de una llave crean una sola venta' },
     ],
@@ -527,16 +527,17 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '49 passing in CI', es: '49 aprobadas en CI' }, href: `${repo('atomictrail')}/actions` },
-      { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, settlement once, wallet replays', es: 'Rechazo por cambio de cuota, liquidación única, reintentos de billetera' }, href: `${repo('atomictrail')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
-      { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('atomictrail')}/blob/main/docs/concurrency-experiment.md` },
-      { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('atomictrail')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '52 passing in CI', es: '52 aprobadas en CI' }, href: `${repo('nekobet')}/actions` },
+      { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, every market settled once, wallet replays', es: 'Rechazo por cambio de cuota, cada mercado liquidado una vez, reintentos de billetera' }, href: `${repo('nekobet')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
+      { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('nekobet')}/blob/main/docs/concurrency-experiment.md` },
+      { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('nekobet')}/actions` },
     ],
     screens: [
-      { src: '/media/atomictrail-cashier.jpg', alt: { en: 'Cashier: balance, product picker and sales with a refunded rejection', es: 'Caja: saldo, productos y ventas con un rechazo reembolsado' }, width: 1600, height: 1111 },
-      { src: '/media/atomictrail-admin.jpg', alt: { en: 'Admin: points of sale, credits and network sales', es: 'Administración: puntos de venta, créditos y ventas de la red' }, width: 1600, height: 1111 },
-      { src: '/media/atomictrail-betting.jpg', alt: { en: 'Sportsbook: live matches by league, moving odds, bet slip and my bets', es: 'Apuestas: partidos en vivo por liga, cuotas que se mueven, cupón y mis apuestas' }, width: 1600, height: 1111 },
-      { src: '/media/atomictrail-casino.jpg', alt: { en: 'Casino wallet and the ledger with bets and payouts', es: 'Billetera del casino y el libro contable con apuestas y pagos' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-betting.jpg', alt: { en: 'Live sportsbook: matches by league, moving 1X2 odds, a link to every market, bet slip and my bets', es: 'Apuestas en vivo: partidos por liga, cuotas 1X2 que se mueven, enlace a todos los mercados, cupón y mis apuestas' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-event.jpg', alt: { en: 'Event page: scoreboard and every market, with the bet slip', es: 'Página del partido: marcador y todos los mercados, con el cupón' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-casino.jpg', alt: { en: 'Casino lobby and a slot machine paying through the wallet', es: 'Lobby del casino y una tragamonedas pagando por la billetera' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-cashier.jpg', alt: { en: 'Cashier: balance, top-ups and a refunded rejection', es: 'Caja: saldo, recargas y un rechazo reembolsado' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-admin.jpg', alt: { en: 'Admin: points of sale, credits and network sales', es: 'Administración: puntos de venta, créditos y ventas de la red' }, width: 1600, height: 1111 },
     ],
     limitations: [
       { en: 'Reconciliation of PENDING sales is not implemented yet.', es: 'La conciliación de ventas en PENDING aún no está implementada.' },
@@ -547,7 +548,7 @@ export const projects: Project[] = [
       en: 'Runs locally with Docker Compose and on OpsCircuit’s kind cluster through Argo CD. The concurrency numbers come from a local, reproducible experiment, not from production traffic.',
       es: 'Corre en local con Docker Compose y en el clúster kind de OpsCircuit mediante Argo CD. Los números de concurrencia vienen de un experimento local y reproducible, no de tráfico de producción.',
     },
-    run: 'git clone https://github.com/vzuliani97/atomictrail && cd atomictrail\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 49 tests',
+    run: 'git clone https://github.com/vzuliani97/nekobet && cd nekobet\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 52 tests',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'MIXED', note: { en: 'Cashiers, partners and a simulated carrier; reconciliation planned.', es: 'Cajeros, aliados y un operador simulado; conciliación planeada.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'nginx, a NestJS API and PostgreSQL.', es: 'nginx, una API NestJS y PostgreSQL.' } },

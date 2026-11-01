@@ -1,5 +1,5 @@
 flowchart LR
-  C["Cashier · admin<br/>browser"] -->|top-ups, live bets, casino rounds| T["AtomicTrail<br/>PayPoint service"]
+  C["Cashier · admin<br/>browser"] -->|top-ups, live bets, casino rounds| T["NekoBet<br/>PayPoint service"]
   P["Partner system"] -->|HMAC-signed B2B API<br/>IP allowlist| T
   T -->|top-up, outside the transaction| V["Carrier provider<br/>simulated"]
   F["Odds feed<br/>simulated"] -->|matches, goals, prices| T

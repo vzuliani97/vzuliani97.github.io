@@ -8,7 +8,7 @@ Three case studies, each with a recruiter scan and an engineering deep dive: pro
 |---|---|
 | [Yamesi Core](https://github.com/vzuliani97/yamesi) | Point of sale, Colombian sales invoice (VAT, CUFE, QR), 18k gold traceability, daily closing |
 | [OpsCircuit](https://github.com/vzuliani97/opscircuit) | Kubernetes, GitOps, observability, outage drills, n8n incident automation |
-| [AtomicTrail](https://github.com/vzuliani97/atomictrail) | Idempotent top-ups, live sports betting over SSE, seamless-wallet casino |
+| [NekoBet](https://github.com/vzuliani97/nekobet) | Idempotent top-ups, live sports betting over SSE, seamless-wallet casino |
 
 ## What it is for and what I built
 
@@ -44,7 +44,7 @@ Rendering diagrams and running the browser tests use the installed Google Chrome
 
 ## Measured on the live site
 
-On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO on `/`, `/work/atomictrail/` and `/work/yamesi/`, on https://vzuliani97.github.io, measured again after the redesign.
+On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO on `/`, `/work/nekobet/` and `/work/yamesi/`, on https://vzuliani97.github.io, measured again after the redesign.
 
 ## License and provenance
 
