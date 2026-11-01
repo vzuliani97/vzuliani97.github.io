@@ -9,8 +9,10 @@ import {
   L,
   Lang,
   LINKEDIN,
+  marquee,
   Project,
   projects,
+  stats,
   ui,
 } from './content';
 
@@ -110,62 +112,73 @@ function Header({ lang, onLang, t }: { lang: Lang; onLang: (lang: Lang) => void;
 function Home({ t }: { t: T }) {
   return (
     <>
-      <section className="hero wrap">
-        <p className="kicker">{t(ui.openToWork)}</p>
-        <h1>Valter Zuliani</h1>
-        <p className="title">{t(hero.title)}</p>
-        <p className="lead">{t(hero.lead)}</p>
-        <p className="muted">{t(hero.languages)}</p>
-        <div className="actions">
-          <a className="button primary" href="#work">
-            {t(ui.selectedWork)}
-          </a>
-          <a className="button" href={GITHUB}>
-            GitHub
-          </a>
-          <a className="button" href={LINKEDIN}>
-            LinkedIn
-          </a>
+      <section className="hero-band">
+        <div className="aurora" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="wrap hero-grid">
+          <div className="hero-copy">
+            <p className="pill">
+              <span className="pulse" aria-hidden="true" />
+              {t(ui.openToWork)}
+            </p>
+            <h1 className="name">Valter Zuliani</h1>
+            <p className="title">{t(hero.title)}</p>
+            <p className="lead">{t(hero.lead)}</p>
+            <div className="actions">
+              <a className="button primary" href="#work">
+                {t(ui.selectedWork)}
+              </a>
+              <a className="button ghost" href={GITHUB}>
+                GitHub
+              </a>
+              <a className="button ghost" href={LINKEDIN}>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          <Terminal t={t} />
         </div>
       </section>
 
+      <section className="stats-band" aria-label={t(ui.proof)}>
+        <div className="wrap stats">
+          {stats.map((stat) => (
+            <p key={stat.value}>
+              <strong>{stat.value}</strong>
+              <span>{t(stat.label)}</span>
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <div className="marquee" aria-label={t(ui.stack)}>
+        <ul>
+          {marquee.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <ul aria-hidden="true">
+          {marquee.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+
       <section id="work" className="wrap section">
+        <p className="eyebrow">01</p>
         <h2>{t(ui.selectedWork)}</h2>
-        <div className="cards">
+        <div className="features">
           {projects.map((project, index) => (
-            <article key={project.slug} className="card" style={{ '--accent': project.accent } as CSSProperties}>
-              <a href={`/work/${project.slug}/`} className="cover" tabIndex={-1} aria-hidden="true">
-                <img
-                  src={project.cover}
-                  alt=""
-                  width={900}
-                  height={560}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : 'auto'}
-                />
-              </a>
-              <div className="card-body">
-                <h3>
-                  <a href={`/work/${project.slug}/`}>{project.name}</a>
-                </h3>
-                <p className="subtitle">{t(project.subtitle)}</p>
-                <p>{t(project.oneLiner)}</p>
-                <ul className="chips" aria-label={t(ui.stack)}>
-                  {project.stack.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <p className="links">
-                  <a href={`/work/${project.slug}/`}>{t(ui.caseStudy)} →</a>
-                  <a href={project.repo}>{t(ui.source)}</a>
-                </p>
-              </div>
-            </article>
+            <Feature key={project.slug} project={project} t={t} eager={index === 0} />
           ))}
         </div>
       </section>
 
       <section className="wrap section">
+        <p className="eyebrow">02</p>
         <h2>{t(ui.capabilities)}</h2>
         <div className="capabilities">
           {capabilities.map((group) => (
@@ -177,35 +190,151 @@ function Home({ t }: { t: T }) {
         </div>
       </section>
 
-      <Experience t={t} id="experience" />
+      <Experience t={t} id="experience" eyebrow="03" />
 
-      <section className="wrap section contact">
-        <h2>{t(ui.contact)}</h2>
-        <p className="actions">
-          <a className="button primary" href={LINKEDIN}>
-            LinkedIn
-          </a>
-          <a className="button" href={GITHUB}>
-            GitHub
-          </a>
-        </p>
+      <section className="wrap section">
+        <div className="cta">
+          <h2>{t(ui.letsTalk)}</h2>
+          <p>{t(ui.letsTalkNote)}</p>
+          <p className="actions">
+            <a className="button primary" href={LINKEDIN}>
+              LinkedIn
+            </a>
+            <a className="button ghost" href={GITHUB}>
+              GitHub
+            </a>
+          </p>
+        </div>
       </section>
     </>
   );
 }
 
-function Experience({ t, id }: { t: T; id?: string }) {
+// Real numbers from each repository's CI and from Lighthouse; the lines appear one by one (instantly with reduced motion).
+const TERMINAL: Array<[string, string]> = [
+  ['cd yamesi && make test', 'Tests: 53 passed, 53 total'],
+  ['cd atomictrail && make test', 'Tests: 48 passed, 48 total'],
+  ['cd opscircuit/ops-automation && make test', '15 passed, 0 failed'],
+  ['lighthouse vzuliani97.github.io --preset=mobile', 'Performance 100 · Accessibility 100 · Best practices 100 · SEO 100'],
+];
+
+function Terminal({ t }: { t: T }) {
+  return (
+    <figure className="terminal" aria-label={t(ui.terminalLabel)}>
+      <div className="terminal-bar" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <ol>
+        {TERMINAL.map(([command, output], index) => (
+          <li key={command} style={{ '--i': index } as CSSProperties}>
+            <code className="cmd">
+              <span aria-hidden="true">$ </span>
+              {command}
+            </code>
+            <code className="out">✓ {output}</code>
+          </li>
+        ))}
+      </ol>
+    </figure>
+  );
+}
+
+function Feature({ project, t, eager }: { project: Project; t: T; eager: boolean }) {
+  const href = `/work/${project.slug}/`;
+  return (
+    <article className="feature" style={{ '--accent': project.accent } as CSSProperties}>
+      <a href={href} className="browser" tabIndex={-1} aria-hidden="true">
+        <span className="browser-bar">
+          <span />
+          <span />
+          <span />
+        </span>
+        <img
+          src={project.cover}
+          alt=""
+          width={900}
+          height={625}
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
+        />
+      </a>
+      <div className="feature-body">
+        <p className="subtitle">{t(project.subtitle)}</p>
+        <h3>
+          <a href={href}>{project.name}</a>
+        </h3>
+        <p>{t(project.oneLiner)}</p>
+        <h4>{t(ui.purpose)}</h4>
+        <p className="muted">{t(project.purpose)}</p>
+        <h4>{t(ui.myWork)}</h4>
+        <ul className="checks">
+          {project.myWork.map((item) => (
+            <li key={item.en}>{t(item)}</li>
+          ))}
+        </ul>
+        <ul className="metrics" aria-label={t(ui.proof)}>
+          {project.metrics.map((metric) => (
+            <li key={metric.en}>{t(metric)}</li>
+          ))}
+        </ul>
+        <ul className="chips" aria-label={t(ui.stack)}>
+          {project.stack.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="links">
+          <a className="button primary" href={href}>
+            {t(ui.caseStudy)} →
+          </a>
+          <a className="button" href={project.repo}>
+            {t(ui.source)}
+          </a>
+        </p>
+      </div>
+      {project.gallery && <Gallery project={project} t={t} level="h4" />}
+    </article>
+  );
+}
+
+function Gallery({ project, t, level }: { project: Project; t: T; level: 'h3' | 'h4' }) {
+  const Heading = level;
+  return (
+    <div className="catalog">
+      <div>
+        <Heading>{t(ui.realCatalog)}</Heading>
+        <p className="muted">{t(ui.realCatalogNote)}</p>
+      </div>
+      <ul>
+        {project.gallery!.map((photo) => (
+          <li key={photo.src}>
+            <img src={photo.src} alt={t(photo.alt)} width={480} height={640} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Experience({ t, id, eyebrow }: { t: T; id?: string; eyebrow?: string }) {
   return (
     <section id={id} className="wrap section">
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h2>{t(ui.experience)}</h2>
       <ol className="timeline">
         {experience.map((job) => (
           <li key={job.company}>
+            <p className="when">{t(job.when)}</p>
             <h3>
               {job.role} <span className="muted">· {job.company}</span>
             </h3>
-            <p className="muted">{t(job.when)}</p>
             <p>{t(job.note)}</p>
+            <ul>
+              {job.highlights.map((item) => (
+                <li key={item.en}>{t(item)}</li>
+              ))}
+            </ul>
           </li>
         ))}
       </ol>
@@ -261,6 +390,14 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
       <section id="panel-scan" role="tabpanel" aria-labelledby="tab-scan" hidden={view !== 'scan'} className="panel">
         <div className="scan">
           <div>
+            <h2>{t(ui.purpose)}</h2>
+            <p>{t(project.purpose)}</p>
+            <h2>{t(ui.myWork)}</h2>
+            <ul className="checks">
+              {project.myWork.map((item) => (
+                <li key={item.en}>{t(item)}</li>
+              ))}
+            </ul>
             <h2>{t(ui.roleFit)}</h2>
             <p>{t(project.roleFit)}</p>
             <h2>{t(ui.problem)}</h2>
@@ -283,6 +420,7 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
             <figcaption>{t(project.screens[0].alt)}</figcaption>
           </figure>
         </div>
+        {project.gallery && <Gallery project={project} t={t} level="h3" />}
       </section>
 
       <section id="panel-deep" role="tabpanel" aria-labelledby="tab-deep" hidden={view !== 'deep'} className="panel">

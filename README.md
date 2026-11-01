@@ -40,7 +40,7 @@ Rendering diagrams and running the browser tests use the installed Google Chrome
 
 ## Measured on the live site
 
-On 2026-11-01, Lighthouse 13.6 with its mobile profile against https://vzuliani97.github.io gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO. It measured `/`, `/work/atomictrail/` and `/work/yamesi/`.
+On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO on `/`, `/work/atomictrail/` and `/work/yamesi/`, both on https://vzuliani97.github.io before the redesign and on the local production build after it.
 
 ## License and provenance
 
