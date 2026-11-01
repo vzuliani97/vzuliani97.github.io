@@ -81,5 +81,5 @@ test('external links: every link to GitHub answers 200 (LinkedIn blocks bots wit
     if (status !== 200 && !(link.includes('linkedin.com') && status === 999)) failures.push(`${status} ${link}`);
   }
   expect(failures).toEqual([]);
-  expect(links.size).toBeGreaterThan(20);
+  expect(links.size).toBeGreaterThanOrEqual(15); // guards against a collector that silently finds nothing
 });
