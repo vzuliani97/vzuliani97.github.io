@@ -331,8 +331,8 @@ export const projects: Project[] = [
       { check: { en: 'Static analysis and secrets', es: 'Análisis estático y secretos' }, result: { en: 'CodeQL and Gitleaks green', es: 'CodeQL y Gitleaks en verde' }, href: `${repo('yamesi')}/actions` },
     ],
     screens: [
-      { src: '/media/yamesi-sell.jpg', alt: { en: 'Point of sale with catalog photos and the invoice panel', es: 'Punto de venta con fotos del catálogo y el panel de factura' }, width: 1600, height: 1111 },
-      { src: '/media/yamesi-invoice.jpg', alt: { en: 'Sales invoice PDF with references, gold weight, CUFE and QR', es: 'Factura de venta en PDF con referencias, peso del oro, CUFE y QR' }, width: 1236, height: 1600 },
+      { src: '/media/yamesi-sell.jpg', alt: { en: 'Point of sale with catalog photos; each line of the sale shows its piece', es: 'Punto de venta con fotos del catálogo; cada línea de la venta muestra su pieza' }, width: 1600, height: 1111 },
+      { src: '/media/yamesi-invoice.jpg', alt: { en: 'Sales invoice PDF: each line with the photo of its piece, reference, size and gold weight; CUFE and QR', es: 'Factura de venta en PDF: cada línea con la foto de su pieza, referencia, talla y peso del oro; CUFE y QR' }, width: 1236, height: 1600 },
       { src: '/media/yamesi-inventory.jpg', alt: { en: 'Inventory portal: the catalog with photos, stock value and filters', es: 'Portal de inventario: catálogo con fotos, valor del inventario y filtros' }, width: 1600, height: 1111 },
       { src: '/media/yamesi-edit.jpg', alt: { en: 'Editing a piece: price, size, reference and a new photo', es: 'Editar una pieza: precio, talla, referencia y nueva foto' }, width: 1600, height: 1111 },
       { src: '/media/yamesi-petty-cash.jpg', alt: { en: 'Petty cash with the receipt photos of the day', es: 'Caja menor con las fotos de los recibos del día' }, width: 1600, height: 1111 },
@@ -440,7 +440,9 @@ export const projects: Project[] = [
       { check: { en: 'Terraform for AWS', es: 'Terraform para AWS' }, result: { en: 'Validated in CI, never applied', es: 'Validado en CI, nunca aplicado' }, href: `${repo('opscircuit')}/tree/main/terraform/aws` },
     ],
     screens: [
-      { src: '/media/opscircuit-n8n.jpg', alt: { en: 'n8n incident intake workflow', es: 'Flujo de incidentes en n8n' }, width: 1600, height: 425 },
+      { src: '/media/opscircuit-n8n.jpg', alt: { en: 'n8n incident intake: a real execution, every step green from the webhook to the page', es: 'Ingreso de incidentes en n8n: una ejecución real, todos los pasos en verde del webhook al aviso' }, width: 1600, height: 436 },
+      { src: '/media/opscircuit-n8n-validate.jpg', alt: { en: 'n8n: validate, store the delivery, answer 202, fingerprint', es: 'n8n: validar, guardar la entrega, responder 202 y calcular la huella' }, width: 1180, height: 600 },
+      { src: '/media/opscircuit-n8n-notify.jpg', alt: { en: 'n8n: service catalog, incident upsert and the page to on-call', es: 'n8n: catálogo de servicios, upsert del incidente y aviso a guardia' }, width: 1120, height: 600 },
       { src: '/media/opscircuit-lock-timeout.jpg', alt: { en: 'An execution stopped by a lock timeout, recorded as a dead letter', es: 'Ejecución detenida por un lock timeout, registrada como dead letter' }, width: 1600, height: 1000 },
       { src: '/media/opscircuit-grafana.jpg', alt: { en: 'Grafana dashboard provisioned as code', es: 'Tablero de Grafana como código' }, width: 1600, height: 1143 },
       { src: '/media/opscircuit-alerts.jpg', alt: { en: 'Prometheus alert rules', es: 'Reglas de alerta en Prometheus' }, width: 1600, height: 1075 },
