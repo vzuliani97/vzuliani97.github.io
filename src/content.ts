@@ -36,8 +36,8 @@ export const ui = {
   },
   back: { en: 'All projects', es: 'Todos los proyectos' },
   openToWork: {
-    en: 'Medellín, Colombia · Open to remote roles across LATAM and Europe, and to relocation',
-    es: 'Medellín, Colombia · Disponible para trabajo remoto en LATAM y Europa, y para reubicación',
+    en: 'Medellín, Colombia · Authorized to work in Europe · Open to remote work and relocation',
+    es: 'Medellín, Colombia · Autorizado para trabajar en Europa · Disponible para trabajo remoto y reubicación',
   },
   provenance: {
     en: 'Portfolio projects are independent reconstructions with no employer code. Their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog. Built with AI-assisted tooling and verified through tests and CI.',
@@ -152,8 +152,8 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
         es: 'Desarrollé módulos full stack y APIs en Node.js para plataformas transaccionales, iGaming y del sector salud con Angular, React, TypeScript, PHP y MySQL; construí una API B2B protegida con pares de llaves y lista blanca de IP; y administré la infraestructura y los despliegues en AWS con EC2, VPC, VPN, EKS, Terraform, Docker y GitLab CI/CD.',
       },
       {
-        en: 'Worked on the real-time sports betting and casino integration of the point-of-sale portal: the live-odds frontend, the provider integration, the betting backend and its infrastructure.',
-        es: 'Trabajé en la integración de apuestas deportivas y casino en tiempo real del portal de puntos de venta: el frontend de cuotas en vivo, la integración con el proveedor, el backend de apuestas y su infraestructura.',
+        en: 'Worked on the real-time sports betting and casino integration of the point-of-sale portal: the live-odds frontend, the provider integration, the betting backend (bet validation, balance and settlement) and its infrastructure.',
+        es: 'Trabajé en la integración de apuestas deportivas y casino en tiempo real del portal de puntos de venta: el frontend de cuotas en vivo, la integración con el proveedor, el backend de apuestas (validación, saldo y liquidación) y su infraestructura.',
       },
       {
         en: 'Diagnosed and fixed issues across frontend, backend, APIs and infrastructure, and provided technical support.',
