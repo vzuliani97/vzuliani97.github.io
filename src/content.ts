@@ -40,8 +40,8 @@ export const ui = {
     es: 'Medellín, Colombia · Autorizado para trabajar en Europa · Disponible para trabajo remoto y reubicación',
   },
   provenance: {
-    en: 'Portfolio projects are independent reconstructions with no employer code. Their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog. Built with AI-assisted tooling and verified through tests and CI.',
-    es: 'Los proyectos del portafolio son reconstrucciones independientes sin código de empleadores. Sus datos son ficticios, salvo el catálogo de demostración de Yamesi Core, que viene del catálogo público de la tienda. Construidos con herramientas asistidas por IA y verificados con pruebas y CI.',
+    en: 'Portfolio projects are independent reconstructions with no employer code. Their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog. AI-assisted; verified through tests and CI.',
+    es: 'Los proyectos del portafolio son reconstrucciones independientes sin código de empleadores. Sus datos son ficticios, salvo el catálogo de demostración de Yamesi Core, que viene del catálogo público de la tienda. Asistidos por IA y verificados con pruebas y CI.',
   },
   notFound: { en: 'This page does not exist.', es: 'Esta página no existe.' },
   purpose: { en: 'What it is for', es: 'Para qué sirve' },
