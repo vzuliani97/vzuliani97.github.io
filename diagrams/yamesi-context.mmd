@@ -1,0 +1,7 @@
+flowchart LR
+  staff["Store staff<br/>seller · admin"] -->|sell, record expenses, close the day| Y["Yamesi Core<br/>invoicing · gold lots · petty cash<br/>daily closing · audit"]
+  Y -->|invoice PDF with CUFE and QR| customer["Customer"]
+  Y -->|photos, receipts, PDFs| S[("Object storage<br/>S3 API")]
+  Y -->|aggregate questions, read-only tools| L["Local LLM · Ollama<br/>optional"]
+  Y -.->|planned: XML UBL 2.1 + signature| D["DIAN-authorized<br/>e-invoice provider"]:::planned
+  classDef planned stroke-dasharray:6 4,color:#57534e

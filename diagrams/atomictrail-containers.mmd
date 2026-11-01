@@ -1,0 +1,8 @@
+flowchart LR
+  B["Browser<br/>React SPA"] --> N["nginx :8081<br/>SSE without buffering"]
+  I["Partner client"] -->|HMAC| N
+  N -->|/api| A["NestJS API<br/>sales · partner · betting · casino"]
+  N -->|/api/betting/stream| A
+  A -->|conditional UPDATE · ledger<br/>idempotency keys · bets · wallet tx| DB[("PostgreSQL 16")]
+  L["Live feed<br/>one leader per tick via advisory lock"] --> DB
+  A -->|timeout-bounded call| P["Carrier simulator"]

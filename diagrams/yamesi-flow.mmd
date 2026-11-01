@@ -1,0 +1,14 @@
+sequenceDiagram
+  autonumber
+  participant S as Seller
+  participant A as NestJS API
+  participant DB as PostgreSQL
+  participant O as S3 storage
+  S->>A: POST /invoices + Idempotency-Key
+  A->>DB: advisory lock on the key (replay if it exists, 409 if the data differs)
+  A->>DB: shared lock on the business day (DAY_CLOSED if closed)
+  A->>DB: lock pieces ORDER BY id FOR UPDATE, mark them sold
+  A->>DB: next number from a gap-free counter, inside the transaction
+  A->>DB: lines split into base + 19% VAT, CUFE, audit entry, COMMIT
+  A->>O: render the PDF with CUFE and QR after commit
+  A-->>S: 201 FV-000001

@@ -1,0 +1,9 @@
+flowchart LR
+  AM["Alertmanager v0.34<br/>grouping · repeat"] -->|webhook v4, Bearer| IN
+  subgraph N8N["n8n 2.43 · self-hosted"]
+    IN["Incident intake workflow"] -.->|unhandled error| EH["Error handler workflow"]
+  end
+  IN -->|role incident_writer<br/>parameterized SQL| DB[("PostgreSQL 18<br/>inbox · incidents · dead letters")]
+  EH --> DB
+  IN -->|POST + Idempotency-Key| NT["Mock on-call notifier"]
+  CAT["service-catalog/services.json<br/>versioned in git"] -->|loaded on every start| DB

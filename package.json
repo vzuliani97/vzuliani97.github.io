@@ -1,0 +1,35 @@
+{
+  "name": "vzuliani97-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Valter Zuliani — Software, Cloud & DevOps portfolio",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "diagrams": "node scripts/render-diagrams.mjs",
+    "dev": "npm run diagrams && vite",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "npm run diagrams && npm run typecheck && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "check:private": "node scripts/check-private.mjs dist",
+    "check:links": "playwright test -g \"external links\"",
+    "test:e2e": "playwright test --grep-invert \"external links\""
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@mermaid-js/mermaid-cli": "12.0.0",
+    "@playwright/test": "1.64.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}

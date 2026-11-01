@@ -1,0 +1,10 @@
+flowchart LR
+  D["Developer"] -->|push| G["GitHub"]
+  G --> CI["GitHub Actions<br/>manifests · Terraform · Checkov<br/>Gitleaks · incident lab tests"]
+  G -->|GitOps| AR["Argo CD"]
+  AR --> K["kind cluster<br/>PayPoint workloads"]
+  K --> PR["Prometheus + Grafana<br/>alert rules"]
+  AM["Alertmanager"] -->|webhook + bearer token| N8["n8n incident workflow"]
+  N8 --> OC["On-call notifier<br/>mock"]
+  PR -.->|planned route| AM
+  classDef planned stroke-dasharray:6 4

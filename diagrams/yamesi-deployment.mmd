@@ -1,0 +1,10 @@
+flowchart TB
+  subgraph local["Portfolio rebuild · Docker Compose · synthetic data"]
+    n1["nginx + React"] --> a1["NestJS API"] --> p1[("PostgreSQL")]
+    a1 --> r1[("RustFS · S3 API")]
+    a1 --> o1["Ollama · optional"]
+  end
+  subgraph prod["The business's real system · professional work, separate codebase"]
+    e1["Docker on AWS EC2"] --> s1[("AWS S3")]
+    e1 --- net["HTTPS · security groups · SSH · VPN"]
+  end

@@ -1,0 +1,13 @@
+flowchart TB
+  R["Alert rule fires"] --> AM["Alertmanager groups by<br/>alertname · namespace · service"]
+  AM --> V{"Valid payload?"}
+  V -->|no| X["400 + rejected_events"]
+  V -->|yes| IN["Store raw delivery (inbox), answer 202"]
+  IN --> F["Fingerprint = sha256(alert, namespace, service, startsAt)"]
+  F --> U["INSERT ... ON CONFLICT: one incident per firing episode"]
+  U --> P{"New incident that pages,<br/>or a failed page?"}
+  P -->|no| D["Count the occurrence"]
+  P -->|yes| N["Notify: 3 tries, 1 s apart"]
+  N -->|2xx| S["notify_status = sent"]
+  N -->|still failing| DL["Dead letter + failed"]
+  DL -->|make replay| IN

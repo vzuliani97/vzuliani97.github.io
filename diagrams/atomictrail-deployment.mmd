@@ -1,0 +1,5 @@
+flowchart LR
+  dev["Push to main"] --> ci["GitHub Actions<br/>37 tests · CodeQL · Gitleaks · npm audit"]
+  ci -->|multi-arch images| g[("GHCR<br/>paypoint-backend · paypoint-frontend")]
+  g --> local["Docker Compose<br/>local run"]
+  g --> argo["Argo CD in OpsCircuit<br/>kind cluster, synced from main"]

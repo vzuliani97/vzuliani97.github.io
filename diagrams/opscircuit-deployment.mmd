@@ -1,0 +1,11 @@
+flowchart TB
+  subgraph local["Implemented and verified locally"]
+    k["kind: 1 control plane + 2 workers"] --- ns["paypoint · monitoring · argocd"]
+    lab["Docker Compose incident lab<br/>Alertmanager · n8n · PostgreSQL"]
+  end
+  subgraph aws["AWS blueprint · Terraform · DESIGN · CI-VALIDATED · NOT DEPLOYED"]
+    vpc["VPC, 3 AZs"]:::planned --> eks["EKS"]:::planned
+    vpc --> rds[("RDS PostgreSQL 16<br/>TLS · IAM auth")]:::planned
+    ecr[("ECR · KMS · scan on push")]:::planned --> eks
+  end
+  classDef planned stroke-dasharray:6 4,color:#475569

@@ -1,0 +1,18 @@
+sequenceDiagram
+  autonumber
+  participant C as Client
+  participant API as PayPoint API
+  participant DB as PostgreSQL
+  participant P as Provider
+  C->>API: POST /sales + Idempotency-Key
+  API->>DB: TX 1: advisory lock on the key, replay if it exists
+  API->>DB: UPDATE balance WHERE balance >= amount
+  API->>DB: INSERT sale PENDING + SALE ledger entry, COMMIT
+  API->>P: top-up, outside any transaction, with timeout
+  alt confirmed
+    API->>DB: sale CONFIRMED
+  else rejected
+    API->>DB: TX 2: sale FAILED + REFUND ledger entry
+  else no answer
+    API-->>C: PENDING, money stays reserved
+  end

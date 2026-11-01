@@ -1,0 +1,7 @@
+flowchart LR
+  B["Browser<br/>React 19 SPA"] -->|/api, JWT| N["nginx<br/>unprivileged"]
+  N --> A["NestJS modular API<br/>auth · lots · pieces · invoices<br/>expenses · closings · reports · audit"]
+  A -->|plain SQL, transactions,<br/>advisory locks| P[("PostgreSQL<br/>gold in mg · invoices · audit")]
+  A -->|AWS SDK v3| S[("S3 / RustFS<br/>photos · receipts · PDFs")]
+  B -->|presigned GET, 5 min| S
+  A -->|tool calls, no SQL| O["Ollama · Qwen2.5 3B<br/>optional profile"]

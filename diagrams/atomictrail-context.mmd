@@ -1,0 +1,9 @@
+flowchart LR
+  C["Cashier · admin<br/>browser"] -->|top-ups, live bets, casino rounds| T["AtomicTrail<br/>PayPoint service"]
+  P["Partner system"] -->|HMAC-signed B2B API<br/>IP allowlist| T
+  T -->|top-up, outside the transaction| V["Carrier provider<br/>simulated"]
+  F["Odds feed<br/>simulated"] -->|matches, goals, prices| T
+  G["Casino game provider<br/>simulated"] -->|HMAC wallet calls:<br/>debit · credit · rollback| T
+  M["Prometheus · OpsCircuit"] -->|scrapes /metrics| T
+  R["Reconciliation job"]:::planned -.->|planned: resolve PENDING sales| T
+  classDef planned stroke-dasharray:6 4,color:#475569
