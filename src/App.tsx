@@ -212,8 +212,8 @@ function Home({ t }: { t: T }) {
 
 // Real numbers from each repository's CI and from Lighthouse; the lines appear one by one (instantly with reduced motion).
 const TERMINAL: Array<[string, string]> = [
-  ['cd yamesi && make test', 'Tests: 53 passed, 53 total'],
-  ['cd atomictrail && make test', 'Tests: 48 passed, 48 total'],
+  ['cd yamesi && make test', 'Tests: 54 passed, 54 total'],
+  ['cd atomictrail && make test', 'Tests: 49 passed, 49 total'],
   ['cd opscircuit/ops-automation && make test', '15 passed, 0 failed'],
   ['lighthouse vzuliani97.github.io --preset=mobile', 'Performance 100 · Accessibility 100 · Best practices 100 · SEO 100'],
 ];

@@ -74,7 +74,7 @@ export const hero = {
 };
 
 export const stats: Array<{ value: L; label: L }> = [
-  { value: { en: '116', es: '116' }, label: { en: 'automated tests across 3 portfolio systems (53 + 48 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (53 + 48 + 15)' } },
+  { value: { en: '118', es: '118' }, label: { en: 'automated tests across 3 portfolio systems (54 + 49 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (54 + 49 + 15)' } },
   { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
   { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
   { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
@@ -235,10 +235,10 @@ export const projects: Project[] = [
       { en: 'NestJS API with roles, Zod validation, idempotent invoices, and row and advisory locks for concurrency.', es: 'API en NestJS con roles, validación con Zod, facturas idempotentes y bloqueos de fila y advisory para la concurrencia.' },
       { en: 'React point of sale, inventory portal with drag-and-drop photos, petty cash with receipts, closing and reports.', es: 'Punto de venta en React, portal de inventario con fotos por arrastrar y soltar, caja menor con recibos, cierre y reportes.' },
       { en: 'Colombian-style invoice PDF for demonstration: VAT, a CUFE calculation that matches the DIAN example, QR. Not transmitted to or validated by the DIAN; no tax validity.', es: 'Factura PDF de estilo colombiano para demostración: IVA, cálculo del CUFE igual al ejemplo de la DIAN y QR. No se transmite ni la valida la DIAN; no tiene validez fiscal.' },
-      { en: 'Docker Compose, CI with CodeQL and Gitleaks, 53 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL y Gitleaks, 53 pruebas y un día de negocio simulado.' },
+      { en: 'Docker Compose, CI with CodeQL and Gitleaks, 54 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL y Gitleaks, 54 pruebas y un día de negocio simulado.' },
     ],
     metrics: [
-      { en: '53 tests', es: '53 pruebas' },
+      { en: '54 tests', es: '54 pruebas' },
       { en: '44 real catalog pieces', es: '44 piezas del catálogo real' },
       { en: 'CUFE = DIAN example', es: 'CUFE = ejemplo DIAN' },
     ],
@@ -285,7 +285,7 @@ export const projects: Project[] = [
       { en: 'CUFE computed with the DIAN formula, checked against its official example', es: 'CUFE con la fórmula de la DIAN, comprobado contra su ejemplo oficial' },
     ],
     proof: [
-      { en: '53 automated tests, 2 against a real S3-compatible server', es: '53 pruebas automatizadas, 2 contra un servidor compatible con S3' },
+      { en: '54 automated tests, 2 against a real S3-compatible server', es: '54 pruebas automatizadas, 2 contra un servidor compatible con S3' },
       { en: '8 concurrent invoices get numbers 1 to 8, never a gap', es: '8 facturas simultáneas reciben los números 1 a 8, sin huecos' },
       { en: 'A simulated business day (make demo): arrivals with photos, 5 sales, 4 receipts, closing', es: 'Un día de negocio simulado (make demo): llegadas con foto, 5 ventas, 4 recibos y cierre' },
     ],
@@ -313,7 +313,7 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '53 passing in CI', es: '53 aprobadas en CI' }, href: `${repo('yamesi')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '54 passing in CI', es: '54 aprobadas en CI' }, href: `${repo('yamesi')}/actions` },
       { check: { en: 'CUFE against the official DIAN example', es: 'CUFE contra el ejemplo oficial de la DIAN' }, result: { en: 'Identical hash', es: 'Hash idéntico' }, href: `${repo('yamesi')}/blob/main/backend/test/unit/colombian-invoice.spec.ts` },
       { check: { en: 'Concurrent sales of one piece', es: 'Ventas simultáneas de una pieza' }, result: { en: 'One sale, one PIECE_NOT_AVAILABLE', es: 'Una venta y un PIECE_NOT_AVAILABLE' }, href: `${repo('yamesi')}/blob/main/backend/test/e2e/invoices.e2e-spec.ts` },
       { check: { en: 'Static analysis and secrets', es: 'Análisis estático y secretos' }, result: { en: 'CodeQL and Gitleaks green', es: 'CodeQL y Gitleaks en verde' }, href: `${repo('yamesi')}/actions` },
@@ -339,7 +339,7 @@ export const projects: Project[] = [
       en: 'This repository is an independent rebuild that runs locally with Docker Compose. Its demo catalog comes from the store’s public catalog; customers, costs and lots are synthetic. The business’s real system is professional work in a separate codebase, deployed with Docker on AWS EC2 and S3.',
       es: 'Este repositorio es una reconstrucción independiente que corre en local con Docker Compose. Su catálogo de demostración viene del catálogo público de la tienda; clientes, costos y lotes son ficticios. El sistema real del negocio es trabajo profesional en otro código, desplegado con Docker en AWS EC2 y S3.',
     },
-    run: 'git clone https://github.com/vzuliani97/yamesi && cd yamesi\ncp .env.example .env\nmake demo   # loads the store catalog and simulates one business day\nmake test   # 53 tests in containers',
+    run: 'git clone https://github.com/vzuliani97/yamesi && cd yamesi\ncp .env.example .env\nmake demo   # loads the store catalog and simulates one business day\nmake test   # 54 tests in containers',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'CURRENT', note: { en: 'Who uses the system and what it talks to.', es: 'Quién usa el sistema y con qué se comunica.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'A modular NestJS monolith, not microservices.', es: 'Un monolito modular en NestJS, no microservicios.' } },
@@ -474,7 +474,7 @@ export const projects: Project[] = [
       { en: 'React cashier and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Caja y administración en React; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
-      { en: '48 tests', es: '48 pruebas' },
+      { en: '49 tests', es: '49 pruebas' },
       { en: '70 races → 50 approved', es: '70 ventas → 50 aprobadas' },
       { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
@@ -499,7 +499,7 @@ export const projects: Project[] = [
       { en: 'A bet carries the odds the cashier saw; a moved price is refused', es: 'La apuesta lleva la cuota que vio el cajero; si cambió, se rechaza' },
     ],
     proof: [
-      { en: '48 automated tests; multi-arch images published after CI', es: '48 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
+      { en: '49 automated tests; multi-arch images published after CI', es: '49 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
       { en: 'Local experiment: 70 concurrent sales, balance for 50, exactly 50 approved', es: 'Experimento local: 70 ventas simultáneas, saldo para 50, exactamente 50 aprobadas' },
       { en: '70 concurrent retries of one key create one sale', es: '70 reintentos simultáneos de una llave crean una sola venta' },
     ],
@@ -527,7 +527,7 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '48 passing in CI', es: '48 aprobadas en CI' }, href: `${repo('atomictrail')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '49 passing in CI', es: '49 aprobadas en CI' }, href: `${repo('atomictrail')}/actions` },
       { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, settlement once, wallet replays', es: 'Rechazo por cambio de cuota, liquidación única, reintentos de billetera' }, href: `${repo('atomictrail')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
       { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('atomictrail')}/blob/main/docs/concurrency-experiment.md` },
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('atomictrail')}/actions` },
@@ -547,7 +547,7 @@ export const projects: Project[] = [
       en: 'Runs locally with Docker Compose and on OpsCircuit’s kind cluster through Argo CD. The concurrency numbers come from a local, reproducible experiment, not from production traffic.',
       es: 'Corre en local con Docker Compose y en el clúster kind de OpsCircuit mediante Argo CD. Los números de concurrencia vienen de un experimento local y reproducible, no de tráfico de producción.',
     },
-    run: 'git clone https://github.com/vzuliani97/atomictrail && cd atomictrail\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 48 tests',
+    run: 'git clone https://github.com/vzuliani97/atomictrail && cd atomictrail\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 49 tests',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'MIXED', note: { en: 'Cashiers, partners and a simulated carrier; reconciliation planned.', es: 'Cajeros, aliados y un operador simulado; conciliación planeada.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'nginx, a NestJS API and PostgreSQL.', es: 'nginx, una API NestJS y PostgreSQL.' } },
