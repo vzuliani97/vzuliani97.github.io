@@ -10,6 +10,10 @@ Three case studies, each with a recruiter scan and an engineering deep dive: pro
 | [OpsCircuit](https://github.com/vzuliani97/opscircuit) | Kubernetes, GitOps, observability, outage drills, n8n incident automation |
 | [AtomicTrail](https://github.com/vzuliani97/atomictrail) | Idempotent top-ups, live sports betting over SSE, seamless-wallet casino |
 
+## What it is for and what I built
+
+It is the front door for recruiters and engineers: in two minutes it shows what each project is for and what I built, and the deep dive gives the architecture, decisions and evidence behind every claim. I designed and built the whole site: the content model in English and Spanish, the animated home page, the case studies, the architecture explorer with diagrams rendered from Mermaid in CI, the accessibility and link tests, and the GitHub Pages deployment.
+
 ## How it is built
 
 - React 19 and TypeScript, built by Vite as one real HTML page per route, so deep links work on GitHub Pages.
@@ -40,7 +44,7 @@ Rendering diagrams and running the browser tests use the installed Google Chrome
 
 ## Measured on the live site
 
-On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO on `/`, `/work/atomictrail/` and `/work/yamesi/`, both on https://vzuliani97.github.io before the redesign and on the local production build after it.
+On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO on `/`, `/work/atomictrail/` and `/work/yamesi/`, on https://vzuliani97.github.io, measured again after the redesign.
 
 ## License and provenance
 
