@@ -589,7 +589,9 @@ pre {
 }
 
 .paper {
-  overflow-x: auto;
+  /* Diagrams render at their natural size so the text stays readable; large ones scroll inside the frame. */
+  overflow: auto;
+  max-height: 680px;
   padding: 1rem;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -598,8 +600,9 @@ pre {
 
 .paper img {
   display: block;
-  min-width: 560px;
-  max-height: 560px;
+  width: auto;
+  max-width: none;
+  height: auto;
   margin: 0 auto;
 }
 
