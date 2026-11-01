@@ -38,6 +38,10 @@ Rendering diagrams and running the browser tests use the installed Google Chrome
 - **External links:** every link is checked. LinkedIn answers 999 to automated clients and is reported, not failed.
 - **Deploy:** only from `main`, with SHA-pinned actions and a least-privilege token.
 
+## Measured on the live site
+
+On 2026-11-01, Lighthouse 13.6 with its mobile profile against https://vzuliani97.github.io gave 100 for performance, 100 for accessibility, 100 for best practices and 100 for SEO. It measured `/`, `/work/atomictrail/` and `/work/yamesi/`.
+
 ## License and provenance
 
 MIT. Portfolio projects are independent reconstructions with synthetic data and no employer code, built with AI-assisted tooling and verified through tests and CI.
