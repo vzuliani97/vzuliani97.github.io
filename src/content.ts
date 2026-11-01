@@ -54,8 +54,8 @@ export const ui = {
   whatIDid: { en: 'What I worked on', es: 'En qué trabajé' },
   letsTalk: { en: 'Let’s build something reliable', es: 'Construyamos algo confiable' },
   letsTalkNote: {
-    en: 'I am looking for full-stack, backend, cloud or DevOps roles. The fastest way to reach me is LinkedIn.',
-    es: 'Busco roles de full stack, backend, cloud o DevOps. La forma más rápida de contactarme es LinkedIn.',
+    en: 'Targeting Software Engineer and Full Stack roles with Cloud & DevOps responsibilities. The fastest way to reach me is LinkedIn.',
+    es: 'Busco roles de Software Engineer y Full Stack con responsabilidades de Cloud y DevOps. La forma más rápida de contactarme es LinkedIn.',
   },
   terminalLabel: {
     en: 'Test results from the three repositories and the Lighthouse score of this site',
@@ -73,11 +73,11 @@ export const hero = {
   languages: { en: 'Spanish and Italian native · English C1', es: 'Español e italiano nativos · Inglés C1' },
 };
 
-export const stats: Array<{ value: string; label: L }> = [
-  { value: '116', label: { en: 'automated tests across three systems', es: 'pruebas automatizadas en tres sistemas' } },
-  { value: '6+', label: { en: 'years building software, since 2020', es: 'años construyendo software, desde 2020' } },
-  { value: '100', label: { en: 'Lighthouse score on every category (mobile)', es: 'en Lighthouse en todas las categorías (móvil)' } },
-  { value: 'C1', label: { en: 'English, with native Spanish and Italian', es: 'de inglés, con español e italiano nativos' } },
+export const stats: Array<{ value: L; label: L }> = [
+  { value: { en: '116', es: '116' }, label: { en: 'automated tests across 3 portfolio systems (53 + 48 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (53 + 48 + 15)' } },
+  { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
+  { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
+  { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
 ];
 
 export const marquee = [
@@ -148,24 +148,12 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     },
     highlights: [
       {
-        en: 'Developed full-stack features for a transactional portal serving a point-of-sale network (Angular, TypeScript, PHP, MySQL): real-time sports betting and casino with live events and odds, mobile top-ups, digital products through provider APIs, payments and balances, with JWT authentication.',
-        es: 'Desarrollé funcionalidades full stack de un portal transaccional para una red de puntos de venta (Angular, TypeScript, PHP, MySQL): apuestas deportivas y casino en tiempo real con eventos y cuotas en vivo, recargas, productos digitales vía APIs de proveedores, pagos y saldos con JWT.',
+        en: 'Developed full-stack modules and Node.js APIs for transactional, iGaming and healthcare platforms using Angular, React, TypeScript, PHP and MySQL; built a B2B API secured with key pairs and IP allowlisting; and managed AWS infrastructure and deployments with EC2, VPC, VPN, EKS, Terraform, Docker and GitLab CI/CD.',
+        es: 'Desarrollé módulos full stack y APIs en Node.js para plataformas transaccionales, iGaming y del sector salud con Angular, React, TypeScript, PHP y MySQL; construí una API B2B protegida con pares de llaves y lista blanca de IP; y administré la infraestructura y los despliegues en AWS con EC2, VPC, VPN, EKS, Terraform, Docker y GitLab CI/CD.',
       },
       {
-        en: 'Worked across the whole betting integration: live-odds screens, the betting and casino provider integration, bet validation, balance and settlement, and its deployment on AWS.',
-        es: 'Participé en toda la integración de apuestas: pantallas de cuotas en vivo, integración con el proveedor de apuestas y casino, validación, saldo y liquidación de apuestas, y su despliegue en AWS.',
-      },
-      {
-        en: 'Built a B2B API for partner systems to request credits and run inquiries, secured with public/private key pairs and an IP allowlist.',
-        es: 'Construí una API B2B para que sistemas de aliados solicitaran créditos e hicieran consultas, protegida con llaves pública/privada y lista blanca de IP.',
-      },
-      {
-        en: 'Built Node.js REST APIs and Angular and React modules for white-label iGaming platforms and healthcare applications.',
-        es: 'Desarrollé APIs REST en Node.js y módulos en Angular y React para plataformas iGaming de marca blanca y aplicaciones del sector salud.',
-      },
-      {
-        en: 'Was responsible for the infrastructure and deployments of these applications: AWS EC2, VPC, VPN and EKS provisioned with Terraform for staging and production, Docker images and GitLab CI/CD pipelines.',
-        es: 'Tuve a cargo la infraestructura y los despliegues de estas aplicaciones: AWS EC2, VPC, VPN y EKS aprovisionados con Terraform para pruebas y producción, imágenes Docker y pipelines de GitLab CI/CD.',
+        en: 'Worked on the real-time sports betting and casino integration of the point-of-sale portal: the live-odds frontend, the provider integration, the betting backend and its infrastructure.',
+        es: 'Trabajé en la integración de apuestas deportivas y casino en tiempo real del portal de puntos de venta: el frontend de cuotas en vivo, la integración con el proveedor, el backend de apuestas y su infraestructura.',
       },
       {
         en: 'Diagnosed and fixed issues across frontend, backend, APIs and infrastructure, and provided technical support.',
@@ -180,8 +168,8 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     note: { en: 'A payment gateway in C++.', es: 'Una pasarela de pagos en C++.' },
     highlights: [
       {
-        en: 'Contributed to the development and technical verification of features for a C++ payment gateway, focused on transaction processing.',
-        es: 'Participé en el desarrollo y la verificación técnica de funcionalidades de una pasarela de pagos en C++, con énfasis en el procesamiento transaccional.',
+        en: 'Contributed to the development of features for a C++ payment gateway, focused on transaction processing.',
+        es: 'Participé en el desarrollo de funcionalidades de una pasarela de pagos en C++, con énfasis en el procesamiento transaccional.',
       },
     ],
   },
@@ -235,18 +223,18 @@ export const projects: Project[] = [
     accent: '#b7791f',
     cover: '/media/yamesi-sell-cover.jpg',
     oneLiner: {
-      en: 'Point of sale, inventory portal with photos, Colombian sales invoice, gold traceability and a daily closing, for a real jewelry store.',
-      es: 'Punto de venta, portal de inventario con fotos, factura de venta colombiana, trazabilidad del oro y cierre diario, para una joyería real.',
+      en: 'Point of sale, inventory portal with photos, a Colombian-style invoice PDF for demonstration, gold traceability and a daily closing, for a real jewelry store.',
+      es: 'Punto de venta, portal de inventario con fotos, una factura PDF de estilo colombiano para demostración, trazabilidad del oro y cierre diario, para una joyería real.',
     },
     purpose: {
-      en: 'Runs the counter of an 18k gold jewelry store: find a piece by reference, sell it with a legally complete invoice, keep the catalog and its photos current, record petty cash with receipts, and balance the drawer every night.',
-      es: 'Maneja el mostrador de una joyería de oro 18k: buscar una pieza por referencia, venderla con una factura completa según la ley, mantener el catálogo y sus fotos al día, registrar la caja menor con recibos y cuadrar la caja cada noche.',
+      en: 'Runs the counter of an 18k gold jewelry store: find a piece by reference, sell it with a Colombian-style invoice, keep the catalog and its photos current, record petty cash with receipts, and balance the drawer every night.',
+      es: 'Maneja el mostrador de una joyería de oro 18k: buscar una pieza por referencia, venderla con una factura de estilo colombiano, mantener el catálogo y sus fotos al día, registrar la caja menor con recibos y cuadrar la caja cada noche.',
     },
     myWork: [
       { en: 'Data model in plain SQL: gold lots in milligrams, gap-free invoice numbers, VAT per line, closings and an audit log.', es: 'Modelo de datos en SQL: lotes de oro en miligramos, numeración sin huecos, IVA por línea, cierres y auditoría.' },
       { en: 'NestJS API with roles, Zod validation, idempotent invoices, and row and advisory locks for concurrency.', es: 'API en NestJS con roles, validación con Zod, facturas idempotentes y bloqueos de fila y advisory para la concurrencia.' },
       { en: 'React point of sale, inventory portal with drag-and-drop photos, petty cash with receipts, closing and reports.', es: 'Punto de venta en React, portal de inventario con fotos por arrastrar y soltar, caja menor con recibos, cierre y reportes.' },
-      { en: 'Colombian invoice PDF: CUFE that matches the DIAN example, QR, total in words, lifetime gold warranty.', es: 'Factura colombiana en PDF: CUFE igual al ejemplo de la DIAN, QR, valor en letras y garantía de por vida del oro.' },
+      { en: 'Colombian-style invoice PDF for demonstration: VAT, a CUFE calculation that matches the DIAN example, QR. Not transmitted to or validated by the DIAN; no tax validity.', es: 'Factura PDF de estilo colombiano para demostración: IVA, cálculo del CUFE igual al ejemplo de la DIAN y QR. No se transmite ni la valida la DIAN; no tiene validez fiscal.' },
       { en: 'Docker Compose, CI with CodeQL and Gitleaks, 53 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL y Gitleaks, 53 pruebas y un día de negocio simulado.' },
     ],
     metrics: [
@@ -470,26 +458,25 @@ export const projects: Project[] = [
     subtitle: { en: 'Transaction Reliability Lab', es: 'Laboratorio de confiabilidad transaccional' },
     repo: repo('atomictrail'),
     accent: '#2b59c3',
-    cover: '/media/atomictrail-betting-cover.jpg',
+    cover: '/media/atomictrail-cashier-cover.jpg',
     oneLiner: {
-      en: 'Prepaid top-ups, live sports betting and a casino wallet on one balance that stays correct when requests race, retry or fail halfway.',
-      es: 'Recargas prepagadas, apuestas deportivas en vivo y billetera de casino sobre un saldo que se mantiene correcto cuando las solicitudes compiten, se reintentan o fallan a mitad.',
+      en: 'A TypeScript and PostgreSQL system that keeps balances correct under concurrent requests, retries, provider timeouts and reversals. It demonstrates idempotency, an append-only ledger, HMAC-signed integrations and real-time events.',
+      es: 'Un sistema en TypeScript y PostgreSQL que mantiene los saldos correctos ante solicitudes simultáneas, reintentos, timeouts de proveedores y reversos. Demuestra idempotencia, un libro contable de solo inserción, integraciones firmadas con HMAC y eventos en tiempo real.',
     },
     purpose: {
-      en: 'A point-of-sale network sells prepaid top-ups, live sports bets and casino play from one store balance. That balance must stay right when two cashiers race, a client retries, or a provider times out.',
-      es: 'Una red de puntos de venta vende recargas, apuestas deportivas en vivo y casino desde un mismo saldo por tienda. Ese saldo debe cuadrar aunque dos cajeros compitan, un cliente reintente o un proveedor no responda.',
+      en: 'Stores in a point-of-sale network spend one prepaid balance through a portal and a partner API. The balance must stay right when two cashiers race, a client retries, a provider times out or a provider reverses an operation. Live sports bets and a casino wallet are simulated scenarios that stress the same guarantees.',
+      es: 'Las tiendas de una red de puntos de venta gastan un mismo saldo prepagado desde un portal y una API de aliados. Ese saldo debe cuadrar aunque dos cajeros compitan, un cliente reintente, un proveedor no responda o revierta una operación. Las apuestas en vivo y la billetera de casino son escenarios simulados que ponen a prueba las mismas garantías.',
     },
     myWork: [
       { en: 'Balance and ledger: one conditional UPDATE, CHECK constraints and append-only movements.', es: 'Saldo y libro contable: un UPDATE condicional, restricciones CHECK y movimientos de solo inserción.' },
       { en: 'Idempotent sales with per-key advisory locks, and an HMAC-signed B2B API for partners.', es: 'Ventas idempotentes con bloqueo por llave y una API B2B firmada con HMAC para aliados.' },
-      { en: 'Live betting: a simulated odds feed with one leader, SSE to the browser, ODDS_CHANGED refusals and settlement paid once.', es: 'Apuestas en vivo: feed de cuotas simulado con un solo líder, SSE al navegador, rechazo por ODDS_CHANGED y liquidación pagada una vez.' },
-      { en: 'Seamless-wallet casino with idempotent provider callbacks and rollback tombstones.', es: 'Casino con billetera seamless, callbacks idempotentes del proveedor y registro de reversos anticipados.' },
-      { en: 'React cashier with the sportsbook and casino; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Caja en React con apuestas y casino; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
+      { en: 'Simulated scenarios: live odds over SSE with ODDS_CHANGED refusals and settlement paid once; a seamless wallet with idempotent provider callbacks and rollback tombstones.', es: 'Escenarios simulados: cuotas en vivo por SSE con rechazo por ODDS_CHANGED y liquidación pagada una vez; billetera seamless con callbacks idempotentes y registro de reversos anticipados.' },
+      { en: 'React cashier and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Caja y administración en React; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
       { en: '48 tests', es: '48 pruebas' },
       { en: '70 races → 50 approved', es: '70 ventas → 50 aprobadas' },
-      { en: 'Payout exactly once', es: 'Pago exactamente una vez' },
+      { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
     stack: ['NestJS', 'PostgreSQL', 'React', 'SSE', 'HMAC', 'Docker'],
     roleFit: {
@@ -546,10 +533,10 @@ export const projects: Project[] = [
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('atomictrail')}/actions` },
     ],
     screens: [
-      { src: '/media/atomictrail-betting.jpg', alt: { en: 'Sportsbook: live matches by league, moving odds, bet slip and my bets', es: 'Apuestas: partidos en vivo por liga, cuotas que se mueven, cupón y mis apuestas' }, width: 1600, height: 1111 },
-      { src: '/media/atomictrail-casino.jpg', alt: { en: 'Casino wallet and the ledger with bets and payouts', es: 'Billetera del casino y el libro contable con apuestas y pagos' }, width: 1600, height: 1111 },
       { src: '/media/atomictrail-cashier.jpg', alt: { en: 'Cashier: balance, product picker and sales with a refunded rejection', es: 'Caja: saldo, productos y ventas con un rechazo reembolsado' }, width: 1600, height: 1111 },
       { src: '/media/atomictrail-admin.jpg', alt: { en: 'Admin: points of sale, credits and network sales', es: 'Administración: puntos de venta, créditos y ventas de la red' }, width: 1600, height: 1111 },
+      { src: '/media/atomictrail-betting.jpg', alt: { en: 'Sportsbook: live matches by league, moving odds, bet slip and my bets', es: 'Apuestas: partidos en vivo por liga, cuotas que se mueven, cupón y mis apuestas' }, width: 1600, height: 1111 },
+      { src: '/media/atomictrail-casino.jpg', alt: { en: 'Casino wallet and the ledger with bets and payouts', es: 'Billetera del casino y el libro contable con apuestas y pagos' }, width: 1600, height: 1111 },
     ],
     limitations: [
       { en: 'Reconciliation of PENDING sales is not implemented yet.', es: 'La conciliación de ventas en PENDING aún no está implementada.' },

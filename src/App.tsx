@@ -146,8 +146,8 @@ function Home({ t }: { t: T }) {
       <section className="stats-band" aria-label={t(ui.proof)}>
         <div className="wrap stats">
           {stats.map((stat) => (
-            <p key={stat.value}>
-              <strong>{stat.value}</strong>
+            <p key={stat.value.en}>
+              <strong>{t(stat.value)}</strong>
               <span>{t(stat.label)}</span>
             </p>
           ))}
