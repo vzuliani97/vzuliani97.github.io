@@ -1,8 +1,8 @@
 flowchart LR
   user(["👤 <b>Seller · admin</b><br/><small>[Person]</small>"]):::person
   subgraph boundary["Yamesi Core · Docker Compose"]
-    N["<b>Web app</b><br/><small>[Container · React 19 on unprivileged nginx]</small><br/>Point of sale · inventory portal<br/>petty cash · closing · reports"]:::container
-    A["<b>API</b><br/><small>[Container · NestJS modular monolith]</small><br/>auth · lots · pieces · invoices<br/>expenses · closings · reports · audit"]:::container
+    N["<b>Web app</b><br/><small>[Container · React 19 · TypeScript · Vite · nginx 1.27]</small><br/>Point of sale · inventory portal<br/>petty cash · closing · reports"]:::container
+    A["<b>API</b><br/><small>[Container · NestJS 11 · Node.js 24 · Zod]</small><br/>auth · lots · pieces · invoices<br/>expenses · closings · reports · audit"]:::container
     P[("<b>Database</b><br/><small>[PostgreSQL 16]</small><br/>Gold in mg · invoices · audit")]:::store
     S[("<b>Object storage</b><br/><small>[S3 API · RustFS locally]</small><br/>Photos · receipts · PDFs")]:::store
     O["<b>Assistant model</b><br/><small>[Ollama · Qwen2.5 3B · optional]</small><br/>Five read-only tools"]:::external

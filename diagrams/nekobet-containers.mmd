@@ -1,9 +1,9 @@
 flowchart LR
-  B["<b>Web app</b><br/><small>[React SPA in the browser]</small><br/>sportsbook · casino · cashier"]:::container
+  B["<b>Web app</b><br/><small>[React 19 · TypeScript · Vite · EventSource]</small><br/>sportsbook · casino · cashier"]:::container
   I["<b>Partner client</b><br/><small>[External]</small>"]:::external
   subgraph boundary["NekoBet · Docker Compose or Kubernetes"]
-    N["<b>Web server</b><br/><small>[nginx :8081]</small><br/>SPA · SSE without buffering"]:::container
-    A["<b>API</b><br/><small>[NestJS]</small><br/>sales · partner · betting · casino"]:::container
+    N["<b>Web server</b><br/><small>[nginx 1.27 :8081]</small><br/>SPA · SSE without buffering"]:::container
+    A["<b>API</b><br/><small>[NestJS 11 · Node.js 24 · Zod · prom-client]</small><br/>sales · partner · betting · casino"]:::container
     L["<b>Live feed</b><br/><small>[in the API · one leader per tick]</small><br/>4 sports · odds · settlement"]:::container
     DB[("<b>PostgreSQL 16</b><br/>balances · ledger · bets<br/>idempotency keys · wallet tx")]:::store
   end

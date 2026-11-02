@@ -417,6 +417,21 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
                 <li key={item.en}>{t(item)}</li>
               ))}
             </ul>
+            <h2>{t(ui.stackByLayer)}</h2>
+            <dl className="layers">
+              {project.layers.map((row) => (
+                <div key={row.layer.en}>
+                  <dt>{t(row.layer)}</dt>
+                  <dd>
+                    <ul className="chips">
+                      {row.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
             <h2>{t(ui.roleFit)}</h2>
             <p>{t(project.roleFit)}</p>
             <h2>{t(ui.problem)}</h2>

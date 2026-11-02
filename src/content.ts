@@ -58,6 +58,7 @@ export const ui = {
     es: 'Una venta ficticia emitida por Yamesi Core: cuatro piezas del catálogo con su foto, referencia, talla, peso de oro y serial; IVA del 19 % por línea; el valor en letras; la garantía de por vida del oro; el CUFE y el QR. Cliente, emisor y resolución son ficticios. Solo demostración: no se transmite ni la valida la DIAN y no tiene validez fiscal.',
   },
   openPdf: { en: 'Open the PDF', es: 'Abrir el PDF' },
+  stackByLayer: { en: 'Stack by layer', es: 'Stack por capa' },
   letsTalk: { en: 'Let’s build something reliable', es: 'Construyamos algo confiable' },
   letsTalkNote: {
     en: 'Targeting Software Engineer and Full Stack roles with Cloud & DevOps responsibilities. The fastest way to reach me is LinkedIn.',
@@ -205,6 +206,8 @@ export interface Project {
   gallery?: Array<{ src: string; alt: L }>;
   invoiceExample?: { image: string; pdf: string; width: number; height: number };
   stack: string[];
+  /** Every framework and tool, by layer, with the versions in the repository. */
+  layers: Array<{ layer: L; items: string[] }>;
   roleFit: L;
   problem: L;
   built: L[];
@@ -261,6 +264,15 @@ export const projects: Project[] = [
       { src: '/media/catalog/dj-rel-118.jpg', alt: { en: 'Cross pendant, DJ-REL-118', es: 'Dije cruz, DJ-REL-118' } },
     ],
     stack: ['NestJS', 'React', 'PostgreSQL', 'S3', 'PDFKit', 'Docker'],
+    layers: [
+      { layer: { en: 'Frontend', es: 'Frontend' }, items: ['React 19', 'TypeScript', 'Vite 8'] },
+      { layer: { en: 'Backend', es: 'Backend' }, items: ['Node.js 24', 'NestJS 11', 'Zod 4', 'JWT', 'bcrypt', 'PDFKit', 'qrcode'] },
+      { layer: { en: 'Data and storage', es: 'Datos y almacenamiento' }, items: ['PostgreSQL 16', 'plain SQL migrations', 'S3 · AWS SDK v3', 'RustFS (local S3)'] },
+      { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker', 'Docker Compose', 'nginx (unprivileged)', 'non-root containers', 'AWS EC2 + S3 (real system)'] },
+      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '54 tests', 'Dependabot'] },
+      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Helmet', 'login lockout', 'image metadata check'] },
+      { layer: { en: 'AI (optional)', es: 'IA (opcional)' }, items: ['Ollama', 'Qwen2.5 3B', 'tool calling'] },
+    ],
     roleFit: {
       en: 'Full stack: business rules in PostgreSQL transactions, a React point of sale, and a legally detailed invoice PDF.',
       es: 'Full stack: reglas de negocio en transacciones de PostgreSQL, un punto de venta en React y una factura PDF con todo el detalle legal.',
@@ -383,6 +395,14 @@ export const projects: Project[] = [
       { en: '5 deliveries → 1 page', es: '5 entregas → 1 aviso' },
     ],
     stack: ['Kubernetes', 'Argo CD', 'Prometheus', 'Grafana', 'Terraform', 'n8n'],
+    layers: [
+      { layer: { en: 'Containers and orchestration', es: 'Contenedores y orquestación' }, items: ['Docker', 'Kubernetes (kind, 3 nodes)', 'Kustomize'] },
+      { layer: { en: 'GitOps and CI/CD', es: 'GitOps y CI/CD' }, items: ['Argo CD 3.5', 'GitHub Actions'] },
+      { layer: { en: 'Observability', es: 'Observabilidad' }, items: ['Prometheus 3', 'Grafana 13', 'Alertmanager 0.34'] },
+      { layer: { en: 'Incident automation', es: 'Automatización de incidentes' }, items: ['n8n 2.43', 'PostgreSQL 18', 'Node.js test runner', '15 tests'] },
+      { layer: { en: 'Infrastructure as code', es: 'Infraestructura como código' }, items: ['Terraform', 'AWS VPC · EKS · RDS · ECR', 'AWS provider 6'] },
+      { layer: { en: 'Security and policy', es: 'Seguridad y políticas' }, items: ['Checkov 3.4', 'kubeconform', 'NetworkPolicies', 'Pod Security Admission', 'ShellCheck'] },
+    ],
     roleFit: {
       en: 'Cloud and DevOps: delivery, telemetry, alert routing, incident automation and the drills that prove they work.',
       es: 'Cloud y DevOps: entrega, telemetría, enrutamiento de alertas, automatización de incidentes y los simulacros que lo demuestran.',
@@ -487,6 +507,15 @@ export const projects: Project[] = [
       { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
     stack: ['NestJS', 'PostgreSQL', 'React', 'SSE', 'HMAC', 'Docker'],
+    layers: [
+      { layer: { en: 'Frontend', es: 'Frontend' }, items: ['React 19', 'TypeScript', 'Vite 8', 'EventSource (SSE)', 'SVG live tracker'] },
+      { layer: { en: 'Backend', es: 'Backend' }, items: ['Node.js 24', 'NestJS 11', 'Zod 4', 'JWT', 'HMAC-SHA256', 'Server-Sent Events'] },
+      { layer: { en: 'Data', es: 'Datos' }, items: ['PostgreSQL 16', 'plain SQL', 'advisory locks', 'append-only ledger'] },
+      { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker multi-stage', 'nginx', 'GHCR multi-arch images', 'Kubernetes', 'Argo CD (in OpsCircuit)'] },
+      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '54 tests', 'Dependabot'] },
+      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Helmet', 'IP allowlist', 'login lockout'] },
+      { layer: { en: 'Observability', es: 'Observabilidad' }, items: ['Prometheus metrics (prom-client)'] },
+    ],
     roleFit: {
       en: 'Full stack and real-time transactional design: a live sportsbook and casino over idempotency, concurrency control, an auditable ledger and signed provider integrations.',
       es: 'Full stack y diseño transaccional en tiempo real: apuestas en vivo y casino sobre idempotencia, control de concurrencia, un libro contable auditable e integraciones firmadas con proveedores.',

@@ -1,14 +1,14 @@
 flowchart TB
   D(["👤 <b>Developer</b><br/><small>[Person]</small>"]):::person
-  G["<b>GitHub</b><br/><small>[Repository + Actions]</small><br/>manifests · Terraform · Checkov<br/>Gitleaks · incident lab tests"]:::external
+  G["<b>GitHub</b><br/><small>[GitHub Actions]</small><br/>manifests · Terraform · Checkov<br/>Gitleaks · incident lab tests"]:::external
   subgraph platform["OpsCircuit · local platform"]
-    AR["<b>Argo CD</b><br/><small>[GitOps controller]</small>"]:::container
-    K["<b>kind cluster</b><br/><small>[3 nodes]</small><br/>NekoBet (PayPoint) workloads"]:::system
-    PR["<b>Prometheus + Grafana</b><br/><small>[Observability]</small><br/>alert rules · dashboards"]:::container
+    AR["<b>Argo CD</b><br/><small>[GitOps · Argo CD 3.5]</small>"]:::container
+    K["<b>kind cluster</b><br/><small>[Kubernetes · kind · 3 nodes · Kustomize]</small><br/>NekoBet (PayPoint) workloads"]:::system
+    PR["<b>Prometheus + Grafana</b><br/><small>[Prometheus 3 · Grafana 13]</small><br/>alert rules · dashboards"]:::container
   end
   subgraph lab["Incident lab · Docker Compose"]
-    AM["<b>Alertmanager</b><br/><small>[Grouping · routing]</small>"]:::container
-    N8["<b>n8n incident workflow</b><br/><small>[Self-hosted]</small>"]:::container
+    AM["<b>Alertmanager</b><br/><small>[Alertmanager 0.34]</small>"]:::container
+    N8["<b>n8n incident workflow</b><br/><small>[n8n 2.43 · self-hosted]</small>"]:::container
     OC["<b>On-call notifier</b><br/><small>[mock]</small>"]:::external
   end
   D -->|"push"| G
