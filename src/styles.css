@@ -1187,3 +1187,53 @@ pre {
     transition: none;
   }
 }
+
+/* ---------- Example invoice (Yamesi) ---------- */
+
+.invoice-example {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .invoice-example {
+    grid-template-columns: 1fr;
+  }
+}
+
+.invoice-paper {
+  display: block;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow:
+    0 2px 4px rgb(0 0 0 / 8%),
+    0 30px 60px -25px rgb(0 0 0 / 45%);
+  transform: rotate(-1deg);
+  transition: transform 0.4s ease;
+}
+
+.invoice-paper:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.invoice-paper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.invoice-example h2 {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invoice-paper,
+  .invoice-paper:hover {
+    transform: none;
+    transition: none;
+  }
+}

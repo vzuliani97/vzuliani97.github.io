@@ -40,8 +40,8 @@ export const ui = {
     es: 'Medellín, Colombia · Autorizado para trabajar en Europa · Disponible para trabajo remoto y reubicación',
   },
   provenance: {
-    en: 'Portfolio projects are independent reconstructions with no employer code. Their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog. AI-assisted; verified through tests and CI.',
-    es: 'Los proyectos del portafolio son reconstrucciones independientes sin código de empleadores. Sus datos son ficticios, salvo el catálogo de demostración de Yamesi Core, que viene del catálogo público de la tienda. Asistidos por IA y verificados con pruebas y CI.',
+    en: 'Portfolio projects are independent reconstructions with no employer code. Production systems are confidential, so their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog.',
+    es: 'Los proyectos del portafolio son reconstrucciones independientes sin código de empleadores. Los sistemas de producción son confidenciales, así que sus datos son ficticios, salvo el catálogo de demostración de Yamesi Core, que viene del catálogo público de la tienda.',
   },
   notFound: { en: 'This page does not exist.', es: 'Esta página no existe.' },
   purpose: { en: 'What it is for', es: 'Para qué sirve' },
@@ -52,6 +52,12 @@ export const ui = {
     es: 'La demo usa 44 piezas del catálogo público de Joyería Yamesi, con su referencia, peso de oro, talla, precio y foto reales. Clientes, costos y lotes de oro son ficticios.',
   },
   whatIDid: { en: 'What I worked on', es: 'En qué trabajé' },
+  invoiceExample: { en: 'Example invoice', es: 'Factura de ejemplo' },
+  invoiceExampleNote: {
+    en: 'A fictitious sale issued by Yamesi Core: four catalog pieces with their photo, reference, size, gold weight and serial; 19% VAT per line; the total in words; the lifetime gold warranty; the CUFE and the QR. Customer, issuer and resolution are fictitious. Demonstration only: not transmitted to or validated by the DIAN, no tax validity.',
+    es: 'Una venta ficticia emitida por Yamesi Core: cuatro piezas del catálogo con su foto, referencia, talla, peso de oro y serial; IVA del 19 % por línea; el valor en letras; la garantía de por vida del oro; el CUFE y el QR. Cliente, emisor y resolución son ficticios. Solo demostración: no se transmite ni la valida la DIAN y no tiene validez fiscal.',
+  },
+  openPdf: { en: 'Open the PDF', es: 'Abrir el PDF' },
   letsTalk: { en: 'Let’s build something reliable', es: 'Construyamos algo confiable' },
   letsTalkNote: {
     en: 'Targeting Software Engineer and Full Stack roles with Cloud & DevOps responsibilities. The fastest way to reach me is LinkedIn.',
@@ -197,6 +203,7 @@ export interface Project {
   /** Short, verified numbers shown on the home page. */
   metrics: L[];
   gallery?: Array<{ src: string; alt: L }>;
+  invoiceExample?: { image: string; pdf: string; width: number; height: number };
   stack: string[];
   roleFit: L;
   problem: L;
@@ -242,6 +249,7 @@ export const projects: Project[] = [
       { en: '44 real catalog pieces', es: '44 piezas del catálogo real' },
       { en: 'CUFE = DIAN example', es: 'CUFE = ejemplo DIAN' },
     ],
+    invoiceExample: { image: '/media/yamesi-factura-ejemplo.jpg', pdf: '/media/yamesi-factura-ejemplo.pdf', width: 1004, height: 1300 },
     gallery: [
       { src: '/media/catalog/ani-sol-59.jpg', alt: { en: 'Solitaire ring, ANI-SOL-59', es: 'Anillo solitario, ANI-SOL-59' } },
       { src: '/media/catalog/can-mel-55.jpg', alt: { en: 'Hoop earrings, CAN-MEL-55', es: 'Candongas melcocha, CAN-MEL-55' } },

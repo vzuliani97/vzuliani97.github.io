@@ -317,6 +317,25 @@ function Gallery({ project, t, level }: { project: Project; t: T; level: 'h3' | 
   );
 }
 
+function InvoiceExample({ example, t }: { example: NonNullable<Project['invoiceExample']>; t: T }) {
+  return (
+    <section className="invoice-example" aria-labelledby="invoice-example">
+      <a href={example.pdf} className="invoice-paper">
+        <img src={example.image} alt={t(ui.invoiceExampleNote)} width={example.width} height={example.height} loading="lazy" />
+      </a>
+      <div>
+        <h2 id="invoice-example">{t(ui.invoiceExample)}</h2>
+        <p>{t(ui.invoiceExampleNote)}</p>
+        <p className="actions">
+          <a className="button primary" href={example.pdf}>
+            {t(ui.openPdf)} ↗
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Experience({ t, id, eyebrow }: { t: T; id?: string; eyebrow?: string }) {
   return (
     <section id={id} className="wrap section">
@@ -420,6 +439,7 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
             <figcaption>{t(project.screens[0].alt)}</figcaption>
           </figure>
         </div>
+        {project.invoiceExample && <InvoiceExample example={project.invoiceExample} t={t} />}
         {project.gallery && <Gallery project={project} t={t} level="h3" />}
       </section>
 

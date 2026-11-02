@@ -48,4 +48,4 @@ On 2026-11-01, Lighthouse 13.6 with its mobile profile gave 100 for performance,
 
 ## License and provenance
 
-MIT. Portfolio projects are independent reconstructions with synthetic data and no employer code, AI-assisted and verified through tests and CI.
+MIT. Portfolio projects are independent reconstructions with synthetic data and no employer code.
