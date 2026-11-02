@@ -189,8 +189,8 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
 ];
 
 export const education = {
-  en: 'Systems Engineer, Universidad de Medellín · Advanced Diploma of IT (Cyber Security), ICT60220, AQF Level 6, completed at ACBI, Sydney',
-  es: 'Ingeniero de Sistemas, Universidad de Medellín · Advanced Diploma of IT (Cyber Security), ICT60220, nivel AQF 6, completado en ACBI, Sídney',
+  en: 'Systems Engineer, Universidad de Medellín · Advanced Diploma of IT (Cyber Security), ICT60220, AQF Level 6, completed at ACBI, Sydney; units include penetration testing, risk assessment and identity management',
+  es: 'Ingeniero de Sistemas, Universidad de Medellín · Advanced Diploma of IT (Cyber Security), ICT60220, nivel AQF 6, completado en ACBI, Sídney; incluye pruebas de penetración, evaluación de riesgos y gestión de identidades',
 };
 
 export type DiagramView = 'context' | 'containers' | 'flow' | 'deployment';
