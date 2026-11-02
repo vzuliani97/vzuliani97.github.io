@@ -5,7 +5,8 @@ import path from 'node:path';
 const root = process.argv[2] ?? 'dist';
 const patterns = [
   [/[A-Za-z0-9._%+-]+@gmail\.com/, 'personal email address'],
-  [/\+?57[\s-]?3\d{2}[\s-]?\d{3}[\s-]?\d{4}/, 'Colombian mobile number'],
+  // Standalone numbers only: SVG coordinates are long decimals that would otherwise match by accident.
+  [/(?<![\d.])\+?57[\s-]?3\d{2}[\s-]?\d{3}[\s-]?\d{4}(?![\d.])/, 'Colombian mobile number'],
   [/(?:api[_-]?key|secret|password)\s*[:=]\s*["'][^"']{8,}["']/i, 'credential-like assignment'],
 ];
 const files = (dir) => readdirSync(dir).flatMap((name) => {
