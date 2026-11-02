@@ -69,6 +69,12 @@ export const ui = {
     es: 'Resultados de pruebas de los tres repositorios y el puntaje Lighthouse de este sitio',
   },
   home: { en: 'Back to the home page', es: 'Volver al inicio' },
+  assessmentTitle: { en: 'Security assessment of these three systems: Escudo', es: 'Evaluación de seguridad de estos tres sistemas: Escudo' },
+  assessmentText: {
+    en: 'I attacked NekoBet, Yamesi and the OpsCircuit cluster the way a tester would. The assessment found 12 issues, from a replayed partner sale that was charged twice to an example JWT secret that let anyone sign an admin token. All are fixed, and the 38 attacks run again in both apps’ CI on every push.',
+    es: 'Ataqué NekoBet, Yamesi y el clúster de OpsCircuit como lo haría un pentester. Encontré 12 fallas, desde una venta de un integrador que se cobraba dos veces al repetirla hasta un secreto JWT de ejemplo que permitía firmar un token de administrador. Todas están corregidas, y los 38 ataques vuelven a correr en el CI de ambas aplicaciones en cada push.',
+  },
+  assessmentLink: { en: 'Report and findings', es: 'Informe y hallazgos' },
 } satisfies Record<string, L>;
 
 export const hero = {
@@ -81,7 +87,7 @@ export const hero = {
 };
 
 export const stats: Array<{ value: L; label: L }> = [
-  { value: { en: '138', es: '138' }, label: { en: 'automated tests across 3 portfolio systems (64 + 59 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (64 + 59 + 15)' } },
+  { value: { en: '139', es: '139' }, label: { en: 'automated tests across 3 portfolio systems (64 + 60 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (64 + 60 + 15)' } },
   { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
   { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
   { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
@@ -97,7 +103,7 @@ export const capabilities = [
   { title: { en: 'Cloud & delivery', es: 'Cloud y entrega' }, items: 'AWS · Docker · Kubernetes · Terraform · GitHub Actions · GitLab CI/CD · Linux' },
   {
     title: { en: 'Working knowledge (portfolio)', es: 'Conocimiento práctico (portafolio)' },
-    items: 'n8n · Prometheus · Grafana · Argo CD · Alertmanager',
+    items: 'n8n · Prometheus · Grafana · Argo CD · Alertmanager · Kyverno · cosign · Trivy · OWASP ZAP',
   },
 ];
 
@@ -507,7 +513,7 @@ export const projects: Project[] = [
       { en: 'An HMAC-signed B2B API for partners, a login lockout, and a React cashier, sportsbook, casino and admin; CI scans, signs and publishes the images that Argo CD deploys in OpsCircuit.', es: 'Una API B2B firmada con HMAC para aliados, bloqueo de login, y en React la caja, las apuestas, el casino y la administración; el CI escanea, firma y publica las imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
-      { en: '59 tests', es: '59 pruebas' },
+      { en: '60 tests', es: '60 pruebas' },
       { en: '4 sports live', es: '4 deportes en vivo' },
       { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
@@ -517,7 +523,7 @@ export const projects: Project[] = [
       { layer: { en: 'Backend', es: 'Backend' }, items: ['Node.js 24', 'NestJS 11', 'Zod 4', 'JWT', 'HMAC-SHA256', 'Server-Sent Events'] },
       { layer: { en: 'Data', es: 'Datos' }, items: ['PostgreSQL 16', 'plain SQL', 'advisory locks', 'append-only ledger'] },
       { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker multi-stage', 'nginx', 'GHCR multi-arch images', 'Kubernetes', 'Argo CD (in OpsCircuit)'] },
-      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '59 tests', 'Dependabot'] },
+      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '60 tests', 'Dependabot'] },
       { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Trivy', 'OWASP ZAP (DAST)', 'SBOM + SLSA provenance', 'cosign signing', 'Content-Security-Policy', 'Helmet', 'IP allowlist', 'login lockout'] },
       { layer: { en: 'Observability', es: 'Observabilidad' }, items: ['Prometheus metrics (prom-client)'] },
     ],
@@ -541,7 +547,7 @@ export const projects: Project[] = [
       { en: 'A bet carries the odds the cashier saw; a moved price is refused', es: 'La apuesta lleva la cuota que vio el cajero; si cambió, se rechaza' },
     ],
     proof: [
-      { en: '59 automated tests; multi-arch images published after CI', es: '59 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
+      { en: '60 automated tests; multi-arch images published after CI', es: '60 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
       { en: 'Local experiment: 70 concurrent sales, balance for 50, exactly 50 approved', es: 'Experimento local: 70 ventas simultáneas, saldo para 50, exactamente 50 aprobadas' },
       { en: '70 concurrent retries of one key create one sale', es: '70 reintentos simultáneos de una llave crean una sola venta' },
     ],
@@ -569,7 +575,7 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '59 passing in CI', es: '59 aprobadas en CI' }, href: `${repo('nekobet')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '60 passing in CI', es: '60 aprobadas en CI' }, href: `${repo('nekobet')}/actions` },
       { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, every market settled once, wallet replays', es: 'Rechazo por cambio de cuota, cada mercado liquidado una vez, reintentos de billetera' }, href: `${repo('nekobet')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
       { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('nekobet')}/blob/main/docs/concurrency-experiment.md` },
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('nekobet')}/actions` },
@@ -593,7 +599,7 @@ export const projects: Project[] = [
       en: 'Runs locally with Docker Compose and on OpsCircuit’s kind cluster through Argo CD. The concurrency numbers come from a local, reproducible experiment, not from production traffic.',
       es: 'Corre en local con Docker Compose y en el clúster kind de OpsCircuit mediante Argo CD. Los números de concurrencia vienen de un experimento local y reproducible, no de tráfico de producción.',
     },
-    run: 'git clone https://github.com/vzuliani97/nekobet && cd nekobet\nmake .env   # .env.example with random secrets\nmake up     # http://localhost:8081\nmake test   # 59 tests',
+    run: 'git clone https://github.com/vzuliani97/nekobet && cd nekobet\nmake .env   # .env.example with random secrets\nmake up     # http://localhost:8081\nmake test   # 60 tests',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'MIXED', note: { en: 'Cashiers, partners and a simulated carrier; reconciliation planned.', es: 'Cajeros, aliados y un operador simulado; conciliación planeada.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'nginx, a NestJS API and PostgreSQL.', es: 'nginx, una API NestJS y PostgreSQL.' } },

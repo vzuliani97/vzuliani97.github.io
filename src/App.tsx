@@ -175,6 +175,15 @@ function Home({ t }: { t: T }) {
             <Feature key={project.slug} project={project} t={t} eager={index === 0} />
           ))}
         </div>
+        <div className="assessment">
+          <h3>{t(ui.assessmentTitle)}</h3>
+          <p className="muted">{t(ui.assessmentText)}</p>
+          <p className="links">
+            <a className="button" href={`${GITHUB}/escudo`}>
+              {t(ui.assessmentLink)} →
+            </a>
+          </p>
+        </div>
       </section>
 
       <section className="wrap section">
@@ -213,7 +222,7 @@ function Home({ t }: { t: T }) {
 // Real numbers from each repository's CI and from Lighthouse; the lines appear one by one (instantly with reduced motion).
 const TERMINAL: Array<[string, string]> = [
   ['cd yamesi && make test', 'Tests: 64 passed, 64 total'],
-  ['cd nekobet && make test', 'Tests: 59 passed, 59 total'],
+  ['cd nekobet && make test', 'Tests: 60 passed, 60 total'],
   ['cd opscircuit/ops-automation && make test', '15 passed, 0 failed'],
   ['lighthouse vzuliani97.github.io --preset=mobile', 'Performance 100 · Accessibility 100 · Best practices 100 · SEO 100'],
 ];
