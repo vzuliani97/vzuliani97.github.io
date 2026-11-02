@@ -179,7 +179,7 @@ function Home({ t }: { t: T }) {
           <h3>{t(ui.assessmentTitle)}</h3>
           <p className="muted">{t(ui.assessmentText)}</p>
           <p className="links">
-            <a className="button" href={`${GITHUB}/escudo`}>
+            <a className="button" href={`${GITHUB}/applied-cybersecurity`}>
               {t(ui.assessmentLink)} →
             </a>
           </p>
