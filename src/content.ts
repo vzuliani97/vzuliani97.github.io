@@ -245,7 +245,7 @@ export const projects: Project[] = [
       { en: 'NestJS API with roles, Zod validation, idempotent invoices, and row and advisory locks for concurrency.', es: 'API en NestJS con roles, validación con Zod, facturas idempotentes y bloqueos de fila y advisory para la concurrencia.' },
       { en: 'React point of sale, inventory portal with drag-and-drop photos, petty cash with receipts, closing and reports.', es: 'Punto de venta en React, portal de inventario con fotos por arrastrar y soltar, caja menor con recibos, cierre y reportes.' },
       { en: 'Colombian-style invoice PDF for demonstration: VAT, a CUFE calculation that matches the DIAN example, QR. Not transmitted to or validated by the DIAN; no tax validity.', es: 'Factura PDF de estilo colombiano para demostración: IVA, cálculo del CUFE igual al ejemplo de la DIAN y QR. No se transmite ni la valida la DIAN; no tiene validez fiscal.' },
-      { en: 'Docker Compose, CI with CodeQL and Gitleaks, 54 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL y Gitleaks, 54 pruebas y un día de negocio simulado.' },
+      { en: 'Docker Compose, CI with CodeQL, Gitleaks, a Trivy image scan and an OWASP ZAP scan, 54 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL, Gitleaks, escaneo de imágenes con Trivy y escaneo OWASP ZAP, 54 pruebas y un día de negocio simulado.' },
     ],
     metrics: [
       { en: '54 tests', es: '54 pruebas' },
@@ -270,7 +270,7 @@ export const projects: Project[] = [
       { layer: { en: 'Data and storage', es: 'Datos y almacenamiento' }, items: ['PostgreSQL 16', 'plain SQL migrations', 'S3 · AWS SDK v3', 'RustFS (local S3)'] },
       { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker', 'Docker Compose', 'nginx (unprivileged)', 'non-root containers', 'AWS EC2 + S3 (real system)'] },
       { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '54 tests', 'Dependabot'] },
-      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Helmet', 'login lockout', 'image metadata check'] },
+      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Trivy', 'OWASP ZAP (DAST)', 'Content-Security-Policy', 'Helmet', 'login lockout', 'image metadata check'] },
       { layer: { en: 'AI (optional)', es: 'IA (opcional)' }, items: ['Ollama', 'Qwen2.5 3B', 'tool calling'] },
     ],
     roleFit: {
@@ -337,6 +337,7 @@ export const projects: Project[] = [
       { check: { en: 'CUFE against the official DIAN example', es: 'CUFE contra el ejemplo oficial de la DIAN' }, result: { en: 'Identical hash', es: 'Hash idéntico' }, href: `${repo('yamesi')}/blob/main/backend/test/unit/colombian-invoice.spec.ts` },
       { check: { en: 'Concurrent sales of one piece', es: 'Ventas simultáneas de una pieza' }, result: { en: 'One sale, one PIECE_NOT_AVAILABLE', es: 'Una venta y un PIECE_NOT_AVAILABLE' }, href: `${repo('yamesi')}/blob/main/backend/test/e2e/invoices.e2e-spec.ts` },
       { check: { en: 'Static analysis and secrets', es: 'Análisis estático y secretos' }, result: { en: 'CodeQL and Gitleaks green', es: 'CodeQL y Gitleaks en verde' }, href: `${repo('yamesi')}/actions` },
+      { check: { en: 'Image and DAST scans', es: 'Escaneo de imágenes y DAST' }, result: { en: 'Trivy: 0 fixable critical or high CVEs; ZAP: no unaccepted warnings', es: 'Trivy: 0 CVE críticas o altas corregibles; ZAP: sin alertas no aceptadas' }, href: `${repo('yamesi')}/blob/main/.zap/rules.tsv` },
     ],
     screens: [
       { src: '/media/yamesi-sell.jpg', alt: { en: 'Point of sale with catalog photos; each line of the sale shows its piece', es: 'Punto de venta con fotos del catálogo; cada línea de la venta muestra su pieza' }, width: 1600, height: 1111 },
@@ -385,6 +386,7 @@ export const projects: Project[] = [
     myWork: [
       { en: 'A 3-node kind cluster with Kustomize overlays, Argo CD (GitOps), and Prometheus and Grafana provisioned as code.', es: 'Un clúster kind de 3 nodos con overlays de Kustomize, Argo CD (GitOps) y Prometheus y Grafana como código.' },
       { en: 'Hardened workloads: non-root containers, NetworkPolicies, Pod Security Admission; Checkov with zero failed checks.', es: 'Cargas endurecidas: contenedores sin root, NetworkPolicies, Pod Security Admission; Checkov sin controles fallidos.' },
+      { en: 'Kyverno admission policies: hardened pods, limits and probes, explicit tags, and only images signed by NekoBet\'s CI. Tested in CI and in an unsigned-image drill.', es: 'Políticas de admisión con Kyverno: pods endurecidos, límites y sondas, etiquetas explícitas y solo imágenes firmadas por el CI de NekoBet. Probadas en CI y en un simulacro con una imagen sin firma.' },
       { en: 'Outage and bad-release drills; found an alert that could never fire, fixed it and wrote the postmortem.', es: 'Simulacros de caída y de versión rota; encontré una alerta que nunca podía dispararse, la corregí y escribí el postmortem.' },
       { en: 'n8n incident workflow: authenticated webhook, validation, deduplication in PostgreSQL, enrichment, retries, dead letters and replay.', es: 'Flujo de incidentes en n8n: webhook autenticado, validación, deduplicación en PostgreSQL, enriquecimiento, reintentos, dead letters y reproceso.' },
       { en: 'Terraform for an AWS design (VPC, EKS, RDS, ECR), validated in CI and never applied.', es: 'Terraform para un diseño en AWS (VPC, EKS, RDS, ECR), validado en CI y nunca aplicado.' },
@@ -401,7 +403,7 @@ export const projects: Project[] = [
       { layer: { en: 'Observability', es: 'Observabilidad' }, items: ['Prometheus 3', 'Grafana 13', 'Alertmanager 0.34'] },
       { layer: { en: 'Incident automation', es: 'Automatización de incidentes' }, items: ['n8n 2.43', 'PostgreSQL 18', 'Node.js test runner', '15 tests'] },
       { layer: { en: 'Infrastructure as code', es: 'Infraestructura como código' }, items: ['Terraform', 'AWS VPC · EKS · RDS · ECR', 'AWS provider 6'] },
-      { layer: { en: 'Security and policy', es: 'Seguridad y políticas' }, items: ['Checkov 3.4', 'kubeconform', 'NetworkPolicies', 'Pod Security Admission', 'ShellCheck'] },
+      { layer: { en: 'Security and policy', es: 'Seguridad y políticas' }, items: ['Kyverno 1.19', 'cosign verification', 'Checkov 3.4', 'kubeconform', 'NetworkPolicies', 'Pod Security Admission', 'ShellCheck'] },
     ],
     roleFit: {
       en: 'Cloud and DevOps: delivery, telemetry, alert routing, incident automation and the drills that prove they work.',
@@ -453,6 +455,7 @@ export const projects: Project[] = [
       { check: { en: 'Incident lab integration tests', es: 'Pruebas de integración del laboratorio' }, result: { en: '15/15 locally and in CI', es: '15/15 en local y en CI' }, href: `${repo('opscircuit')}/blob/main/docs/INCIDENT_AUTOMATION_VERIFICATION.md` },
       { check: { en: 'Outage and bad-release drills', es: 'Simulacros de caída y versión rota' }, result: { en: 'Postmortem published', es: 'Postmortem publicado' }, href: `${repo('opscircuit')}/blob/main/docs/incidents/2026-10-30-postmortem.md` },
       { check: { en: 'Checkov on Terraform and manifests', es: 'Checkov sobre Terraform y manifiestos' }, result: { en: '0 failed checks, exceptions documented', es: '0 controles fallidos, excepciones documentadas' }, href: `${repo('opscircuit')}/blob/main/.checkov.yaml` },
+      { check: { en: 'Unsigned-image drill', es: 'Simulacro con imagen sin firma' }, result: { en: 'Denied at admission; the signed image runs pinned to its digest', es: 'Rechazada en la admisión; la imagen firmada corre fijada a su digest' }, href: `${repo('opscircuit')}/blob/main/docs/incidents/drill-unsigned-image.log` },
       { check: { en: 'Terraform for AWS', es: 'Terraform para AWS' }, result: { en: 'Validated in CI, never applied', es: 'Validado en CI, nunca aplicado' }, href: `${repo('opscircuit')}/tree/main/terraform/aws` },
     ],
     screens: [
@@ -499,7 +502,7 @@ export const projects: Project[] = [
       { en: 'Sportsbook for four sports, each with its own clock and scoring model (Poisson goals and runs, a normal model of points), one feed leader, SSE to the browser, ODDS_CHANGED refusals and every market settled once.', es: 'Apuestas de cuatro deportes, cada uno con su reloj y modelo de puntuación (goles y carreras Poisson, puntos con un modelo normal), un solo líder del feed, SSE al navegador, rechazo por ODDS_CHANGED y cada mercado liquidado una vez.' },
       { en: 'Casino: a seamless wallet with idempotent, HMAC-signed provider callbacks and rollback tombstones; a lobby of five fictitious games with an animated slot machine.', es: 'Casino: billetera seamless con callbacks del proveedor idempotentes y firmados con HMAC, y registro de reversos anticipados; un lobby de cinco juegos ficticios con una tragamonedas animada.' },
       { en: 'Balance and ledger: one conditional UPDATE, CHECK constraints and append-only movements; idempotent sales with per-key advisory locks.', es: 'Saldo y libro contable: un UPDATE condicional, restricciones CHECK y movimientos de solo inserción; ventas idempotentes con bloqueo por llave.' },
-      { en: 'An HMAC-signed B2B API for partners, a login lockout, and a React cashier, sportsbook, casino and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Una API B2B firmada con HMAC para aliados, bloqueo de login, y en React la caja, las apuestas, el casino y la administración; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
+      { en: 'An HMAC-signed B2B API for partners, a login lockout, and a React cashier, sportsbook, casino and admin; CI scans, signs and publishes the images that Argo CD deploys in OpsCircuit.', es: 'Una API B2B firmada con HMAC para aliados, bloqueo de login, y en React la caja, las apuestas, el casino y la administración; el CI escanea, firma y publica las imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
       { en: '54 tests', es: '54 pruebas' },
@@ -513,7 +516,7 @@ export const projects: Project[] = [
       { layer: { en: 'Data', es: 'Datos' }, items: ['PostgreSQL 16', 'plain SQL', 'advisory locks', 'append-only ledger'] },
       { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker multi-stage', 'nginx', 'GHCR multi-arch images', 'Kubernetes', 'Argo CD (in OpsCircuit)'] },
       { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '54 tests', 'Dependabot'] },
-      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Helmet', 'IP allowlist', 'login lockout'] },
+      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Trivy', 'OWASP ZAP (DAST)', 'SBOM + SLSA provenance', 'cosign signing', 'Content-Security-Policy', 'Helmet', 'IP allowlist', 'login lockout'] },
       { layer: { en: 'Observability', es: 'Observabilidad' }, items: ['Prometheus metrics (prom-client)'] },
     ],
     roleFit: {
@@ -568,6 +571,7 @@ export const projects: Project[] = [
       { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, every market settled once, wallet replays', es: 'Rechazo por cambio de cuota, cada mercado liquidado una vez, reintentos de billetera' }, href: `${repo('nekobet')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
       { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('nekobet')}/blob/main/docs/concurrency-experiment.md` },
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('nekobet')}/actions` },
+      { check: { en: 'Supply chain', es: 'Cadena de suministro' }, result: { en: 'Trivy and ZAP gates; images with SBOM and provenance, signed with cosign', es: 'Controles de Trivy y ZAP; imágenes con SBOM y procedencia, firmadas con cosign' }, href: `${repo('nekobet')}#security` },
     ],
     screens: [
       { src: '/media/nekobet-betting.jpg', alt: { en: 'Live sportsbook: matches by league, moving 1X2 odds, a link to every market, bet slip and my bets', es: 'Apuestas en vivo: partidos por liga, cuotas 1X2 que se mueven, enlace a todos los mercados, cupón y mis apuestas' }, width: 1600, height: 1111 },
