@@ -74,7 +74,7 @@ export const hero = {
 };
 
 export const stats: Array<{ value: L; label: L }> = [
-  { value: { en: '121', es: '121' }, label: { en: 'automated tests across 3 portfolio systems (54 + 52 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (54 + 52 + 15)' } },
+  { value: { en: '123', es: '123' }, label: { en: 'automated tests across 3 portfolio systems (54 + 54 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (54 + 54 + 15)' } },
   { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
   { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
   { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
@@ -460,22 +460,22 @@ export const projects: Project[] = [
     accent: '#2b59c3',
     cover: '/media/nekobet-cover.jpg',
     oneLiner: {
-      en: 'A live sportsbook with four markets per match, a casino with slot machines and prepaid top-ups, all on one store balance that stays correct under concurrent requests, retries, provider timeouts and reversals.',
-      es: 'Apuestas en vivo con cuatro mercados por partido, un casino con tragamonedas y recargas prepagadas, todo sobre un saldo por tienda que se mantiene correcto ante solicitudes simultáneas, reintentos, timeouts y reversos de proveedores.',
+      en: 'A real-time sportsbook for football, basketball, baseball and ice hockey, a casino with slot machines and prepaid top-ups, all on one store balance that stays correct under concurrent requests, retries, provider timeouts and reversals.',
+      es: 'Apuestas en tiempo real de fútbol, baloncesto, béisbol y hockey, un casino con tragamonedas y recargas prepagadas, todo sobre un saldo por tienda que se mantiene correcto ante solicitudes simultáneas, reintentos, timeouts y reversos de proveedores.',
     },
     purpose: {
-      en: 'A point-of-sale network where every store sells live sports bets, casino games and prepaid top-ups from one balance, from a portal or a partner API. Odds, games and the carrier are simulated with fictitious data; the engineering goal is a balance that never goes wrong.',
-      es: 'Una red de puntos de venta donde cada tienda vende apuestas en vivo, juegos de casino y recargas desde un mismo saldo, por un portal o una API de aliados. Cuotas, juegos y operador son simulados con datos ficticios; el objetivo de ingeniería es un saldo que nunca falla.',
+      en: 'A point-of-sale network where every store sells live sports bets, casino games and prepaid top-ups from one balance, from a portal or a partner API. Everything runs in real time; the production platforms I worked on and their data are confidential, so this public version uses a simulated feed. The engineering goal is a balance that never goes wrong.',
+      es: 'Una red de puntos de venta donde cada tienda vende apuestas en vivo, juegos de casino y recargas desde un mismo saldo, por un portal o una API de aliados. Todo corre en tiempo real; las plataformas de producción en las que trabajé y sus datos son confidenciales, así que esta versión pública usa un feed simulado. El objetivo de ingeniería es un saldo que nunca falla.',
     },
     myWork: [
-      { en: 'Sportsbook: a simulated odds feed with one leader that prices four markets per match from one goal model, SSE to the browser, ODDS_CHANGED refusals and settlement of every market paid once.', es: 'Apuestas: un feed de cuotas simulado con un solo líder que calcula cuatro mercados por partido con un modelo de goles, SSE al navegador, rechazo por ODDS_CHANGED y liquidación de cada mercado pagada una vez.' },
+      { en: 'Sportsbook for four sports, each with its own clock and scoring model (Poisson goals and runs, a normal model of points), one feed leader, SSE to the browser, ODDS_CHANGED refusals and every market settled once.', es: 'Apuestas de cuatro deportes, cada uno con su reloj y modelo de puntuación (goles y carreras Poisson, puntos con un modelo normal), un solo líder del feed, SSE al navegador, rechazo por ODDS_CHANGED y cada mercado liquidado una vez.' },
       { en: 'Casino: a seamless wallet with idempotent, HMAC-signed provider callbacks and rollback tombstones; a lobby of five fictitious games with an animated slot machine.', es: 'Casino: billetera seamless con callbacks del proveedor idempotentes y firmados con HMAC, y registro de reversos anticipados; un lobby de cinco juegos ficticios con una tragamonedas animada.' },
       { en: 'Balance and ledger: one conditional UPDATE, CHECK constraints and append-only movements; idempotent sales with per-key advisory locks.', es: 'Saldo y libro contable: un UPDATE condicional, restricciones CHECK y movimientos de solo inserción; ventas idempotentes con bloqueo por llave.' },
       { en: 'An HMAC-signed B2B API for partners, a login lockout, and a React cashier, sportsbook, casino and admin; CI publishes images that Argo CD deploys in OpsCircuit.', es: 'Una API B2B firmada con HMAC para aliados, bloqueo de login, y en React la caja, las apuestas, el casino y la administración; el CI publica imágenes que Argo CD despliega en OpsCircuit.' },
     ],
     metrics: [
-      { en: '52 tests', es: '52 pruebas' },
-      { en: '4 live markets per match', es: '4 mercados en vivo por partido' },
+      { en: '54 tests', es: '54 pruebas' },
+      { en: '4 sports live', es: '4 deportes en vivo' },
       { en: '70 retries → 1 sale', es: '70 reintentos → 1 venta' },
     ],
     stack: ['NestJS', 'PostgreSQL', 'React', 'SSE', 'HMAC', 'Docker'],
@@ -488,7 +488,7 @@ export const projects: Project[] = [
       es: 'Las tiendas tienen un solo saldo prepagado para apuestas, casino y recargas. Dos ventas pueden gastar el mismo saldo, un reintento puede cobrar dos veces, las cuotas cambian mientras el cajero decide, el proveedor de juegos reintenta o revierte llamadas y el operador puede no responder.',
     },
     built: [
-      { en: 'A live sportsbook: match result, double chance, total goals 2.5 and both teams to score, priced from one goal model, with an event page for every match.', es: 'Apuestas en vivo: resultado, doble oportunidad, total de goles 2.5 y ambos marcan, con cuotas de un mismo modelo de goles y una página por partido.' },
+      { en: 'A real-time sportsbook for football, basketball, baseball and ice hockey: results, double chance, totals and both teams to score, with overtime and extra innings, and an event page for every game.', es: 'Apuestas en tiempo real de fútbol, baloncesto, béisbol y hockey: resultados, doble oportunidad, totales y ambos marcan, con prórrogas y entradas extra, y una página por partido.' },
       { en: 'Bets refused when the odds moved; every market settled from the final score and paid once.', es: 'Apuestas rechazadas si la cuota cambió; cada mercado se liquida con el marcador final y se paga una sola vez.' },
       { en: 'A seamless-wallet casino with idempotent provider callbacks and rollback tombstones; slot machines whose reels show the provider\'s outcome.', es: 'Un casino con billetera seamless, callbacks idempotentes y registro de reversos anticipados; tragamonedas cuyos rodillos muestran el resultado del proveedor.' },
       { en: 'Check and debit in one conditional UPDATE, a mandatory Idempotency-Key, an append-only ledger and an HMAC-SHA256 partner API with an IP allowlist.', es: 'Verificación y débito en un UPDATE condicional, Idempotency-Key obligatoria, libro contable de solo inserción y una API de aliados con HMAC-SHA256 y lista blanca de IP.' },
@@ -499,7 +499,7 @@ export const projects: Project[] = [
       { en: 'A bet carries the odds the cashier saw; a moved price is refused', es: 'La apuesta lleva la cuota que vio el cajero; si cambió, se rechaza' },
     ],
     proof: [
-      { en: '52 automated tests; multi-arch images published after CI', es: '52 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
+      { en: '54 automated tests; multi-arch images published after CI', es: '54 pruebas automatizadas; imágenes multiarquitectura publicadas tras el CI' },
       { en: 'Local experiment: 70 concurrent sales, balance for 50, exactly 50 approved', es: 'Experimento local: 70 ventas simultáneas, saldo para 50, exactamente 50 aprobadas' },
       { en: '70 concurrent retries of one key create one sale', es: '70 reintentos simultáneos de una llave crean una sola venta' },
     ],
@@ -527,14 +527,15 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '52 passing in CI', es: '52 aprobadas en CI' }, href: `${repo('nekobet')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '54 passing in CI', es: '54 aprobadas en CI' }, href: `${repo('nekobet')}/actions` },
       { check: { en: 'Betting and casino', es: 'Apuestas y casino' }, result: { en: 'Odds-changed refusal, every market settled once, wallet replays', es: 'Rechazo por cambio de cuota, cada mercado liquidado una vez, reintentos de billetera' }, href: `${repo('nekobet')}/blob/main/backend/test/e2e/betting.e2e-spec.ts` },
       { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('nekobet')}/blob/main/docs/concurrency-experiment.md` },
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('nekobet')}/actions` },
     ],
     screens: [
       { src: '/media/nekobet-betting.jpg', alt: { en: 'Live sportsbook: matches by league, moving 1X2 odds, a link to every market, bet slip and my bets', es: 'Apuestas en vivo: partidos por liga, cuotas 1X2 que se mueven, enlace a todos los mercados, cupón y mis apuestas' }, width: 1600, height: 1111 },
-      { src: '/media/nekobet-event.jpg', alt: { en: 'Event page: scoreboard and every market, with the bet slip', es: 'Página del partido: marcador y todos los mercados, con el cupón' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-event.jpg', alt: { en: 'Football event: live tracker on the pitch, scoreboard and every market', es: 'Partido de fútbol: tracker en vivo en la cancha, marcador y todos los mercados' }, width: 1600, height: 1111 },
+      { src: '/media/nekobet-basketball.jpg', alt: { en: 'Basketball event: court tracker by quarter, winner and total points', es: 'Partido de baloncesto: tracker en la cancha por cuarto, ganador y total de puntos' }, width: 1600, height: 1111 },
       { src: '/media/nekobet-casino.jpg', alt: { en: 'Casino lobby and a slot machine paying through the wallet', es: 'Lobby del casino y una tragamonedas pagando por la billetera' }, width: 1600, height: 1111 },
       { src: '/media/nekobet-cashier.jpg', alt: { en: 'Cashier: balance, top-ups and a refunded rejection', es: 'Caja: saldo, recargas y un rechazo reembolsado' }, width: 1600, height: 1111 },
       { src: '/media/nekobet-admin.jpg', alt: { en: 'Admin: points of sale, credits and network sales', es: 'Administración: puntos de venta, créditos y ventas de la red' }, width: 1600, height: 1111 },
@@ -542,13 +543,13 @@ export const projects: Project[] = [
     limitations: [
       { en: 'Reconciliation of PENDING sales is not implemented yet.', es: 'La conciliación de ventas en PENDING aún no está implementada.' },
       { en: 'HMAC secrets are stored in plain text; production would use a secrets manager.', es: 'Los secretos HMAC se guardan en texto plano; en producción irían en un gestor de secretos.' },
-      { en: 'Carrier, odds feed and game provider are simulated. Betting is a demonstration, not a licensed service (Colombia requires a Coljuegos license).', es: 'El operador, el feed de cuotas y el proveedor de juegos son simulados. Las apuestas son una demostración, no un servicio con licencia (en Colombia se requiere licencia de Coljuegos).' },
+      { en: 'Carrier, odds feed and game provider are simulated because the production platforms and their data are confidential. Betting is a demonstration, not a licensed service (Colombia requires a Coljuegos license).', es: 'El operador, el feed de cuotas y el proveedor de juegos son simulados porque las plataformas de producción y sus datos son confidenciales. Las apuestas son una demostración, no un servicio con licencia (en Colombia se requiere licencia de Coljuegos).' },
     ],
     localVsProd: {
       en: 'Runs locally with Docker Compose and on OpsCircuit’s kind cluster through Argo CD. The concurrency numbers come from a local, reproducible experiment, not from production traffic.',
       es: 'Corre en local con Docker Compose y en el clúster kind de OpsCircuit mediante Argo CD. Los números de concurrencia vienen de un experimento local y reproducible, no de tráfico de producción.',
     },
-    run: 'git clone https://github.com/vzuliani97/nekobet && cd nekobet\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 52 tests',
+    run: 'git clone https://github.com/vzuliani97/nekobet && cd nekobet\ncp .env.example .env\nmake up     # http://localhost:8081\nmake test   # 54 tests',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'MIXED', note: { en: 'Cashiers, partners and a simulated carrier; reconciliation planned.', es: 'Cajeros, aliados y un operador simulado; conciliación planeada.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'nginx, a NestJS API and PostgreSQL.', es: 'nginx, una API NestJS y PostgreSQL.' } },
