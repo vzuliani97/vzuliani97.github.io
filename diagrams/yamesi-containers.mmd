@@ -1,7 +1,22 @@
 flowchart LR
-  B["Browser<br/>React 19 SPA"] -->|/api, JWT| N["nginx<br/>unprivileged"]
-  N --> A["NestJS modular API<br/>auth · lots · pieces · invoices<br/>expenses · closings · reports · audit"]
-  A -->|plain SQL, transactions,<br/>advisory locks| P[("PostgreSQL<br/>gold in mg · invoices · audit")]
-  A -->|AWS SDK v3| S[("S3 / RustFS<br/>photos · receipts · PDFs")]
-  B -->|presigned GET, 5 min| S
-  A -->|tool calls, no SQL| O["Ollama · Qwen2.5 3B<br/>optional profile"]
+  user(["👤 <b>Seller · admin</b><br/><small>[Person]</small>"]):::person
+  subgraph boundary["Yamesi Core · Docker Compose"]
+    N["<b>Web app</b><br/><small>[Container · React 19 on unprivileged nginx]</small><br/>Point of sale · inventory portal<br/>petty cash · closing · reports"]:::container
+    A["<b>API</b><br/><small>[Container · NestJS modular monolith]</small><br/>auth · lots · pieces · invoices<br/>expenses · closings · reports · audit"]:::container
+    P[("<b>Database</b><br/><small>[PostgreSQL 16]</small><br/>Gold in mg · invoices · audit")]:::store
+    S[("<b>Object storage</b><br/><small>[S3 API · RustFS locally]</small><br/>Photos · receipts · PDFs")]:::store
+    O["<b>Assistant model</b><br/><small>[Ollama · Qwen2.5 3B · optional]</small><br/>Five read-only tools"]:::external
+  end
+  user -->|"HTTPS"| N
+  N -->|"/api · JWT"| A
+  A -->|"plain SQL, transactions,<br/>advisory locks"| P
+  A -->|"AWS SDK v3"| S
+  N -.->|"presigned GET · 5 min"| S
+  A -->|"tool calls, no SQL"| O
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  style boundary fill:#fffbeb,stroke:#d6a645,stroke-dasharray:6 4,color:#8a5a14

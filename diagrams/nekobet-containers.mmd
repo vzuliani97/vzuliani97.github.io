@@ -1,8 +1,24 @@
 flowchart LR
-  B["Browser<br/>React SPA"] --> N["nginx :8081<br/>SSE without buffering"]
-  I["Partner client"] -->|HMAC| N
-  N -->|/api| A["NestJS API<br/>sales · partner · betting · casino"]
-  N -->|/api/betting/stream| A
-  A -->|conditional UPDATE · ledger<br/>idempotency keys · bets · wallet tx| DB[("PostgreSQL 16")]
-  L["Live feed<br/>one leader per tick via advisory lock"] --> DB
-  A -->|timeout-bounded call| P["Carrier simulator"]
+  B["<b>Web app</b><br/><small>[React SPA in the browser]</small><br/>sportsbook · casino · cashier"]:::container
+  I["<b>Partner client</b><br/><small>[External]</small>"]:::external
+  subgraph boundary["NekoBet · Docker Compose or Kubernetes"]
+    N["<b>Web server</b><br/><small>[nginx :8081]</small><br/>SPA · SSE without buffering"]:::container
+    A["<b>API</b><br/><small>[NestJS]</small><br/>sales · partner · betting · casino"]:::container
+    L["<b>Live feed</b><br/><small>[in the API · one leader per tick]</small><br/>4 sports · odds · settlement"]:::container
+    DB[("<b>PostgreSQL 16</b><br/>balances · ledger · bets<br/>idempotency keys · wallet tx")]:::store
+  end
+  P["<b>Carrier</b><br/><small>[simulator]</small>"]:::external
+  B -->|"HTTPS"| N
+  I -->|"HMAC"| N
+  N -->|"/api"| A
+  N -->|"/api/betting/stream · SSE"| A
+  A -->|"conditional UPDATE · ledger"| DB
+  L -->|"advisory lock per tick"| DB
+  A -->|"timeout-bounded call"| P
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  style boundary fill:#eff6ff,stroke:#3b82f6,stroke-dasharray:6 4,color:#1e3f8a

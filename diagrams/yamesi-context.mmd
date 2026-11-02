@@ -1,7 +1,24 @@
 flowchart LR
-  staff["Store staff<br/>seller · admin"] -->|sell, record expenses, close the day| Y["Yamesi Core<br/>invoicing · gold lots · petty cash<br/>daily closing · audit"]
-  Y -->|invoice PDF with CUFE and QR| customer["Customer"]
-  Y -->|photos, receipts, PDFs| S[("Object storage<br/>S3 API")]
-  Y -->|aggregate questions, read-only tools| L["Local LLM · Ollama<br/>optional"]
-  Y -.->|planned: XML UBL 2.1 + signature| D["DIAN-authorized<br/>e-invoice provider"]:::planned
-  classDef planned stroke-dasharray:6 4,color:#57534e
+  staff(["👤 <b>Store staff</b><br/><small>[Person · seller, admin]</small><br/>Sells, records expenses,<br/>closes the day"]):::person
+  customer(["👤 <b>Customer</b><br/><small>[Person]</small><br/>Receives the invoice"]):::person
+
+  subgraph boundary["Yamesi Core · system boundary"]
+    Y["<b>Yamesi Core</b><br/><small>[Software system]</small><br/>Point of sale · invoicing<br/>gold lots · petty cash<br/>daily closing · audit"]:::system
+  end
+
+  S[("<b>Object storage</b><br/><small>[S3 API]</small><br/>Photos · receipts · PDFs")]:::store
+  L["<b>Local LLM</b><br/><small>[Ollama · optional]</small><br/>Answers aggregate questions"]:::external
+  D["<b>DIAN-authorized provider</b><br/><small>[External · planned]</small><br/>UBL 2.1 XML, signature,<br/>validation"]:::planned
+
+  staff -->|"sells, records, closes the day"| Y
+  Y -->|"invoice PDF with CUFE and QR"| customer
+  Y -->|"stores and signs URLs"| S
+  Y -->|"read-only tools"| L
+  Y -.->|"planned"| D
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef system fill:#b7791f,stroke:#8a5a14,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  style boundary fill:#fffbeb,stroke:#d6a645,stroke-dasharray:6 4,color:#8a5a14

@@ -1,13 +1,18 @@
 flowchart TB
-  R["Alert rule fires"] --> AM["Alertmanager groups by<br/>alertname · namespace · service"]
-  AM --> V{"Valid payload?"}
-  V -->|no| X["400 + rejected_events"]
-  V -->|yes| IN["Store raw delivery (inbox), answer 202"]
-  IN --> F["Fingerprint = sha256(alert, namespace, service, startsAt)"]
-  F --> U["INSERT ... ON CONFLICT: one incident per firing episode"]
-  U --> P{"New incident that pages,<br/>or a failed page?"}
-  P -->|no| D["Count the occurrence"]
-  P -->|yes| N["Notify: 3 tries, 1 s apart"]
-  N -->|2xx| S["notify_status = sent"]
-  N -->|still failing| DL["Dead letter + failed"]
-  DL -->|make replay| IN
+  R(["Alert rule fires"]):::start --> AM["Alertmanager groups by<br/>alertname · namespace · service"]:::step
+  AM --> V{"Valid payload?"}:::decision
+  V -->|no| X["400 + rejected_events"]:::bad
+  V -->|yes| IN["Store the raw delivery (inbox), answer 202"]:::step
+  IN --> F["Fingerprint = sha256(alert, namespace, service, startsAt)"]:::step
+  F --> U["INSERT … ON CONFLICT: one incident per firing episode"]:::step
+  U --> P{"New incident that pages,<br/>or a failed page?"}:::decision
+  P -->|no| D["Count the occurrence"]:::step
+  P -->|yes| N["Notify: 3 tries, 1 s apart"]:::step
+  N -->|2xx| S["notify_status = sent"]:::good
+  N -->|still failing| DL["Dead letter + failed"]:::bad
+  DL -.->|make replay| IN
+  classDef start fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef step fill:#e0ecfb,stroke:#438dd5,color:#0f172a
+  classDef decision fill:#fff7ed,stroke:#f59e0b,color:#7c2d12
+  classDef good fill:#dcfce7,stroke:#22c55e,color:#14532d
+  classDef bad fill:#fee2e2,stroke:#ef4444,color:#7f1d1d

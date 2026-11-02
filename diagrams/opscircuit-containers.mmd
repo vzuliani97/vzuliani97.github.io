@@ -1,9 +1,23 @@
 flowchart LR
-  AM["Alertmanager v0.34<br/>grouping · repeat"] -->|webhook v4, Bearer| IN
+  AM["<b>Alertmanager v0.34</b><br/><small>[Container]</small><br/>grouping · repeat"]:::container
   subgraph N8N["n8n 2.43 · self-hosted"]
-    IN["Incident intake workflow"] -.->|unhandled error| EH["Error handler workflow"]
+    IN["<b>Incident intake</b><br/><small>[Workflow]</small>"]:::system
+    EH["<b>Error handler</b><br/><small>[Workflow]</small>"]:::system
   end
-  IN -->|role incident_writer<br/>parameterized SQL| DB[("PostgreSQL 18<br/>inbox · incidents · dead letters")]
-  EH --> DB
-  IN -->|POST + Idempotency-Key| NT["Mock on-call notifier"]
-  CAT["service-catalog/services.json<br/>versioned in git"] -->|loaded on every start| DB
+  DB[("<b>PostgreSQL 18</b><br/><small>[Database]</small><br/>inbox · incidents · dead letters")]:::store
+  NT["<b>On-call notifier</b><br/><small>[mock]</small>"]:::external
+  CAT["<b>Service catalog</b><br/><small>[services.json in git]</small><br/>owner · runbook · severity"]:::external
+  AM -->|"webhook v4 · Bearer"| IN
+  IN -.->|"unhandled error"| EH
+  IN -->|"role incident_writer<br/>parameterized SQL"| DB
+  EH -->|"dead letter"| DB
+  IN -->|"POST + Idempotency-Key"| NT
+  CAT -->|"loaded on every start"| DB
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  classDef system fill:#0f766e,stroke:#0b5a54,color:#ffffff
+  style N8N fill:#f0fdfa,stroke:#14b8a6,stroke-dasharray:6 4,color:#0f766e

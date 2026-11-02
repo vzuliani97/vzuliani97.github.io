@@ -1,5 +1,17 @@
 flowchart LR
-  dev["Push to main"] --> ci["GitHub Actions<br/>37 tests · CodeQL · Gitleaks · npm audit"]
-  ci -->|multi-arch images| g[("GHCR<br/>paypoint-backend · paypoint-frontend")]
-  g --> local["Docker Compose<br/>local run"]
-  g --> argo["Argo CD in OpsCircuit<br/>kind cluster, synced from main"]
+  dev(["👤 <b>Push to main</b>"]):::person
+  ci["<b>GitHub Actions</b><br/>54 tests · CodeQL · Gitleaks<br/>npm audit · image metadata"]:::external
+  g[("<b>GHCR</b><br/>paypoint-backend · paypoint-frontend<br/>multi-arch images")]:::store
+  local["<b>Docker Compose</b><br/><small>[local run]</small>"]:::container
+  argo["<b>Argo CD in OpsCircuit</b><br/><small>[kind cluster, synced from main]</small>"]:::system
+  dev --> ci
+  ci -->|"after green tests"| g
+  g --> local
+  g --> argo
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  classDef system fill:#2b59c3,stroke:#1e3f8a,color:#ffffff

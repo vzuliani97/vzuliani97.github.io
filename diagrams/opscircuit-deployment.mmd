@@ -1,11 +1,21 @@
 flowchart TB
   subgraph local["Implemented and verified locally"]
-    k["kind: 1 control plane + 2 workers"] --- ns["paypoint · monitoring · argocd"]
-    lab["Docker Compose incident lab<br/>Alertmanager · n8n · PostgreSQL"]
+    direction LR
+    k["<b>kind cluster</b><br/>1 control plane + 2 workers"]:::system --- ns["<b>Namespaces</b><br/>paypoint · monitoring · argocd"]:::container
+    lab["<b>Incident lab</b><br/><small>[Docker Compose]</small><br/>Alertmanager · n8n · PostgreSQL"]:::container
   end
-  subgraph aws["AWS blueprint · Terraform · DESIGN · CI-VALIDATED · NOT DEPLOYED"]
-    vpc["VPC, 3 AZs"]:::planned --> eks["EKS"]:::planned
-    vpc --> rds[("RDS PostgreSQL 16<br/>TLS · IAM auth")]:::planned
-    ecr[("ECR · KMS · scan on push")]:::planned --> eks
+  subgraph aws["AWS blueprint · Terraform · validated in CI · not deployed"]
+    direction LR
+    vpc["<b>VPC</b><br/>3 availability zones"]:::planned --> eks["<b>EKS</b>"]:::planned
+    vpc --> rds[("<b>RDS PostgreSQL 16</b><br/>TLS · IAM auth")]:::planned
+    ecr[("<b>ECR</b><br/>KMS · scan on push")]:::planned --> eks
   end
-  classDef planned stroke-dasharray:6 4,color:#475569
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  classDef system fill:#0f766e,stroke:#0b5a54,color:#ffffff
+  style local fill:#f0fdfa,stroke:#14b8a6,color:#0f766e
+  style aws fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569

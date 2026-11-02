@@ -1,10 +1,29 @@
-flowchart LR
-  D["Developer"] -->|push| G["GitHub"]
-  G --> CI["GitHub Actions<br/>manifests · Terraform · Checkov<br/>Gitleaks · incident lab tests"]
-  G -->|GitOps| AR["Argo CD"]
-  AR --> K["kind cluster<br/>PayPoint workloads"]
-  K --> PR["Prometheus + Grafana<br/>alert rules"]
-  AM["Alertmanager"] -->|webhook + bearer token| N8["n8n incident workflow"]
-  N8 --> OC["On-call notifier<br/>mock"]
-  PR -.->|planned route| AM
-  classDef planned stroke-dasharray:6 4
+flowchart TB
+  D(["👤 <b>Developer</b><br/><small>[Person]</small>"]):::person
+  G["<b>GitHub</b><br/><small>[Repository + Actions]</small><br/>manifests · Terraform · Checkov<br/>Gitleaks · incident lab tests"]:::external
+  subgraph platform["OpsCircuit · local platform"]
+    AR["<b>Argo CD</b><br/><small>[GitOps controller]</small>"]:::container
+    K["<b>kind cluster</b><br/><small>[3 nodes]</small><br/>NekoBet (PayPoint) workloads"]:::system
+    PR["<b>Prometheus + Grafana</b><br/><small>[Observability]</small><br/>alert rules · dashboards"]:::container
+  end
+  subgraph lab["Incident lab · Docker Compose"]
+    AM["<b>Alertmanager</b><br/><small>[Grouping · routing]</small>"]:::container
+    N8["<b>n8n incident workflow</b><br/><small>[Self-hosted]</small>"]:::container
+    OC["<b>On-call notifier</b><br/><small>[mock]</small>"]:::external
+  end
+  D -->|"push"| G
+  G -->|"GitOps sync"| AR
+  AR -->|"apply · self-heal"| K
+  K -->|"metrics"| PR
+  PR -.->|"planned route"| AM
+  AM -->|"webhook + bearer token"| N8
+  N8 -->|"one page per incident"| OC
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  classDef system fill:#0f766e,stroke:#0b5a54,color:#ffffff
+  style platform fill:#f0fdfa,stroke:#14b8a6,stroke-dasharray:6 4,color:#0f766e
+  style lab fill:#f8fafc,stroke:#94a3b8,stroke-dasharray:6 4,color:#334155

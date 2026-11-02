@@ -1,10 +1,22 @@
 flowchart TB
-  subgraph local["Portfolio rebuild · Docker Compose · synthetic data"]
-    n1["nginx + React"] --> a1["NestJS API"] --> p1[("PostgreSQL")]
-    a1 --> r1[("RustFS · S3 API")]
-    a1 --> o1["Ollama · optional"]
+  subgraph local["Portfolio rebuild · Docker Compose · store catalog, synthetic customers"]
+    direction LR
+    n1["<b>Web app</b><br/><small>[nginx + React]</small>"]:::container --> a1["<b>API</b><br/><small>[NestJS]</small>"]:::container
+    a1 --> p1[("<b>PostgreSQL 16</b>")]:::store
+    a1 --> r1[("<b>RustFS</b><br/><small>[S3 API]</small>")]:::store
+    a1 --> o1["<b>Ollama</b><br/><small>[optional]</small>"]:::external
   end
-  subgraph prod["The business's real system · professional work, separate codebase"]
-    e1["Docker on AWS EC2"] --> s1[("AWS S3")]
-    e1 --- net["HTTPS · security groups · SSH · VPN"]
+  subgraph prod["The business's real system · professional work · separate codebase"]
+    direction LR
+    e1["<b>Application</b><br/><small>[Docker on AWS EC2]</small>"]:::system --> s1[("<b>AWS S3</b><br/>documents · images")]:::store
+    e1 --- net["<b>Network controls</b><br/>HTTPS · security groups · SSH · VPN"]:::external
   end
+
+  classDef person fill:#0b3d75,stroke:#082c55,color:#ffffff
+  classDef container fill:#438dd5,stroke:#2e6fb0,color:#ffffff
+  classDef store fill:#155e75,stroke:#0e4a5c,color:#ffffff
+  classDef external fill:#6b7280,stroke:#4b5563,color:#ffffff
+  classDef planned fill:#ffffff,stroke:#94a3b8,stroke-dasharray:6 4,color:#475569
+  classDef system fill:#b7791f,stroke:#8a5a14,color:#ffffff
+  style local fill:#f8fafc,stroke:#94a3b8,stroke-dasharray:6 4,color:#334155
+  style prod fill:#fffbeb,stroke:#d6a645,color:#8a5a14
