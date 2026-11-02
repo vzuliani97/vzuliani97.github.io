@@ -338,6 +338,7 @@ export const projects: Project[] = [
       { check: { en: 'Concurrent sales of one piece', es: 'Ventas simultáneas de una pieza' }, result: { en: 'One sale, one PIECE_NOT_AVAILABLE', es: 'Una venta y un PIECE_NOT_AVAILABLE' }, href: `${repo('yamesi')}/blob/main/backend/test/e2e/invoices.e2e-spec.ts` },
       { check: { en: 'Static analysis and secrets', es: 'Análisis estático y secretos' }, result: { en: 'CodeQL and Gitleaks green', es: 'CodeQL y Gitleaks en verde' }, href: `${repo('yamesi')}/actions` },
       { check: { en: 'Image and DAST scans', es: 'Escaneo de imágenes y DAST' }, result: { en: 'Trivy: 0 fixable critical or high CVEs; ZAP: no unaccepted warnings', es: 'Trivy: 0 CVE críticas o altas corregibles; ZAP: sin alertas no aceptadas' }, href: `${repo('yamesi')}/blob/main/.zap/rules.tsv` },
+      { check: { en: 'Security assessment', es: 'Evaluación de seguridad' }, result: { en: 'Photos kept GPS and sellers saw costs: found, fixed, retested in CI', es: 'Las fotos conservaban el GPS y el vendedor veía costos: encontrado, corregido y probado en CI' }, href: `${repo('escudo')}#findings` },
     ],
     screens: [
       { src: '/media/yamesi-sell.jpg', alt: { en: 'Point of sale with catalog photos; each line of the sale shows its piece', es: 'Punto de venta con fotos del catálogo; cada línea de la venta muestra su pieza' }, width: 1600, height: 1111 },
@@ -456,6 +457,7 @@ export const projects: Project[] = [
       { check: { en: 'Outage and bad-release drills', es: 'Simulacros de caída y versión rota' }, result: { en: 'Postmortem published', es: 'Postmortem publicado' }, href: `${repo('opscircuit')}/blob/main/docs/incidents/2026-10-30-postmortem.md` },
       { check: { en: 'Checkov on Terraform and manifests', es: 'Checkov sobre Terraform y manifiestos' }, result: { en: '0 failed checks, exceptions documented', es: '0 controles fallidos, excepciones documentadas' }, href: `${repo('opscircuit')}/blob/main/.checkov.yaml` },
       { check: { en: 'Unsigned-image drill', es: 'Simulacro con imagen sin firma' }, result: { en: 'Denied at admission; the signed image runs pinned to its digest', es: 'Rechazada en la admisión; la imagen firmada corre fijada a su digest' }, href: `${repo('opscircuit')}/blob/main/docs/incidents/drill-unsigned-image.log` },
+      { check: { en: 'Security assessment', es: 'Evaluación de seguridad' }, result: { en: 'Cluster ports open to the local network: found, fixed, checked by make validate', es: 'Puertos del clúster abiertos a la red local: encontrado, corregido y verificado con make validate' }, href: `${repo('escudo')}/blob/main/findings/ESC-03-kind-ports-on-all-interfaces.md` },
       { check: { en: 'Terraform for AWS', es: 'Terraform para AWS' }, result: { en: 'Validated in CI, never applied', es: 'Validado en CI, nunca aplicado' }, href: `${repo('opscircuit')}/tree/main/terraform/aws` },
     ],
     screens: [
@@ -572,6 +574,7 @@ export const projects: Project[] = [
       { check: { en: 'Concurrency experiment', es: 'Experimento de concurrencia' }, result: { en: 'Naive 70 approved, conditional UPDATE 50 (local, not a benchmark)', es: 'Versión ingenua 70, UPDATE condicional 50 (local, no es un benchmark)' }, href: `${repo('nekobet')}/blob/main/docs/concurrency-experiment.md` },
       { check: { en: 'Static analysis, secrets, dependencies', es: 'Análisis estático, secretos y dependencias' }, result: { en: 'CodeQL, Gitleaks and npm audit green', es: 'CodeQL, Gitleaks y npm audit en verde' }, href: `${repo('nekobet')}/actions` },
       { check: { en: 'Supply chain', es: 'Cadena de suministro' }, result: { en: 'Trivy and ZAP gates; images with SBOM and provenance, signed with cosign', es: 'Controles de Trivy y ZAP; imágenes con SBOM y procedencia, firmadas con cosign' }, href: `${repo('nekobet')}#security` },
+      { check: { en: 'Security assessment', es: 'Evaluación de seguridad' }, result: { en: 'A replayed partner sale was charged twice: found, fixed, retested in CI', es: 'Una venta de un integrador repetida se cobraba dos veces: encontrado, corregido y probado en CI' }, href: `${repo('escudo')}/blob/main/findings/ESC-02-hmac-replay-new-idempotency-key.md` },
     ],
     screens: [
       { src: '/media/nekobet-betting.jpg', alt: { en: 'Live sportsbook: matches by league, moving 1X2 odds, a link to every market, bet slip and my bets', es: 'Apuestas en vivo: partidos por liga, cuotas 1X2 que se mueven, enlace a todos los mercados, cupón y mis apuestas' }, width: 1600, height: 1111 },
