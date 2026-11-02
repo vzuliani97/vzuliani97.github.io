@@ -1,7 +1,7 @@
 {
   "theme": "base",
   "themeVariables": {
-    "fontFamily": "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "fontFamily": "Arial, 'Liberation Sans', Helvetica, sans-serif",
     "fontSize": "14px",
     "primaryColor": "#e2e8f0",
     "primaryTextColor": "#0f172a",
