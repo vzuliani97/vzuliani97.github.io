@@ -294,13 +294,19 @@ function Feature({ project, t, eager }: { project: Project; t: T; eager: boolean
           ))}
         </ul>
         <p className="links">
-          <a className="button primary" href={href}>
+          {project.live && (
+            <a className="button primary" href={project.live.url}>
+              {t(ui.tryOnline)} ↗
+            </a>
+          )}
+          <a className={project.live ? 'button' : 'button primary'} href={href}>
             {t(ui.caseStudy)} →
           </a>
           <a className="button" href={project.repo}>
             {t(ui.source)}
           </a>
         </p>
+        {project.live && <p className="live-note muted">{t(project.live.note)}</p>}
       </div>
       {project.gallery && <Gallery project={project} t={t} level="h4" />}
     </article>
@@ -394,7 +400,12 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
           ))}
         </ul>
         <p className="actions">
-          <a className="button primary" href={project.repo}>
+          {project.live && (
+            <a className="button primary" href={project.live.url}>
+              {t(ui.tryOnline)} ↗
+            </a>
+          )}
+          <a className={project.live ? 'button' : 'button primary'} href={project.repo}>
             {t(ui.source)}
           </a>
           <a className="button" href={project.verification[0].href}>
@@ -404,6 +415,7 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
             {t(ui.run)}
           </a>
         </p>
+        {project.live && <p className="live-note muted">{t(project.live.note)}</p>}
       </header>
 
       <div className="views" role="tablist" aria-label="View">
