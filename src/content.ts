@@ -108,11 +108,11 @@ export const capabilities = [
   },
 ];
 
-// Same wording as the résumé (career/private/cv/final/cv_build.py, full-stack variant).
+// Same wording as the résumé ("Valter Zuliani - Todos los CV", 2026-11-09, Software Engineer variant).
 export const experience: Array<{ role: string; company: string; when: L; note: L; highlights: L[] }> = [
   {
     role: 'Full Stack Developer',
-    company: 'Inversiones Zuliani S.A.S. (Yamesi)',
+    company: 'Yamesi Jewelry',
     when: { en: 'Medellín · May 2020 – Present', es: 'Medellín · may. 2020 – actualidad' },
     note: {
       en: "The store's accounting and invoicing system, from the first line of code to production.",
@@ -120,35 +120,39 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     },
     highlights: [
       {
-        en: "Proposed and built the store's accounting and invoicing system, replacing spreadsheets and paper receipts for gold movements, daily operations and digital invoicing; the business uses it for around 15 invoices a day.",
-        es: 'Propuse y desarrollé el sistema contable y de facturación de la joyería, que reemplazó Excel y los recibos en papel para el oro, las operaciones diarias y la facturación; hoy registra unas 15 facturas al día.',
+        en: "Proposed and built the jewelry store's accounting and invoicing system, replacing spreadsheets and paper receipts for gold, inventory and invoicing; it records about 15 invoices a day.",
+        es: 'Propuse y desarrollé el sistema contable y de facturación de la joyería, que reemplazó Excel y recibos en papel para el oro, el inventario y la facturación; registra unas 15 facturas al día.',
       },
       {
-        en: 'Deployed it with Docker on AWS EC2, with documents and images in S3, HTTPS, and network access controlled through security groups, SSH and VPN.',
-        es: 'Lo desplegué con Docker en AWS EC2, con documentos e imágenes en S3, HTTPS y acceso de red controlado con security groups, SSH y VPN.',
+        en: 'Deployed it with Docker on AWS (EC2, RDS, S3, ALB, Route 53, CloudFront and CloudWatch), with HTTPS and network access restricted through security groups, SSH and VPN.',
+        es: 'Lo desplegué con Docker en AWS (EC2, RDS, S3, ALB, Route 53, CloudFront y CloudWatch), con HTTPS y acceso de red restringido mediante security groups, SSH y VPN.',
       },
       {
-        en: 'Since 2023, as a contractor, provide support, corrective maintenance, testing and updates for the production system.',
-        es: 'Desde 2023, como contratista, doy soporte, mantenimiento correctivo, pruebas y actualizaciones al sistema en producción.',
+        en: 'Since 2023, as a contractor, provide production support, corrective and evolutionary maintenance, new features and integrations.',
+        es: 'Desde 2023, como contratista, brindo soporte en producción, mantenimiento correctivo y evolutivo, nuevas funcionalidades e integraciones.',
       },
     ],
   },
   {
     role: 'Junior DevOps Engineer',
     company: 'The Big Group',
-    when: { en: 'Sydney · Oct 2024 – Mar 2026 · part-time', es: 'Sídney · oct. 2024 – mar. 2026 · tiempo parcial' },
+    when: { en: 'Sydney · Oct 2024 – Apr 2026 · part-time', es: 'Sídney · oct. 2024 – abr. 2026 · tiempo parcial' },
     note: {
-      en: 'Delivery and operations of AWS services in an English-speaking international team.',
-      es: 'Entrega y operación de servicios en AWS en un equipo internacional en inglés.',
+      en: 'Delivery and operations of AWS services in an international team, in English.',
+      es: 'Entrega y operación de servicios en AWS en un equipo internacional, en inglés.',
     },
     highlights: [
       {
-        en: 'Supported deployment and maintenance of AWS services for payments, digital operations and hospitality, working with CI/CD pipelines, Docker and Kubernetes environments.',
-        es: 'Apoyé el despliegue y mantenimiento de servicios en AWS para pagos, operaciones digitales y hospitalidad, con pipelines de CI/CD, Docker y entornos Kubernetes.',
+        en: 'Supported the deployment and maintenance of AWS services for payments, digital operations and hospitality on Kubernetes (EKS), ECS/Fargate and Lambda, with Helm, ECR, API Gateway and RDS.',
+        es: 'Apoyé el despliegue y mantenimiento de servicios en AWS para pagos, operaciones digitales y hospitalidad sobre Kubernetes (EKS), ECS/Fargate y Lambda, con Helm, ECR, API Gateway y RDS.',
       },
       {
-        en: 'Investigated production incidents through logs and monitoring, and applied access controls to cloud resources.',
-        es: 'Investigué incidentes en producción con logs y monitoreo, y apliqué controles de acceso en recursos cloud.',
+        en: 'Worked with Terraform (infrastructure as code) and CI/CD pipelines to automate deployments and releases.',
+        es: 'Trabajé con Terraform (infraestructura como código) y pipelines de CI/CD para automatizar despliegues y entregas.',
+      },
+      {
+        en: 'Investigated production incidents and service availability with Datadog, CloudWatch and ELK logs.',
+        es: 'Investigué incidentes en producción y la disponibilidad de los servicios con Datadog, CloudWatch y logs en ELK.',
       },
     ],
   },
@@ -162,12 +166,20 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     },
     highlights: [
       {
-        en: 'Developed full-stack modules and Node.js APIs for transactional platforms, white-label iGaming platforms for several countries and healthcare applications using Angular, React, TypeScript, PHP and MySQL; built a B2B API secured with key pairs and IP allowlisting; and managed AWS infrastructure and deployments from staging to production with EC2, VPC, VPN, EKS, Terraform, Docker and GitLab CI/CD.',
-        es: 'Desarrollé módulos full stack y APIs en Node.js para plataformas transaccionales, plataformas iGaming de marca blanca para varios países y aplicaciones del sector salud con Angular, React, TypeScript, PHP y MySQL; construí una API B2B protegida con pares de llaves y lista blanca de IP; y administré la infraestructura y los despliegues en AWS, de pruebas a producción, con EC2, VPC, VPN, EKS, Terraform, Docker y GitLab CI/CD.',
+        en: 'Developed full-stack modules and Node.js/TypeScript REST APIs with Angular, React, PHP and MySQL for transactional, white-label iGaming (several countries) and healthcare platforms.',
+        es: 'Desarrollé módulos full stack y APIs REST en Node.js y TypeScript, con Angular, React, PHP y MySQL, para plataformas transaccionales, iGaming de marca blanca (varios países) y de salud.',
       },
       {
-        en: 'Worked on the real-time sports betting and casino integration of the point-of-sale portal: the live-odds frontend, the provider integration, the betting backend (bet validation, balance and settlement) and its infrastructure.',
-        es: 'Trabajé en la integración de apuestas deportivas y casino en tiempo real del portal de puntos de venta: el frontend de cuotas en vivo, la integración con el proveedor, el backend de apuestas (validación, saldo y liquidación) y su infraestructura.',
+        en: 'Built a partner B2B API secured with JWT, key pairs and IP allowlisting, and integrations with top-up providers.',
+        es: 'Construí una API B2B para aliados, protegida con JWT, pares de llaves y lista blanca de IP, e integraciones con proveedores de recargas.',
+      },
+      {
+        en: 'Configured AWS infrastructure (EC2, VPC, VPN, EKS) with Terraform and deployed services from staging to production with Docker, Kubernetes and GitLab CI/CD, using RDS and CloudWatch.',
+        es: 'Configuré infraestructura AWS (EC2, VPC, VPN, EKS) con Terraform y desplegué servicios de pruebas a producción con Docker, Kubernetes y GitLab CI/CD, usando RDS y CloudWatch.',
+      },
+      {
+        en: 'Worked on the real-time sports betting and casino integration of a point-of-sale portal: live-odds frontend, provider integration and betting backend (validation, balance, settlement).',
+        es: 'Trabajé en la integración de apuestas deportivas y casino en tiempo real de un portal para puntos de venta: frontend de cuotas en vivo, proveedor y backend (validación, saldo, liquidación).',
       },
       {
         en: 'Diagnosed and fixed issues across frontend, backend, APIs and infrastructure, and provided technical support.',
@@ -179,11 +191,14 @@ export const experience: Array<{ role: string; company: string; when: L; note: L
     role: 'Software Developer',
     company: 'LaCompay Colombia',
     when: { en: 'Medellín · Nov 2020 – Apr 2021', es: 'Medellín · nov. 2020 – abr. 2021' },
-    note: { en: 'A payment gateway in C++.', es: 'Una pasarela de pagos en C++.' },
+    note: {
+      en: 'A payment gateway in C++.',
+      es: 'Una pasarela de pagos en C++.',
+    },
     highlights: [
       {
-        en: 'Contributed to the development of features for a C++ payment gateway, focused on transaction processing.',
-        es: 'Participé en el desarrollo de funcionalidades de una pasarela de pagos en C++, con énfasis en el procesamiento transaccional.',
+        en: 'Contributed to C++ features of a payment gateway, focused on transaction processing.',
+        es: 'Participé en el desarrollo de funcionalidades en C++ de una pasarela de pagos, con énfasis en el procesamiento transaccional.',
       },
     ],
   },
