@@ -12,6 +12,8 @@ import {
   marquee,
   Project,
   projects,
+  security,
+  SeverityLevel,
   stats,
   ui,
 } from './content';
@@ -55,6 +57,7 @@ export function App({ page }: { page: string }) {
       <main id="main">
         {page === 'home' && <Home t={t} />}
         {project && <CaseStudy project={project} t={t} />}
+        {page === 'security' && <SecurityCase t={t} />}
         {page === 'resume' && <Resume t={t} />}
         {(page === 'notfound' || (slug && !project)) && <NotFound t={t} />}
       </main>
@@ -179,8 +182,11 @@ function Home({ t }: { t: T }) {
           <h3>{t(ui.assessmentTitle)}</h3>
           <p className="muted">{t(ui.assessmentText)}</p>
           <p className="links">
+            <a className="button primary" href="/work/security/">
+              {t(ui.caseStudy)} →
+            </a>
             <a className="button" href={`${GITHUB}/applied-cybersecurity`}>
-              {t(ui.assessmentLink)} →
+              {t(ui.assessmentLink)}
             </a>
           </p>
         </div>
@@ -221,7 +227,7 @@ function Home({ t }: { t: T }) {
 
 // Real numbers from each repository's CI and from Lighthouse; the lines appear one by one (instantly with reduced motion).
 const TERMINAL: Array<[string, string]> = [
-  ['cd yamesi && make test', 'Tests: 74 passed, 74 total'],
+  ['cd yamesi && make test', 'Tests: 94 passed, 94 total'],
   ['cd nekobet && make test', 'Tests: 69 passed, 69 total'],
   ['cd opscircuit/ops-automation && make test', '15 passed, 0 failed'],
   ['lighthouse vzuliani97.github.io --preset=mobile', 'Performance 100 · Accessibility 100 · Best practices 100 · SEO 100'],
@@ -549,6 +555,277 @@ function CaseStudy({ project, t }: { project: Project; t: T }) {
       </section>
     </article>
   );
+}
+
+function SecurityCase({ t }: { t: T }) {
+  const s = security;
+  const label = s.labels;
+  const sections: Array<[string, string]> = [
+    ['case', t(label.realCase)],
+    ['detection', t(label.detection)],
+    ['findings', t(label.findings)],
+    ['method', t(label.method)],
+    ['risk', t(label.riskIdentity)],
+  ];
+  return (
+    <article className="case wrap security" style={{ '--accent': s.accent } as CSSProperties}>
+      <p>
+        <a href="/#work">← {t(ui.back)}</a>
+      </p>
+      <header className="case-header">
+        <h1>{s.name}</h1>
+        <p className="title">{t(s.subtitle)}</p>
+        <p className="lead">{t(s.oneLiner)}</p>
+        <ul className="chips">
+          {s.chips.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="actions">
+          <a className="button primary" href={s.links.repo}>
+            {t(ui.source)}
+          </a>
+          <a className="button" href={s.links.detection}>
+            {t(label.detectionGuide)}
+          </a>
+          <a className="button" href={s.links.drill}>
+            {t(label.drillLog)}
+          </a>
+          <a className="button" href="#run">
+            {t(ui.run)}
+          </a>
+        </p>
+      </header>
+
+      <ul className="sec-numbers" aria-label={t(ui.proof)}>
+        {s.numbers.map((item) => (
+          <li key={item.value}>
+            <strong>{item.value}</strong>
+            <span>{t(item.label)}</span>
+          </li>
+        ))}
+      </ul>
+
+      <nav className="sec-toc" aria-label={t(label.onThisPage)}>
+        {sections.map(([id, title]) => (
+          <a key={id} href={`#${id}`}>
+            {title}
+          </a>
+        ))}
+      </nav>
+
+      <div className="scan">
+        <div>
+          <h2>{t(ui.purpose)}</h2>
+          <p>{t(s.purpose)}</p>
+        </div>
+        <div>
+          <h2>{t(ui.myWork)}</h2>
+          <ul className="checks">
+            {s.myWork.map((item) => (
+              <li key={item.en}>{t(item)}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <section id="case" className="sec-section" aria-labelledby="case-title">
+        <h2 id="case-title">{t(label.realCase)}</h2>
+        <p className="measure muted">{t(label.realCaseNote)}</p>
+        <ol className="steps">
+          {s.steps.map((step, index) => (
+            <li key={step.href + index}>
+              <p className="step-label">
+                {t(label.step)} {index + 1} · {t(step.label)}
+              </p>
+              <h3>{t(step.title)}</h3>
+              <p>{t(step.body)}</p>
+              {step.evidence && (
+                <pre tabIndex={0} aria-label={`${t(ui.evidence)}: ${t(step.title)}`}>
+                  <code>{step.evidence}</code>
+                </pre>
+              )}
+              <a href={step.href}>{t(ui.evidence)} ↗</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section id="detection" className="sec-section" aria-labelledby="detection-title">
+        <h2 id="detection-title">{t(label.detection)}</h2>
+        <p className="measure">{t(s.identityLink)}</p>
+        <h3>{t(label.rules)}</h3>
+        <div className="table-wrap" tabIndex={0} role="region" aria-label={t(label.rules)}>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{t(label.rule)}</th>
+                <th scope="col">{t(label.detects)}</th>
+                <th scope="col">{t(label.firesWhen)}</th>
+                <th scope="col">{t(label.reference)}</th>
+                <th scope="col">{t(label.watches)}</th>
+                <th scope="col">{t(label.severity)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.rules.map((rule) => (
+                <tr key={rule.id}>
+                  <th scope="row" className="nowrap">
+                    {rule.id}
+                  </th>
+                  <td>{t(rule.detects)}</td>
+                  <td>{t(rule.when)}</td>
+                  <td>{rule.reference}</td>
+                  <td>{rule.watches}</td>
+                  <td>
+                    <Severity level={rule.severity} t={t} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <h3>{t(label.drill)}</h3>
+        <p className="measure">{t(s.drillNote)}</p>
+        <div className="table-wrap" tabIndex={0} role="region" aria-label={t(label.drill)}>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{t(label.attack)}</th>
+                <th scope="col">{t(label.answer)}</th>
+                <th scope="col">{t(label.alert)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.drill.map((row) => (
+                <tr key={row.attack.en}>
+                  <td>{t(row.attack)}</td>
+                  <td className="nowrap">{row.answer}</td>
+                  <td className="nowrap">{row.alert}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="links">
+          <a className="button" href={s.links.detection}>
+            {t(label.detectionGuide)} ↗
+          </a>
+          <a className="button" href={s.links.drill}>
+            {t(label.drillLog)} ↗
+          </a>
+        </p>
+      </section>
+
+      <section id="findings" className="sec-section" aria-labelledby="findings-title">
+        <h2 id="findings-title">{t(label.findings)}</h2>
+        <div className="table-wrap" tabIndex={0} role="region" aria-label={t(label.findings)}>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">{t(label.finding)}</th>
+                <th scope="col">{t(label.target)}</th>
+                <th scope="col">{t(label.severity)}</th>
+                <th scope="col">{t(label.ratedWith)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.findings.map((finding) => (
+                <tr key={finding.id}>
+                  <th scope="row" className="nowrap">
+                    <a href={s.links.finding(finding.file)}>{finding.id}</a>
+                  </th>
+                  <td>{t(finding.title)}</td>
+                  <td>{finding.target}</td>
+                  <td>
+                    <Severity level={finding.severity} t={t} />
+                  </td>
+                  <td className="nowrap">{finding.rating}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="method" className="sec-section" aria-labelledby="method-title">
+        <h2 id="method-title">{t(label.method)}</h2>
+        <p className="measure">{t(label.methodNote)}</p>
+        <div className="table-wrap" tabIndex={0} role="region" aria-label={t(label.method)}>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{t(label.area)}</th>
+                <th scope="col">{t(label.tried)}</th>
+                <th scope="col">{t(label.found)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.method.map((row) => (
+                <tr key={row.ref}>
+                  <th scope="row">
+                    {t(row.area)} <span className="muted nowrap">· {row.ref}</span>
+                  </th>
+                  <td>{t(row.tried)}</td>
+                  <td className="nowrap">{row.found === '—' ? t(label.noneHeld) : row.found}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <h3>{t(label.heldUp)}</h3>
+        <ul className="checks measure">
+          {s.heldUp.map((item) => (
+            <li key={item.en}>{t(item)}</li>
+          ))}
+        </ul>
+        <p className="links">
+          <a className="button" href={s.links.methodology}>
+            {t(label.method)} ↗
+          </a>
+        </p>
+      </section>
+
+      <section id="risk" className="sec-section" aria-labelledby="risk-title">
+        <h2 id="risk-title">{t(label.riskIdentity)}</h2>
+        <div className="decisions">
+          <section>
+            <h3>
+              <a href={s.links.risk}>{t(label.riskRegister)}</a>
+            </h3>
+            <p>{t(s.risk)}</p>
+          </section>
+          <section>
+            <h3>
+              <a href={s.links.identity}>{t(label.identityReview)}</a>
+            </h3>
+            <p>{t(s.identity)}</p>
+          </section>
+        </div>
+      </section>
+
+      <section className="sec-section" aria-labelledby="limits-title">
+        <h2 id="limits-title">{t(ui.limitations)}</h2>
+        <ul className="measure">
+          {s.limitations.map((item) => (
+            <li key={item.en}>{t(item)}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="run" className="panel">
+        <h2>{t(ui.run)}</h2>
+        <pre tabIndex={0} aria-label={t(ui.run)}>
+          <code>{s.run}</code>
+        </pre>
+      </section>
+    </article>
+  );
+}
+
+function Severity({ level, t }: { level: SeverityLevel; t: T }) {
+  return <span className={`sev ${level}`}>{t(security.severity[level])}</span>;
 }
 
 const VIEWS: DiagramView[] = ['context', 'containers', 'flow', 'deployment'];

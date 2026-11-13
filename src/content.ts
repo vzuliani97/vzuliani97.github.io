@@ -72,10 +72,10 @@ export const ui = {
   home: { en: 'Back to the home page', es: 'Volver al inicio' },
   assessmentTitle: { en: 'Applied Cyber Security: my diploma, tested on these three systems', es: 'Ciberseguridad aplicada: mi diploma, probado en estos tres sistemas' },
   assessmentText: {
-    en: 'Three units of my Advanced Diploma in Cyber Security applied to NekoBet, Yamesi and the OpsCircuit cluster. A penetration test found 12 issues, from a replayed partner sale that was charged twice to an example JWT secret that let anyone sign an admin token; all are fixed, and its 38 attacks run again in both apps’ CI on every push. A risk register and an identity and access review complete it. The two apps online keep the same controls and add exact CORS, a Content Security Policy limited to their API, per-client request limits and a database-name check before any data reset.',
-    es: 'Tres unidades de mi Advanced Diploma en Ciberseguridad aplicadas a NekoBet, Yamesi y el clúster de OpsCircuit. Una prueba de penetración encontró 12 fallas, desde una venta de un integrador que se cobraba dos veces al repetirla hasta un secreto JWT de ejemplo que permitía firmar un token de administrador; todas están corregidas, y sus 38 ataques vuelven a correr en el CI de ambas aplicaciones en cada push. Lo completan un registro de riesgos y una revisión de identidades y accesos. Las dos aplicaciones en línea mantienen esos controles y añaden CORS exacto, una política de seguridad de contenido (CSP) limitada a su API, límite de peticiones por cliente y una verificación del nombre de la base antes de reiniciar datos.',
+    en: 'Three units of my Advanced Diploma in Cyber Security applied to NekoBet, Yamesi and the OpsCircuit cluster. A penetration test found 12 issues, from a replayed partner sale that was charged twice to an example JWT secret that let anyone sign an admin token; all are fixed, and its 38 attacks run again in both apps’ CI on every push. Yamesi now also logs every attempt it refuses, and in a drill its seven detection rules, mapped to MITRE ATT&CK, raised 7 alerts from those attacks. A risk register and an identity and access review complete it. The two apps online keep the same controls and add exact CORS, a Content Security Policy limited to their API, per-client request limits and a database-name check before any data reset.',
+    es: 'Tres unidades de mi Advanced Diploma en Ciberseguridad aplicadas a NekoBet, Yamesi y el clúster de OpsCircuit. Una prueba de penetración encontró 12 fallas, desde una venta de un integrador que se cobraba dos veces al repetirla hasta un secreto JWT de ejemplo que permitía firmar un token de administrador; todas están corregidas, y sus 38 ataques vuelven a correr en el CI de ambas aplicaciones en cada push. Yamesi además registra cada intento que rechaza, y en un simulacro sus siete reglas de detección, mapeadas a MITRE ATT&CK, dispararon 7 alertas con esos ataques. Lo completan un registro de riesgos y una revisión de identidades y accesos. Las dos aplicaciones en línea mantienen esos controles y añaden CORS exacto, una política de seguridad de contenido (CSP) limitada a su API, límite de peticiones por cliente y una verificación del nombre de la base antes de reiniciar datos.',
   },
-  assessmentLink: { en: 'Penetration test, risks and identities', es: 'Pentest, riesgos e identidades' },
+  assessmentLink: { en: 'Source on GitHub', es: 'Código en GitHub' },
 } satisfies Record<string, L>;
 
 export const hero = {
@@ -88,7 +88,7 @@ export const hero = {
 };
 
 export const stats: Array<{ value: L; label: L }> = [
-  { value: { en: '158', es: '158' }, label: { en: 'automated tests across 3 portfolio systems (74 + 69 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (74 + 69 + 15)' } },
+  { value: { en: '178', es: '178' }, label: { en: 'automated tests across 3 portfolio systems (94 + 69 + 15)', es: 'pruebas automatizadas en 3 sistemas del portafolio (94 + 69 + 15)' } },
   { value: { en: 'Since 2020', es: 'Desde 2020' }, label: { en: 'professional software experience', es: 'experiencia profesional en software' } },
   { value: { en: '100', es: '100' }, label: { en: 'mobile Lighthouse on 3 routes, measured 1 Nov 2026', es: 'Lighthouse móvil en 3 rutas, medido el 1 nov. 2026' } },
   { value: { en: 'C1', es: 'C1' }, label: { en: 'English · native Spanish and Italian', es: 'inglés · español e italiano nativos' } },
@@ -276,10 +276,11 @@ export const projects: Project[] = [
       { en: 'NestJS API with roles, Zod validation, idempotent invoices, and row and advisory locks for concurrency.', es: 'API en NestJS con roles, validación con Zod, facturas idempotentes y bloqueos de fila y advisory para la concurrencia.' },
       { en: 'React point of sale, inventory portal with drag-and-drop photos, petty cash with receipts, closing and reports.', es: 'Punto de venta en React, portal de inventario con fotos por arrastrar y soltar, caja menor con recibos, cierre y reportes.' },
       { en: 'Colombian-style invoice PDF for demonstration: VAT, a CUFE calculation that matches the DIAN example, QR. Not transmitted to or validated by the DIAN; no tax validity.', es: 'Factura PDF de estilo colombiano para demostración: IVA, cálculo del CUFE igual al ejemplo de la DIAN y QR. No se transmite ni la valida la DIAN; no tiene validez fiscal.' },
-      { en: 'Docker Compose, CI with CodeQL, Gitleaks, a Trivy image scan and an OWASP ZAP scan, 74 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL, Gitleaks, escaneo de imágenes con Trivy y escaneo OWASP ZAP, 74 pruebas y un día de negocio simulado.' },
+      { en: 'Docker Compose, CI with CodeQL, Gitleaks, a Trivy image scan and an OWASP ZAP scan, 94 tests and a scripted business day.', es: 'Docker Compose, CI con CodeQL, Gitleaks, escaneo de imágenes con Trivy y escaneo OWASP ZAP, 94 pruebas y un día de negocio simulado.' },
+      { en: 'Security events for every refused login, token, admin action and upload, and seven detection rules mapped to MITRE ATT&CK.', es: 'Eventos de seguridad por cada login, token, acción de administrador y archivo rechazados, y siete reglas de detección mapeadas a MITRE ATT&CK.' },
     ],
     metrics: [
-      { en: '74 tests', es: '74 pruebas' },
+      { en: '94 tests', es: '94 pruebas' },
       { en: '44 real catalog pieces', es: '44 piezas del catálogo real' },
       { en: 'CUFE = DIAN example', es: 'CUFE = ejemplo DIAN' },
     ],
@@ -300,8 +301,8 @@ export const projects: Project[] = [
       { layer: { en: 'Backend', es: 'Backend' }, items: ['Node.js 24', 'NestJS 11', 'Zod 4', 'JWT', 'bcrypt', 'PDFKit', 'qrcode'] },
       { layer: { en: 'Data and storage', es: 'Datos y almacenamiento' }, items: ['PostgreSQL 16', 'plain SQL migrations', 'S3 · AWS SDK v3', 'RustFS (local S3)'] },
       { layer: { en: 'Infrastructure and DevOps', es: 'Infraestructura y DevOps' }, items: ['Docker', 'Docker Compose', 'nginx (unprivileged)', 'non-root containers', 'AWS EC2 + S3 (real system)'] },
-      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '74 tests', 'Dependabot'] },
-      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Trivy', 'OWASP ZAP (DAST)', 'Content-Security-Policy', 'Helmet', 'login lockout', 'image metadata check'] },
+      { layer: { en: 'CI/CD and quality', es: 'CI/CD y calidad' }, items: ['GitHub Actions', 'Jest', 'Supertest', '94 tests', 'Dependabot'] },
+      { layer: { en: 'Security', es: 'Seguridad' }, items: ['CodeQL', 'Gitleaks', 'npm audit', 'Trivy', 'OWASP ZAP (DAST)', 'Content-Security-Policy', 'Helmet', 'login lockout', 'image metadata check', 'security events', '7 detection rules (MITRE ATT&CK)'] },
       { layer: { en: 'AI (optional)', es: 'IA (opcional)' }, items: ['Ollama', 'Qwen2.5 3B', 'tool calling'] },
     ],
     roleFit: {
@@ -336,7 +337,8 @@ export const projects: Project[] = [
       { en: 'CUFE computed with the DIAN formula, checked against its official example', es: 'CUFE con la fórmula de la DIAN, comprobado contra su ejemplo oficial' },
     ],
     proof: [
-      { en: '74 automated tests, 2 against a real S3-compatible server', es: '74 pruebas automatizadas, 2 contra un servidor compatible con S3' },
+      { en: '94 automated tests, 2 against a real S3-compatible server', es: '94 pruebas automatizadas, 2 contra un servidor compatible con S3' },
+      { en: 'The penetration test’s attacks, replayed in a drill, raised 7 alerts from 40 security events', es: 'Los ataques del pentest, repetidos en un simulacro, dispararon 7 alertas a partir de 40 eventos de seguridad' },
       { en: '8 concurrent invoices get numbers 1 to 8, never a gap', es: '8 facturas simultáneas reciben los números 1 a 8, sin huecos' },
       { en: 'A simulated business day (make demo): arrivals with photos, 5 sales, 4 receipts, closing', es: 'Un día de negocio simulado (make demo): llegadas con foto, 5 ventas, 4 recibos y cierre' },
     ],
@@ -364,12 +366,13 @@ export const projects: Project[] = [
       },
     ],
     verification: [
-      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '74 passing in CI', es: '74 aprobadas en CI' }, href: `${repo('yamesi')}/actions` },
+      { check: { en: 'Unit and integration tests', es: 'Pruebas unitarias y de integración' }, result: { en: '94 passing in CI', es: '94 aprobadas en CI' }, href: `${repo('yamesi')}/actions` },
       { check: { en: 'CUFE against the official DIAN example', es: 'CUFE contra el ejemplo oficial de la DIAN' }, result: { en: 'Identical hash', es: 'Hash idéntico' }, href: `${repo('yamesi')}/blob/main/backend/test/unit/colombian-invoice.spec.ts` },
       { check: { en: 'Concurrent sales of one piece', es: 'Ventas simultáneas de una pieza' }, result: { en: 'One sale, one PIECE_NOT_AVAILABLE', es: 'Una venta y un PIECE_NOT_AVAILABLE' }, href: `${repo('yamesi')}/blob/main/backend/test/e2e/invoices.e2e-spec.ts` },
       { check: { en: 'Static analysis and secrets', es: 'Análisis estático y secretos' }, result: { en: 'CodeQL and Gitleaks green', es: 'CodeQL y Gitleaks en verde' }, href: `${repo('yamesi')}/actions` },
       { check: { en: 'Image and DAST scans', es: 'Escaneo de imágenes y DAST' }, result: { en: 'Trivy: 0 fixable critical or high CVEs; ZAP: no unaccepted warnings', es: 'Trivy: 0 CVE críticas o altas corregibles; ZAP: sin alertas no aceptadas' }, href: `${repo('yamesi')}/blob/main/.zap/rules.tsv` },
       { check: { en: 'Security assessment', es: 'Evaluación de seguridad' }, result: { en: 'Photos kept GPS and sellers saw costs: found, fixed, retested in CI', es: 'Las fotos conservaban el GPS y el vendedor veía costos: encontrado, corregido y probado en CI' }, href: `${repo('applied-cybersecurity')}#findings` },
+      { check: { en: 'Detection drill', es: 'Simulacro de detección' }, result: { en: '13 pentest attacks and 2 login attacks: 40 security events, 7 alerts, one per rule', es: '13 ataques del pentest y 2 de login: 40 eventos de seguridad, 7 alertas, una por regla' }, href: `${repo('yamesi')}/blob/main/docs/SECURITY_DETECTION.md#drill-2026-11-13` },
     ],
     screens: [
       { src: '/media/yamesi-sell.jpg', alt: { en: 'Point of sale with catalog photos; each line of the sale shows its piece', es: 'Punto de venta con fotos del catálogo; cada línea de la venta muestra su pieza' }, width: 1600, height: 1111 },
@@ -392,7 +395,7 @@ export const projects: Project[] = [
       en: 'This repository is an independent rebuild that runs locally with Docker Compose and online on free hosting (Netlify, Render and Neon), deployed from main. Its demo catalog comes from the store’s public catalog; customers, costs and lots are synthetic. The business’s real system is professional work in a separate codebase, deployed with Docker on AWS EC2 and S3.',
       es: 'Este repositorio es una reconstrucción independiente que corre en local con Docker Compose y en línea en hosting gratuito (Netlify, Render y Neon), desplegada desde main. Su catálogo de demostración viene del catálogo público de la tienda; clientes, costos y lotes son ficticios. El sistema real del negocio es trabajo profesional en otro código, desplegado con Docker en AWS EC2 y S3.',
     },
-    run: 'git clone https://github.com/vzuliani97/yamesi && cd yamesi\nmake .env   # .env.example with random secrets\nmake demo   # loads the store catalog and simulates one business day\nmake test   # 74 tests in containers',
+    run: 'git clone https://github.com/vzuliani97/yamesi && cd yamesi\nmake .env   # .env.example with random secrets\nmake demo   # loads the store catalog and simulates one business day\nmake test   # 94 tests in containers',
     diagrams: {
       context: { title: { en: 'System context', es: 'Contexto' }, status: 'CURRENT', note: { en: 'Who uses the system and what it talks to.', es: 'Quién usa el sistema y con qué se comunica.' } },
       containers: { title: { en: 'Containers', es: 'Contenedores' }, status: 'CURRENT', note: { en: 'A modular NestJS monolith, not microservices.', es: 'Un monolito modular en NestJS, no microservicios.' } },
@@ -640,3 +643,268 @@ export const projects: Project[] = [
     },
   },
 ];
+
+// Applied Cyber Security: the penetration test (applied-cybersecurity), the detection added to Yamesi and its drill.
+// Evidence blocks quote the finding files and the drill log of 2026-11-13 verbatim.
+const SECURITY_REPO = repo('applied-cybersecurity');
+const DETECTION_DOC = `${repo('yamesi')}/blob/main/docs/SECURITY_DETECTION.md`;
+const DRILL_LOG = `${repo('yamesi')}/blob/main/docs/security/detection-drill-2026-11-13.log`;
+
+export type SeverityLevel = 'critical' | 'high' | 'medium' | 'low' | 'info';
+
+export interface DetectionRule {
+  id: string;
+  detects: L;
+  when: L;
+  reference: string;
+  watches: string;
+  severity: SeverityLevel;
+}
+
+export interface Finding {
+  id: string;
+  title: L;
+  target: string;
+  severity: SeverityLevel;
+  rating: string;
+  /** File name in applied-cybersecurity/findings, without .md. */
+  file: string;
+}
+
+export interface CaseStep {
+  label: L;
+  title: L;
+  body: L;
+  evidence?: string;
+  href: string;
+}
+
+export const security = {
+  name: 'Applied Cyber Security',
+  accent: '#be123c',
+  subtitle: { en: 'Penetration test, detection and risk, on systems I built', es: 'Prueba de penetración, detección y riesgo, sobre sistemas que construí' },
+  oneLiner: {
+    en: 'I attacked NekoBet, Yamesi and the OpsCircuit cluster with the methods of my Advanced Diploma in Cyber Security. Twelve findings, one critical, all fixed, and the attacks rerun in CI on every push. Then I made the attacks visible: Yamesi logs every attempt it refuses, and seven detection rules turn those logs into alerts.',
+    es: 'Ataqué NekoBet, Yamesi y el clúster de OpsCircuit con los métodos de mi Advanced Diploma en Ciberseguridad. Doce hallazgos, uno crítico, todos corregidos, y los ataques vuelven a correr en CI en cada push. Después hice visibles los ataques: Yamesi registra cada intento que rechaza y siete reglas de detección convierten esos registros en alertas.',
+  },
+  chips: ['OWASP WSTG 4.2', 'CVSS 3.1', 'MITRE ATT&CK', 'CWE', 'Node.js test runner', 'Trivy', 'OWASP ZAP', 'Gitleaks'],
+  numbers: [
+    { value: '12', label: { en: 'findings, all fixed: 1 critical, 2 high, 8 medium, 1 informational', es: 'hallazgos, todos corregidos: 1 crítico, 2 altos, 8 medios y 1 informativo' } },
+    { value: '38', label: { en: 'attacks rerun in both apps’ CI on every push', es: 'ataques que vuelven a correr en el CI de ambas apps en cada push' } },
+    { value: '7', label: { en: 'detection rules, mapped to MITRE ATT&CK and OWASP', es: 'reglas de detección, mapeadas a MITRE ATT&CK y OWASP' } },
+    { value: '40 → 7', label: { en: 'security events and alerts in the drill of 13 Nov 2026', es: 'eventos de seguridad y alertas en el simulacro del 13 nov. 2026' } },
+  ],
+  purpose: {
+    en: 'Shows the whole security loop on real code: find the weakness, prove it with an exploit, score it, fix it, keep it fixed with a test, and see the next attempt in the logs.',
+    es: 'Muestra el ciclo completo de seguridad sobre código real: encontrar la debilidad, probarla con un exploit, calificarla, corregirla, mantenerla corregida con una prueba y ver el siguiente intento en los registros.',
+  },
+  myWork: [
+    { en: 'A gray-box penetration test of three systems, following the OWASP Web Security Testing Guide, with CVSS 3.1 scores and CWE references.', es: 'Una prueba de penetración de caja gris a tres sistemas, siguiendo la OWASP Web Security Testing Guide, con puntajes CVSS 3.1 y referencias CWE.' },
+    { en: 'Every attack written as a repeatable test with no dependencies: 38 of them run in NekoBet’s and Yamesi’s CI, so a change that reopens a finding fails before merge.', es: 'Cada ataque escrito como una prueba repetible sin dependencias: 38 corren en el CI de NekoBet y Yamesi, así que un cambio que reabre un hallazgo falla antes del merge.' },
+    { en: 'The fixes in the apps and the cluster, each with unit and end-to-end tests.', es: 'Las correcciones en las apps y el clúster, cada una con pruebas unitarias y de extremo a extremo.' },
+    { en: 'Detection in Yamesi: security events for every refused login, token, admin action and upload, and seven rules mapped to MITRE ATT&CK, checked in a drill.', es: 'Detección en Yamesi: eventos de seguridad por cada login, token, acción de administrador y archivo rechazados, y siete reglas mapeadas a MITRE ATT&CK, comprobadas en un simulacro.' },
+    { en: 'A risk register with 12 risks rated before and after controls, and an identity and access review of 10 identities, people and machines.', es: 'Un registro de 12 riesgos calificados antes y después de los controles, y una revisión de identidades y accesos de 10 identidades, personas y máquinas.' },
+  ],
+  steps: [
+    {
+      label: { en: 'Recon', es: 'Reconocimiento' },
+      title: { en: 'The quick start handed out the signing key', es: 'La guía de inicio entregaba la llave de firma' },
+      body: {
+        en: 'Both apps told users to copy .env.example and then change the values. The example JWT secret is 41 characters long, so it passed the only check, a minimum of 32. CI made exactly that copy, so every CI run signed tokens with a published key.',
+        es: 'Ambas apps decían copiar .env.example y luego cambiar los valores. El secreto JWT de ejemplo tiene 41 caracteres, así que pasaba la única validación, un mínimo de 32. El CI hacía exactamente esa copia, así que cada ejecución firmaba tokens con una llave publicada.',
+      },
+      evidence: '# .env.example, public in both repositories\nJWT_SECRET=replace-with-output-of-openssl-rand-hex-32\n\n# the only check on it\nJWT_SECRET: z.string().min(32)\n\n# README quick start, and what CI ran\ncp .env.example .env  # then change the values',
+      href: `${SECURITY_REPO}/blob/main/findings/ESC-01-placeholder-jwt-secret.md`,
+    },
+    {
+      label: { en: 'Exploit', es: 'Explotación' },
+      title: { en: 'An admin token for a user that does not exist', es: 'Un token de administrador para un usuario que no existe' },
+      body: {
+        en: 'I signed an HS256 token with role ADMIN and a random user id, using the published secret. The API trusts the role inside a valid token without looking the user up, so it answered with every store and its balance. The same token against a stack with a random secret got 401.',
+        es: 'Firmé un token HS256 con rol ADMIN y un id de usuario inventado, usando el secreto publicado. La API confía en el rol de un token válido sin buscar al usuario, así que respondió con todas las tiendas y su saldo. El mismo token contra un stack con secreto aleatorio recibió 401.',
+      },
+      evidence: '$ JWT_SECRET=replace-with-output-of-openssl-rand-hex-32 docker compose up -d --wait backend\n# HS256 token, role ADMIN, sub = a user id that does not exist, signed with the placeholder\nforged ADMIN token, GET /pos -> 200 [{"id":"53e1…","name":"Tienda Centro","balance":98000,"active":true,…}]\n\n# same token against the stack started with a random secret\nforged ADMIN token, GET /pos -> 401 {"error":{"code":"UNAUTHORIZED","message":"Invalid or expired token"}}',
+      href: `${SECURITY_REPO}/blob/main/findings/ESC-01-placeholder-jwt-secret.md#evidence-2026-11-02-nekobet`,
+    },
+    {
+      label: { en: 'Impact and score', es: 'Impacto y puntaje' },
+      title: { en: 'Critical, 9.1, after an independent review', es: 'Crítico, 9.1, tras una revisión independiente' },
+      body: {
+        en: 'Full administrator access: credit any store in NekoBet; read margins, the audit trail and invoices, and edit the catalog in Yamesi. I first scored it 7.4 with high attack complexity, because it needs a deployment that kept the example value. A review questioned that, and section 2.3.3 of the CVSS 3.1 User Guide sides with it: a documented, reasonable configuration is scored as present. With it, the attack is one HMAC computation.',
+        es: 'Acceso total de administrador: acreditar cualquier tienda en NekoBet; leer márgenes, auditoría y facturas, y editar el catálogo en Yamesi. Primero lo califiqué 7.4 con complejidad alta, porque requiere una instalación que conserve el valor de ejemplo. Una revisión lo cuestionó, y la sección 2.3.3 de la guía de usuario de CVSS 3.1 le da la razón: una configuración documentada y razonable se califica como presente. Con ella, el ataque es un solo cálculo HMAC.',
+      },
+      evidence: 'CVSS 3.1  AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N  = 9.1 Critical\nCWE-1188  Initialization of a Resource with an Insecure Default\nOWASP     A05:2021 Security Misconfiguration',
+      href: `${SECURITY_REPO}/blob/main/findings/ESC-01-placeholder-jwt-secret.md#scoring`,
+    },
+    {
+      label: { en: 'Fix', es: 'Corrección' },
+      title: { en: 'Refuse the published secret, generate a real one', es: 'Rechazar el secreto publicado y generar uno real' },
+      body: {
+        en: 'The configuration now refuses any secret that starts with replace-with, at startup and in every environment. make .env creates the file with a fresh openssl rand -hex 32 for each placeholder, every other target depends on it, and CI runs it instead of the copy.',
+        es: 'La configuración ahora rechaza cualquier secreto que empiece por replace-with, al arrancar y en todos los entornos. make .env crea el archivo con un openssl rand -hex 32 nuevo para cada valor de ejemplo, los demás comandos dependen de él y el CI lo usa en lugar de la copia.',
+      },
+      evidence: '$ docker compose run --rm --no-deps -e JWT_SECRET=replace-with-output-of-openssl-rand-hex-32 backend\nInvalid configuration: JWT_SECRET: replace the .env.example placeholder: openssl rand -hex 32, or delete .env and run make .env   (exit 1)',
+      href: `${repo('yamesi')}/blob/main/backend/src/config.ts`,
+    },
+    {
+      label: { en: 'Regression test', es: 'Prueba de regresión' },
+      title: { en: 'The attack runs again on every push', es: 'El ataque vuelve a correr en cada push' },
+      body: {
+        en: 'Two attacks guard the fix in both apps’ CI and every Monday: the API must refuse to start with the placeholder, and a token signed with it must get 401. A change that reopens the hole fails before merge. These are lines from the drill run on 13 November 2026.',
+        es: 'Dos ataques protegen la corrección en el CI de ambas apps y cada lunes: la API debe negarse a arrancar con el valor de ejemplo, y un token firmado con él debe recibir 401. Un cambio que reabra el hueco falla antes del merge. Estas líneas son del simulacro del 13 de noviembre de 2026.',
+      },
+      evidence: '✔ refuses to start with the placeholder JWT secret of .env.example (ESC-01)\n✔ refuses an admin token signed with the placeholder secret of .env.example (ESC-01)',
+      href: `${SECURITY_REPO}/blob/main/attacks/yamesi.test.mjs`,
+    },
+    {
+      label: { en: 'Detection', es: 'Detección' },
+      title: { en: 'The next attempt raises an alert', es: 'El siguiente intento dispara una alerta' },
+      body: {
+        en: 'A fix stops the attack but tells no one. Yamesi now writes a security event when it refuses a token. The client still gets the same 401 for a forged and an expired token, while the log records which one it was. Rule DET-04 raises a high alert on the first forged signature.',
+        es: 'Una corrección detiene el ataque pero no le avisa a nadie. Yamesi ahora escribe un evento de seguridad cuando rechaza un token. El cliente sigue recibiendo el mismo 401 para un token falsificado y uno vencido, mientras el registro guarda cuál fue. La regla DET-04 dispara una alerta alta con la primera firma falsificada.',
+      },
+      evidence: '{"log":"security","time":"2026-11-13T19:37:26.664Z","event":"auth.token_rejected","ip":"172.18.0.1","method":"GET","path":"/api/reports/margins","reason":"bad_signature"}\n\nHIGH   DET-04  Forged or tampered access token\n       ip 172.18.0.1 · 3 events · 2026-11-13T19:37:26.660Z → 2026-11-13T19:37:26.668Z\n       ATT&CK T1606 Forge Web Credentials · watches ESC-01',
+      href: DRILL_LOG,
+    },
+    {
+      label: { en: 'Residual risk', es: 'Riesgo residual' },
+      title: { en: 'What is still open, and what closes it', es: 'Qué sigue abierto y qué lo cierra' },
+      body: {
+        en: 'A secret that leaked some other way would still sign tokens that verify, and no rule can tell those from real ones. That is why the fix prevents instead of detecting, and why the risk register keeps it as the one High residual risk, R-01. What would reduce it, not built yet: secrets kept in a secrets manager encrypted with KMS and rotated, and a user lookup on each request, which would refuse a token for a user that does not exist, like the one in the exploit.',
+        es: 'Un secreto filtrado por otra vía seguiría firmando tokens válidos, y ninguna regla puede distinguirlos de los reales. Por eso la corrección previene en lugar de detectar, y por eso el registro de riesgos lo mantiene como el único riesgo residual alto, R-01. Lo que lo reduciría, aún sin construir: guardar los secretos en un gestor de secretos cifrado con KMS y rotarlos, y buscar al usuario en cada petición, lo que rechazaría un token de un usuario que no existe, como el del exploit.',
+      },
+      href: `${SECURITY_REPO}/blob/main/RISK_REGISTER.md`,
+    },
+  ] satisfies CaseStep[],
+  rules: [
+    { id: 'DET-01', detects: { en: 'Password guessing on one account', es: 'Adivinar la contraseña de una cuenta' }, when: { en: '5 failed or locked logins, one account and address, 15 min', es: '5 logins fallidos o bloqueados, una cuenta y dirección, 15 min' }, reference: 'T1110.001', watches: 'ESC-11', severity: 'medium' },
+    { id: 'DET-02', detects: { en: 'Password spraying', es: 'Password spraying' }, when: { en: 'Failures on 5 accounts from one address, 15 min', es: 'Fallos en 5 cuentas desde una dirección, 15 min' }, reference: 'T1110.003', watches: '—', severity: 'high' },
+    { id: 'DET-03', detects: { en: 'A guess that worked', es: 'Una contraseña adivinada' }, when: { en: 'A login accepted after 3 failures on that account', es: 'Un login aceptado tras 3 fallos en esa cuenta' }, reference: 'T1110', watches: 'ESC-11', severity: 'high' },
+    { id: 'DET-04', detects: { en: 'Forged or tampered token', es: 'Token falsificado o alterado' }, when: { en: 'One bad signature, no signature or another algorithm', es: 'Una firma inválida, sin firma u otro algoritmo' }, reference: 'T1606', watches: 'ESC-01', severity: 'high' },
+    { id: 'DET-05', detects: { en: 'Role probing', es: 'Sondeo de roles' }, when: { en: '3 refused admin actions by one user, 10 min', es: '3 acciones de administrador rechazadas a un usuario, 10 min' }, reference: 'OWASP API5:2023', watches: 'ESC-05', severity: 'medium' },
+    { id: 'DET-06', detects: { en: 'Disguised upload', es: 'Archivo disfrazado' }, when: { en: 'One photo whose content is not an image', es: 'Una foto cuyo contenido no es una imagen' }, reference: 'CWE-434 · T1505.003', watches: 'ESC-06', severity: 'medium' },
+    { id: 'DET-07', detects: { en: 'Sweep of private routes', es: 'Barrido de rutas privadas' }, when: { en: '6 private routes without a token from one address, 5 min', es: '6 rutas privadas sin token desde una dirección, 5 min' }, reference: 'T1595.003', watches: '—', severity: 'low' },
+  ] satisfies DetectionRule[],
+  drill: [
+    { attack: { en: '8 private routes without a token', es: '8 rutas privadas sin token' }, answer: '401 × 8', alert: 'DET-07' },
+    { attack: { en: '“alg: none”, a role changed after signing, the published secret (ESC-01)', es: '“alg: none”, un rol cambiado después de firmar, el secreto publicado (ESC-01)' }, answer: '401 × 3', alert: 'DET-04' },
+    { attack: { en: '5 wrong passwords, then the right one', es: '5 contraseñas erradas y luego la correcta' }, answer: '401 × 5, 429', alert: 'DET-01' },
+    { attack: { en: 'A seller on 7 admin actions', es: 'Un vendedor en 7 acciones de administrador' }, answer: '403 × 7', alert: 'DET-05' },
+    { attack: { en: 'PHP, SVG, PDF and a JPEG-prefixed HTML file as a photo (ESC-06)', es: 'PHP, SVG, PDF y un HTML con cabecera JPEG como foto (ESC-06)' }, answer: '400 × 4', alert: 'DET-06' },
+    { attack: { en: 'One password on 5 accounts, once each: the lockout never trips', es: 'Una contraseña en 5 cuentas, una vez cada una: el bloqueo nunca se activa' }, answer: '401 × 5', alert: 'DET-02' },
+    { attack: { en: '3 wrong passwords, then the right one', es: '3 contraseñas erradas y luego la correcta' }, answer: '401 × 3, 200', alert: 'DET-03' },
+    { attack: { en: 'A photo of 2 MiB + 1 byte', es: 'Una foto de 2 MiB + 1 byte' }, answer: '413', alert: '—' },
+    { attack: { en: 'A phone photo with GPS (ESC-04): stored without it', es: 'Una foto de celular con GPS (ESC-04): se guarda sin él' }, answer: '200', alert: '—' },
+  ],
+  drillNote: {
+    en: 'The 13 Yamesi attacks of the penetration test, plus two login attacks the lockout does not stop, against the full stack on 13 November 2026. 40 security events, 7 alerts: 3 high, 3 medium, 1 low. Each attack a rule covers raised that rule’s alert. The oversized photo and the GPS photo raise none on purpose: anyone can pick a photo that is too big, and the GPS photo is a legitimate upload whose coordinates the API strips.',
+    es: 'Los 13 ataques del pentest contra Yamesi, más dos ataques de login que el bloqueo no detiene, contra el stack completo el 13 de noviembre de 2026. 40 eventos de seguridad y 7 alertas: 3 altas, 3 medias y 1 baja. Cada ataque que cubre una regla disparó la alerta de esa regla. La foto demasiado grande y la foto con GPS no disparan ninguna a propósito: cualquiera puede elegir una foto muy pesada, y la foto con GPS es una carga legítima a la que la API le quita las coordenadas.',
+  },
+  identityLink: {
+    en: 'The identity review had found that logins, failures and lockouts were not recorded anywhere (gap 4). The security events close that gap for Yamesi; NekoBet still has it.',
+    es: 'La revisión de identidades había encontrado que los logins, los fallos y los bloqueos no quedaban registrados en ningún lado (brecha 4). Los eventos de seguridad cierran esa brecha en Yamesi; NekoBet todavía la tiene.',
+  },
+  findings: [
+    { id: 'ESC-01', title: { en: 'The JWT secret published in .env.example was accepted, so anyone could sign an admin token', es: 'Se aceptaba el secreto JWT publicado en .env.example, así que cualquiera podía firmar un token de administrador' }, target: 'NekoBet, Yamesi', severity: 'critical', rating: 'CVSS 9.1', file: 'ESC-01-placeholder-jwt-secret' },
+    { id: 'ESC-02', title: { en: 'A captured partner sale replayed under a new Idempotency-Key was charged again', es: 'Una venta capturada de un integrador, repetida con otra Idempotency-Key, se cobraba de nuevo' }, target: 'NekoBet', severity: 'medium', rating: 'CVSS 5.9', file: 'ESC-02-hmac-replay-new-idempotency-key' },
+    { id: 'ESC-03', title: { en: 'The cluster published the app, Grafana and Prometheus to the local network', es: 'El clúster publicaba la app, Grafana y Prometheus a la red local' }, target: 'OpsCircuit', severity: 'medium', rating: 'CVSS 5.4', file: 'ESC-03-kind-ports-on-all-interfaces' },
+    { id: 'ESC-04', title: { en: 'Uploaded photos kept their EXIF metadata, GPS included', es: 'Las fotos subidas conservaban sus metadatos EXIF, incluido el GPS' }, target: 'Yamesi', severity: 'medium', rating: 'CVSS 4.3', file: 'ESC-04-uploaded-photos-keep-gps' },
+    { id: 'ESC-05', title: { en: 'Sellers received the costs behind the admin-only margin report', es: 'Los vendedores recibían los costos detrás del reporte de márgenes, solo para administradores' }, target: 'Yamesi', severity: 'medium', rating: 'CVSS 4.3', file: 'ESC-05-sellers-receive-costs' },
+    { id: 'ESC-06', title: { en: 'A file that only started like a JPEG was accepted as a photo', es: 'Un archivo que solo empezaba como un JPEG se aceptaba como foto' }, target: 'Yamesi', severity: 'info', rating: '—', file: 'ESC-06-jpeg-prefixed-html-accepted' },
+    { id: 'ESC-07', title: { en: 'Runtime images shipped with 64 fixable critical and high CVEs', es: 'Las imágenes de ejecución traían 64 CVE críticas y altas con corrección disponible' }, target: 'NekoBet, Yamesi', severity: 'high', rating: 'Trivy', file: 'ESC-07-vulnerable-base-images' },
+    { id: 'ESC-08', title: { en: 'The published demo signing secrets were accepted in production mode', es: 'Los secretos de firma de demostración publicados se aceptaban en modo producción' }, target: 'NekoBet', severity: 'high', rating: 'CVSS 8.2', file: 'ESC-08-demo-hmac-secrets-outside-demo' },
+    { id: 'ESC-09', title: { en: 'The Docker Compose demos listened on every network interface', es: 'Las demos de Docker Compose escuchaban en todas las interfaces de red' }, target: 'NekoBet, Yamesi', severity: 'medium', rating: 'CVSS 5.4', file: 'ESC-09-compose-ports-on-all-interfaces' },
+    { id: 'ESC-10', title: { en: 'A catalog photo in the public repository carried exact GPS coordinates', es: 'Una foto del catálogo en el repositorio público tenía coordenadas GPS exactas' }, target: 'Yamesi', severity: 'medium', rating: 'CVSS 5.3', file: 'ESC-10-gps-in-published-photo' },
+    { id: 'ESC-11', title: { en: 'Logins could be guessed without limit', es: 'Se podían adivinar contraseñas sin límite' }, target: 'NekoBet, Yamesi', severity: 'medium', rating: 'CVSS 4.8', file: 'ESC-11-no-login-throttling' },
+    { id: 'ESC-12', title: { en: 'Missing security headers, and nginx announced its version', es: 'Faltaban cabeceras de seguridad y nginx anunciaba su versión' }, target: 'NekoBet, Yamesi', severity: 'medium', rating: 'OWASP ZAP', file: 'ESC-12-missing-security-headers' },
+  ] satisfies Finding[],
+  severity: {
+    critical: { en: 'Critical', es: 'Crítica' },
+    high: { en: 'High', es: 'Alta' },
+    medium: { en: 'Medium', es: 'Media' },
+    low: { en: 'Low', es: 'Baja' },
+    info: { en: 'Informational', es: 'Informativa' },
+  },
+  method: [
+    { area: { en: 'Configuration', es: 'Configuración' }, ref: 'WSTG-CONF', tried: { en: 'Published secrets, network exposure, headers, image CVEs', es: 'Secretos publicados, exposición de red, cabeceras, CVE en imágenes' }, found: 'ESC-01, 03, 07, 08, 09, 12' },
+    { area: { en: 'Authentication', es: 'Autenticación' }, ref: 'WSTG-ATHN', tried: { en: 'No token, “alg: none”, a changed role, a forged token, lockout', es: 'Sin token, “alg: none”, rol cambiado, token falsificado, bloqueo' }, found: 'ESC-01, 11' },
+    { area: { en: 'Authorization', es: 'Autorización' }, ref: 'WSTG-ATHZ', tried: { en: 'Cashier and seller on admin routes; another store’s sales (IDOR); an injected store id', es: 'Cajero y vendedor en rutas de administrador; ventas de otra tienda (IDOR); un id de tienda inyectado' }, found: 'ESC-05' },
+    { area: { en: 'Business logic', es: 'Lógica de negocio' }, ref: 'WSTG-BUSL', tried: { en: 'Tampered HMAC body, old and future timestamps, replays, casino callback replay', es: 'Cuerpo HMAC alterado, timestamps viejos y futuros, repeticiones, repetición de callbacks del casino' }, found: 'ESC-02' },
+    { area: { en: 'File upload', es: 'Carga de archivos' }, ref: 'WSTG-BUSL-08/09', tried: { en: 'Files disguised as images, a JPEG-prefixed HTML file, an oversize file, a phone photo with GPS', es: 'Archivos disfrazados de imagen, un HTML con cabecera JPEG, un archivo muy grande, una foto de celular con GPS' }, found: 'ESC-04, 06' },
+    { area: { en: 'Information leakage', es: 'Fuga de información' }, ref: 'WSTG-INFO-02', tried: { en: 'Server banner, image metadata', es: 'Banner del servidor, metadatos de imágenes' }, found: 'ESC-04, 10, 12' },
+    { area: { en: 'Injection', es: 'Inyección' }, ref: 'Code review', tried: { en: 'Every SQL statement', es: 'Cada sentencia SQL' }, found: '—' },
+  ],
+  heldUp: [
+    { en: 'Every private route without a token: 401 in both apps.', es: 'Toda ruta privada sin token: 401 en ambas apps.' },
+    { en: 'A token with “alg: none”, or a real one with its role changed: 401, because the algorithm is pinned and the signature covers the claims.', es: 'Un token con “alg: none”, o uno real con el rol cambiado: 401, porque el algoritmo está fijado y la firma cubre los datos.' },
+    { en: 'A cashier reading another store’s sale, or naming another store in a request body: 404 and 400; the store always comes from the token.', es: 'Un cajero leyendo la venta de otra tienda, o nombrando otra tienda en el cuerpo de la petición: 404 y 400; la tienda siempre sale del token.' },
+    { en: 'A partner request with its body changed, or 301 seconds old: 401.', es: 'Una petición de integrador con el cuerpo cambiado, o con 301 segundos de antigüedad: 401.' },
+    { en: 'A casino wallet debit replayed with the same transaction id: applied once.', es: 'Un débito de la billetera del casino repetido con el mismo id de transacción: se aplica una vez.' },
+    { en: 'SQL injection: every statement takes its values as parameters.', es: 'Inyección SQL: cada sentencia recibe sus valores como parámetros.' },
+  ],
+  risk: {
+    en: '12 risks rated by likelihood and impact, before and after controls. Residual: 1 High, a signing secret published or guessed; 5 Medium, among them tokens that cannot be revoked and passwords without MFA; 6 Low. Each one has a treatment: accept, reduce or monitor.',
+    es: '12 riesgos calificados por probabilidad e impacto, antes y después de los controles. Residual: 1 alto, un secreto de firma publicado o adivinado; 5 medios, entre ellos tokens que no se pueden revocar y contraseñas sin MFA; 6 bajos. Cada uno tiene un tratamiento: aceptar, reducir o vigilar.',
+  },
+  identity: {
+    en: '10 identities, people and machines: users, partners, the casino provider, the storage client, Prometheus, Alertmanager, CI jobs, the image signer, cluster admission and lab operators. For each one, how it proves who it is, what it may do and where its secret lives, with 5 recommendations.',
+    es: '10 identidades, personas y máquinas: usuarios, integradores, el proveedor del casino, el cliente de almacenamiento, Prometheus, Alertmanager, los jobs de CI, el firmante de imágenes, la admisión del clúster y los operadores del laboratorio. Para cada una, cómo demuestra quién es, qué puede hacer y dónde vive su secreto, con 5 recomendaciones.',
+  },
+  limitations: [
+    { en: 'The targets are three systems I wrote, tested on my machine with synthetic data: no production system and no third party.', es: 'Los objetivos son tres sistemas que escribí, probados en mi equipo con datos ficticios: ningún sistema de producción ni de terceros.' },
+    { en: 'Out of scope: denial of service, an active ZAP scan, a manual XSS review, TLS and the AWS Terraform, which was never deployed.', es: 'Fuera de alcance: denegación de servicio, un escaneo activo con ZAP, una revisión manual de XSS, TLS y el Terraform de AWS, que nunca se desplegó.' },
+    { en: 'Detection covers Yamesi only. The rules run on demand over the container log; nothing pages anyone in real time.', es: 'La detección cubre solo Yamesi. Las reglas corren a demanda sobre el log del contenedor; nada avisa a nadie en tiempo real.' },
+    { en: 'Slow attacks under the thresholds, or spread over many addresses, pass unseen, and so does a token signed with the real secret.', es: 'Los ataques lentos bajo los umbrales, o repartidos en muchas direcciones, pasan sin verse, y también un token firmado con el secreto real.' },
+  ],
+  run: '# NekoBet on :8081 and Yamesi on :8083, each in its own terminal\ncd nekobet && make .env && make up\ncd yamesi && make .env && make up\n\n# the 38 attacks of the penetration test\ncd applied-cybersecurity && make attack\n\n# two more login attacks, then the detection rules over Yamesi’s log\ncd yamesi && node scripts/detection-drill.mjs && make detect',
+  labels: {
+    onThisPage: { en: 'On this page', es: 'En esta página' },
+    realCase: { en: 'A real case, start to finish: ESC-01', es: 'Un caso real, de principio a fin: ESC-01' },
+    realCaseNote: {
+      en: 'The most severe finding, from the first clue to the alert it raises today. Every code block is quoted from the finding or from the drill log.',
+      es: 'El hallazgo más grave, desde la primera pista hasta la alerta que dispara hoy. Cada bloque de código está citado del hallazgo o del registro del simulacro.',
+    },
+    step: { en: 'Step', es: 'Paso' },
+    detection: { en: 'Detection', es: 'Detección' },
+    rules: { en: 'The seven rules', es: 'Las siete reglas' },
+    drill: { en: 'Drill: the pentest’s attacks against the rules', es: 'Simulacro: los ataques del pentest contra las reglas' },
+    findings: { en: 'All 12 findings', es: 'Los 12 hallazgos' },
+    method: { en: 'How the test was run', es: 'Cómo se hizo la prueba' },
+    methodNote: {
+      en: 'Gray-box, on 1 and 2 November 2026: the source code, the demo accounts and the partner key were available, as a client would hand them over. Test categories follow the OWASP Web Security Testing Guide v4.2; findings map to CWE and the OWASP Top 10. Tools: attack scripts on Node.js, Trivy, OWASP ZAP, curl, psql and headless Chrome.',
+      es: 'Caja gris, el 1 y 2 de noviembre de 2026: el código fuente, las cuentas de demostración y la llave del integrador estaban disponibles, como los entregaría un cliente. Las categorías siguen la OWASP Web Security Testing Guide v4.2; los hallazgos se mapean a CWE y al OWASP Top 10. Herramientas: scripts de ataque en Node.js, Trivy, OWASP ZAP, curl, psql y Chrome sin interfaz.',
+    },
+    heldUp: { en: 'What held up', es: 'Lo que resistió' },
+    riskIdentity: { en: 'Risk and identity', es: 'Riesgo e identidad' },
+    riskRegister: { en: 'Risk register', es: 'Registro de riesgos' },
+    identityReview: { en: 'Identity and access review', es: 'Revisión de identidades y accesos' },
+    detectionGuide: { en: 'Detection guide', es: 'Guía de detección' },
+    drillLog: { en: 'Drill log', es: 'Registro del simulacro' },
+    rule: { en: 'Rule', es: 'Regla' },
+    detects: { en: 'Detects', es: 'Detecta' },
+    firesWhen: { en: 'Fires when', es: 'Se dispara con' },
+    reference: { en: 'Reference', es: 'Referencia' },
+    watches: { en: 'Watches', es: 'Vigila' },
+    severity: { en: 'Severity', es: 'Severidad' },
+    attack: { en: 'Attack', es: 'Ataque' },
+    answer: { en: 'API answer', es: 'Respuesta de la API' },
+    alert: { en: 'Alert', es: 'Alerta' },
+    finding: { en: 'Finding', es: 'Hallazgo' },
+    target: { en: 'Target', es: 'Objetivo' },
+    ratedWith: { en: 'Rated with', es: 'Calificado con' },
+    area: { en: 'Area', es: 'Área' },
+    tried: { en: 'What was tried', es: 'Qué se intentó' },
+    found: { en: 'Found', es: 'Encontrado' },
+    noneHeld: { en: 'none: held', es: 'ninguno: resistió' },
+  },
+  links: {
+    repo: SECURITY_REPO,
+    findings: `${SECURITY_REPO}#findings`,
+    methodology: `${SECURITY_REPO}/blob/main/METHODOLOGY.md`,
+    risk: `${SECURITY_REPO}/blob/main/RISK_REGISTER.md`,
+    identity: `${SECURITY_REPO}/blob/main/IDENTITY_REVIEW.md`,
+    detection: DETECTION_DOC,
+    drill: DRILL_LOG,
+    finding: (file: string) => `${SECURITY_REPO}/blob/main/findings/${file}.md`,
+  },
+};

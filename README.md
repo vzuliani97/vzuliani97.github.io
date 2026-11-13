@@ -9,6 +9,9 @@ Three case studies, each with a recruiter scan and an engineering deep dive: pro
 | [Yamesi Core](https://github.com/vzuliani97/yamesi) | Point of sale, Colombian sales invoice (VAT, CUFE, QR), 18k gold traceability, daily closing |
 | [OpsCircuit](https://github.com/vzuliani97/opscircuit) | Kubernetes, GitOps, observability, outage drills, n8n incident automation |
 | [NekoBet](https://github.com/vzuliani97/nekobet) | Idempotent top-ups, live sports betting over SSE, seamless-wallet casino |
+| [Applied Cyber Security](https://github.com/vzuliani97/applied-cybersecurity) | Penetration test of the three (12 findings, 38 attacks rerun in CI), detection rules mapped to MITRE ATT&CK with a drill, risk register, identity review |
+
+The security page, `/work/security/`, tells one finding as a real case from start to finish: the clue, the exploit, the CVSS score and its review, the fix, the regression test, the alert the next attempt raises, and the risk that stays open.
 
 ## What it is for and what I built
 

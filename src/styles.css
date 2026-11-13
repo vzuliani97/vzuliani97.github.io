@@ -1287,3 +1287,138 @@ pre {
 .assessment h3 { margin-bottom: 0.5rem; }
 
 .live-note { font-size: 0.85rem; margin-top: 0.5rem; max-width: 46rem; }
+
+/* ---------- Applied Cyber Security case ---------- */
+
+.sec-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 0.8rem;
+  margin: 2rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sec-numbers li {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.sec-numbers strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.1;
+  color: color-mix(in srgb, var(--accent) 62%, var(--ink));
+}
+
+.sec-numbers span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.sec-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 2rem;
+}
+
+.sec-toc a {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sec-toc a:hover {
+  border-color: var(--accent);
+}
+
+.sec-section {
+  margin-top: 3.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.sec-section h3 {
+  margin-top: 2rem;
+}
+
+.sec-section .decisions h3 {
+  margin-top: 0;
+}
+
+.steps {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps > li {
+  position: relative;
+  max-width: 52rem;
+  padding: 0 0 2rem 1.8rem;
+  border-left: 2px solid var(--line);
+}
+
+.steps > li:last-child {
+  padding-bottom: 0;
+}
+
+.steps > li::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.steps h3 {
+  margin: 0.2rem 0 0.4rem;
+}
+
+.steps pre {
+  margin: 0.8rem 0;
+  font-size: 0.82rem;
+}
+
+.step-label {
+  margin: 0;
+  color: color-mix(in srgb, var(--accent) 62%, var(--ink));
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sev {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--sev) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sev) 12%, var(--surface));
+  color: color-mix(in srgb, var(--sev) 55%, var(--ink));
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sev.critical { --sev: #9f1239; }
+.sev.high { --sev: #dc2626; }
+.sev.medium { --sev: #b45309; }
+.sev.low { --sev: #64748b; }
+.sev.info { --sev: #2563eb; }
+
+.nowrap {
+  white-space: nowrap;
+}
