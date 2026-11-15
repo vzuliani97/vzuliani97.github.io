@@ -37,8 +37,8 @@ export const ui = {
   },
   back: { en: 'All projects', es: 'Todos los proyectos' },
   openToWork: {
-    en: 'Medellín, Colombia · Open to remote work and relocation',
-    es: 'Medellín, Colombia · Disponible para trabajo remoto y reubicación',
+    en: 'Medellín, Colombia · Authorized to work in Europe · Open to remote work and relocation',
+    es: 'Medellín, Colombia · Autorizado para trabajar en Europa · Disponible para trabajo remoto y reubicación',
   },
   provenance: {
     en: 'Portfolio projects are independent reconstructions with no employer code. Production systems are confidential, so their data is synthetic, except the Yamesi Core demo catalog, which comes from the store’s public catalog.',
