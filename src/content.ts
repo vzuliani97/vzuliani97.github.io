@@ -4,7 +4,7 @@ export type Lang = 'en' | 'es';
 export type L = Record<Lang, string>;
 
 export const GITHUB = 'https://github.com/vzuliani97';
-export const LINKEDIN = 'https://www.linkedin.com/in/valter-zuliani-70152a97';
+export const LINKEDIN = 'https://www.linkedin.com/in/valterzuliani';
 
 export const ui = {
   work: { en: 'Work', es: 'Proyectos' },
